@@ -1,0 +1,1928 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0039024C22DA642D12A41D03 /* STPCheckoutInternalUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2350E727E97641A164A63D81 /* STPCheckoutInternalUIWebViewController.m */; };
+		00E56954FD527B54453588DC /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B372B73A20C9D745D6C339C3 /* LoadingView.xib */; };
+		01C22D5006F47E69605D00FA /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18C1ADE10BEE3A921F1C9133 /* SVIndefiniteAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03202A5C43BACA57DEB0430A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B5FB8BD86CC089B9280737 /* Security.framework */; };
+		0537EFC7B85272BFAEEFA9DF /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 344F64EF55BD56D468E92A84 /* UIActivityIndicatorView+AFNetworking.m */; };
+		07C07F743FDCB7A9273B0502 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BF66BBB9D6AF25C90BEF25 /* DesignableView.swift */; };
+		07F959940B0FC4BE2434D2A5 /* Pods-Pineapple-TextFieldEffects-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2548476802EEE65AD821B9D9 /* Pods-Pineapple-TextFieldEffects-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		09AC1895131A27F79057BBFF /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCE2C7D4837C40187261F44 /* AutoTextView.swift */; };
+		0A459C8F34AE155F98C6C449 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA60AAC2ED340BEC58C0792E /* Foundation.framework */; };
+		0A680DE6E20301A078712CD5 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1790F66A957B1219980F18 /* UIAlertView+AFNetworking.m */; };
+		0C9B80E3A3CDEC8029C4439D /* Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3A35C794D9E76E5C3BE7DC /* Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0CED040AC69EE7CFB9BCBE8B /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5AE9EFD1FFE50D48F248FB /* UIWebView+AFNetworking.m */; };
+		0E8EF6B98DBB2707B64835CC /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3954D540A4862D2EA805F63 /* SoundPlayer.swift */; };
+		0EAE2DDB77A289028976B085 /* KaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF6963E660CE4F15E9BC5C8 /* KaedeTextField.swift */; };
+		0EC7EECC595BCF1E8B4E717E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AAD77B3EB4E81D9A791E07 /* CoreGraphics.framework */; };
+		0F0C2BFD9F9E8EDC7D8FA1A8 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7BAA75D5A1B4061C3F2CC2 /* Misc.swift */; };
+		0FC58934E28924E0FFA92643 /* ChameleonStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 43437AA723BB027861AC6F1F /* ChameleonStatusBar.m */; };
+		13B0FDF873E03C6AAE3EF9C2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD982D357D7E51E1FC27312 /* MobileCoreServices.framework */; };
+		13CFDDDFDC8AA1D5B6C4CB2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA60AAC2ED340BEC58C0792E /* Foundation.framework */; };
+		1497DDFD44F0B56681D5915D /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0997BA1D51DD6CEBDC9C8312 /* HoshiTextField.swift */; };
+		1A16184833F5251258B78166 /* UIColor+CIELAB.h in Headers */ = {isa = PBXBuildFile; fileRef = 781A240240EA61D0C8530319 /* UIColor+CIELAB.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C51A2F4D1167F13D0613705 /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68294CBB95B9475AA7AFD65F /* DesignableTextView.swift */; };
+		20EE1031D1619FF07854307F /* Pods-Pineapple-Stripe-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6614F4B631D1BEFB651028B /* Pods-Pineapple-Stripe-dummy.m */; };
+		2157E13B3A76C1CBEE7AACD1 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE685675B84C3894A2B777D9 /* BlurView.swift */; };
+		234108229C711B4AE49BF30A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C788DA94134CD232F7B424 /* UIKit.framework */; };
+		23A28B541052590AF08A39CB /* ChameleonStatusBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C976CEFB65D64053DFA8013 /* ChameleonStatusBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		25044BE567627B9240289608 /* STPNullabilityMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B9D07172EED3C40FC56BA9DF /* STPNullabilityMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		260CCE3F515BB81FFEC63ABD /* STPAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F2EFF2D65871C4EC732E46E1 /* STPAPIClient.m */; };
+		28981B8C2E9FB692FF81C3B8 /* STPCheckoutWebViewAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = FF6664E365363F20B8F59232 /* STPCheckoutWebViewAdapter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2AD8925DED8EEF27106AB199 /* STPAPIClient+ApplePay.h in Headers */ = {isa = PBXBuildFile; fileRef = 596DD7DF98CD79E046F62967 /* STPAPIClient+ApplePay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2BE3C61FCD2E398E4A96502C /* SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5375D5C808193F9BC254B608 /* SpringAnimation.swift */; };
+		2D7EF1D96374BBF2B627DD7E /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CBF37241501E5B5B091D44 /* UnwindSegue.swift */; };
+		2EFF61BDFD6D5C81F8065B13 /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 581D443405DF5FFABCE8173A /* UIActivityIndicatorView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		322F4D95F45EA2EC746B4F7B /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AA723F951518030FC08C1 /* MinoruTextField.swift */; };
+		36CDA08F4FD80C153A2D0157 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67245EEB3BFF25855F04B41F /* AFSecurityPolicy.m */; };
+		36F7C44C8B5190DB66FD1697 /* STPFormEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AA1A50CED51B41EBBDF761 /* STPFormEncoder.m */; };
+		3C3A0AC5031A50874E0536FE /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427D705309167C57862A09CD /* DesignableLabel.swift */; };
+		3FE0AA69DF592613D0D423BF /* STPCheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D589487165C2643229E9843 /* STPCheckoutViewController.m */; };
+		437DDDA696D0367525AAD4E8 /* SpringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17386BD7D85F4322AC93DDC /* SpringView.swift */; };
+		450C081F0B2714EA4087D42B /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37208B3E67060183569DA25D /* TransitionManager.swift */; };
+		45D331294DDF0C5E0476F168 /* Stripe.h in Headers */ = {isa = PBXBuildFile; fileRef = 7697E0AF1884752BB2DD13A8 /* Stripe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45FD8DC9A18CDA104376D071 /* Pods-Pineapple-Stripe-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AFA6BDDF31A550246D75355 /* Pods-Pineapple-Stripe-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47B72325E8ADB21AAF15039B /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB9739A774CABEF7E55F83F /* UIProgressView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AC8A9D4BDB93A52DC60B124 /* SpringTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0550DC3325229996DEDD51DD /* SpringTextField.swift */; };
+		4C91EA0D690E7D834E85B2C2 /* UIWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 42E307BF5CD9642FDB0D2DA2 /* UIWebView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4ED5AA79BEF5FD0984637594 /* Pods-Pineapple-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2394885723D1F7EC785CE8B7 /* Pods-Pineapple-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		52115298C37AC0CEFD12DB56 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 75418A244C4DB2AFBC2A85D5 /* AFURLSessionManager.m */; };
+		525EAB051689C09EC3CA1DD5 /* UIViewController+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = D93F1CC25D0267A7922C3626 /* UIViewController+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56D907E34BFE1779A6A31446 /* StripeError.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E4E0078C552F181ED943711 /* StripeError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		59F5AA6860CD76AF997FAF86 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B5FB8BD86CC089B9280737 /* Security.framework */; };
+		5ABD873E889E3948750E44AF /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BDE904345A6F4A2EE028AD /* AFNetworkActivityIndicatorManager.m */; };
+		5B072D9052AACE90FDAB2B0D /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CADA5ED72D6A478CDBBF401D /* AFHTTPRequestOperation.m */; };
+		5DE87A98CD085497125D4E34 /* DesignableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B129D13FFA40EF1310ECB3 /* DesignableTabBarController.swift */; };
+		5E35A999FD60E27EC7B8F3A0 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D6145C086B0DD406BED4030F /* SVProgressHUD.m */; };
+		5FA5E79C28662518BB99027F /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = B6FC928CD11C8D1CABA5F70F /* SVProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		600AF4FFFA00AFCEB7E4D8D6 /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 266425368795804A00E4340B /* AFURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		618292A3D7177352A78368B6 /* SpringImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280BD7177A58F180CD2ED488 /* SpringImageView.swift */; };
+		621C70E9C2B777642D37FBC8 /* AFHTTPRequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 775E06AC3E1259E94726A158 /* AFHTTPRequestOperationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6621E01EFC179B9E968CB91A /* Pods-Pineapple-Spring-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9902C5027BB04DF91920CF1C /* Pods-Pineapple-Spring-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		662202A528864CC64494C479 /* STPColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 531EF32B8CB449C486E4F632 /* STPColorUtils.m */; };
+		6664AE80CBD81BDE1D94752B /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F6C4B1ED6516831E3D0A989 /* UIRefreshControl+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67EEBCAE0F6958550EC17164 /* Pods-Pineapple-ChameleonFramework-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 872CC84ABD79586843F2AF69 /* Pods-Pineapple-ChameleonFramework-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		680C20BD545B09C603206F34 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = E314292B65F75FCB3DF0F833 /* UIKit+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A02F01EEA8DF5776F87977F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA60AAC2ED340BEC58C0792E /* Foundation.framework */; };
+		6A26D9FB3C0777C08CC9430A /* STPAPIConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B516222DD3C3A5B7BFC79BF /* STPAPIConnection.m */; };
+		6AE71B665314B26925112C6A /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E91D4C8018CCD129881CEFB4 /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BBFC6BA592CDD09C0C1C9AC /* UIAlertView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ED4F68D54F299FFF4A35623 /* UIAlertView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E9533EED0DABB6D32AACDDD /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996E20C441B4B29F60AFA971 /* DesignableImageView.swift */; };
+		70819B93A20B7372C81EFCA9 /* Stripe+ApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = 616D3DB4CFB8B34FC31971C3 /* Stripe+ApplePay.m */; };
+		71DD137CE2258CC4458D0CE0 /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDA3B2C5F8521192105F609 /* AFNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		738CC3E986C63A0DC5D80959 /* JiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5040D926ADECEEEF25CC43D7 /* JiroTextField.swift */; };
+		76D543C8FE5BBC670C9BE4AB /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B9F759EC28E709B861C965 /* AFURLResponseSerialization.m */; };
+		78D71DF6DCBE5BDD6AC54D17 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = FE417EFD04076E73ED5C9EE3 /* UIButton+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A71F94D0FA652E5414379E0 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 932E813C86E498D7331BAC58 /* AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7BB4563A5B9D357D29D68C04 /* YokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D417FBCC0AE872128944D6D8 /* YokoTextField.swift */; };
+		7E47F2F47FCD4277A10A0F9E /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 206E569CB59E6A5B98C4940A /* AFHTTPRequestOperationManager.m */; };
+		822D978D7C9B3BAAFB51E7F2 /* Pods-Pineapple-AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2573B824768FE8F531B758EB /* Pods-Pineapple-AFNetworking-dummy.m */; };
+		82DC35F7B188B653E807A336 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBDFEEB992C14CA490DDCF0 /* QuartzCore.framework */; };
+		8335F980DC4BAF9364617A40 /* STPCheckoutOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 77344CF2CE3FE80E1E0F28FA /* STPCheckoutOptions.m */; };
+		8548A727215B4F5990021DA9 /* STPOSXCheckoutWebViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = E13E032E2D2AE977F3891F23 /* STPOSXCheckoutWebViewAdapter.m */; };
+		876ECF8DD6A5C041BF3C8E82 /* UIColor+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 84694F3A1F9469D7EF6D4B89 /* UIColor+Chameleon.m */; };
+		8A40A9B3AF13D1D709366177 /* STPAPIConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1036AA0FC3A538D4E45488DC /* STPAPIConnection.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8CDB8EDEBC1FA34455F8D231 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AAD77B3EB4E81D9A791E07 /* CoreGraphics.framework */; };
+		8DC90E6B71B9E616D7BA5515 /* STPCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CBF17C04770D78D6722D424 /* STPCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F1530F1C44FF6D51F296893 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C748FDC37491691FBA5C1 /* Spring.swift */; };
+		90905BE10E57D9F76E5DD519 /* STPCheckoutDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B69B40778BAB4989B585D410 /* STPCheckoutDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		927445A0D26CF5DB02EE227E /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C24211DC484A4D64F5D26D6 /* DesignableButton.swift */; };
+		9454092817A3ED3CED4C9358 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 80427276F7C06323940EA8FB /* UIImageView+AFNetworking.m */; };
+		945A7AA6CAF406C3AD087EB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA60AAC2ED340BEC58C0792E /* Foundation.framework */; };
+		94D37268D1681F8BFB66DE12 /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9268079886F60874369650C /* TransitionZoom.swift */; };
+		9656B08DEEE6A14C475898D9 /* STPToken.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CEED1C3FF0735644EBBAD3 /* STPToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		98F35D82B1BB2E2353812C79 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = AEE98C6CDC30F25E72C8A9AB /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9994437896B330C7188F91EB /* IsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7363275746379FBDA7A7EA08 /* IsaoTextField.swift */; };
+		9B592FD0B3883956901063A9 /* UIViewController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C30774EBEA0F52053DB032 /* UIViewController+Chameleon.m */; };
+		9B9A125E4AB55E3856227506 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E28134B486B40A762D27FD1 /* SVIndefiniteAnimatedView.m */; };
+		9BC0FB92F41C572710E3B7DD /* NSArray+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = A245B86BC3BC1A3A8EA102C7 /* NSArray+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BF1947E80812BD5856C8E35 /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0389897A36104BCF0EAEC5EE /* AFNetworkReachabilityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C4AA922ECE79FE481AC6CF3 /* ChameleonMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = D0E8B01A80F70E280BD85777 /* ChameleonMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A10E33FC4D562EFDDBDFD273 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA60AAC2ED340BEC58C0792E /* Foundation.framework */; };
+		A1A057C5688359A0C3ED13C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA60AAC2ED340BEC58C0792E /* Foundation.framework */; };
+		A237B35E926751AAC8CFDE45 /* AkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ABB798D0F5CEFE67D4B051 /* AkiraTextField.swift */; };
+		A4EDF353C19A2EC7DDE26FE4 /* STPToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E521B6C2953807DEE80D458 /* STPToken.m */; };
+		A5007DD5A0369AA61D799181 /* NSArray+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E3C1E84DDFFCF0E9F60A81 /* NSArray+Chameleon.m */; };
+		A50D5F6E96D4BC689269CAC0 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD4E96B150F02E161C77FC46 /* SVProgressHUD.bundle */; };
+		A59E5554AE17B9BFAC3C5EAD /* Pods-Pineapple-ChameleonFramework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2710660A97E14A7BF6378895 /* Pods-Pineapple-ChameleonFramework-dummy.m */; };
+		A5E77DBF40936FE5AD3A73DC /* UIColor+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 289CEE6B4E8D994FA95264CF /* UIColor+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7BC2176BE165C256CD48735 /* Pods-Pineapple-Spring-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E4EC508278F78AA5505601 /* Pods-Pineapple-Spring-dummy.m */; };
+		A85C6FF8C93D28F781516B37 /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = ED34AF6C55A70DB5948887E2 /* AFHTTPRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A8D3BA258BC04673808F43BD /* SpringLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF93D95E4C18271FCD83A91 /* SpringLabel.swift */; };
+		A913E719A8409DFACA0353F3 /* Pods-Pineapple-SVProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A9194E53745CA8BFB2129C /* Pods-Pineapple-SVProgressHUD-dummy.m */; };
+		AB68951EF671928933AADE8D /* Pods-Pineapple-AFNetworking-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 02BCADB8474BF12444542039 /* Pods-Pineapple-AFNetworking-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB7676B514B743E6D4D87678 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D8D8A001FD3375E129F239 /* AFURLRequestSerialization.m */; };
+		AE015F6813204E257E989DAC /* STPBankAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEEA05BA133D4BB380F1F67 /* STPBankAccount.m */; };
+		B053FB625817BA60050FD816 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE211C2505C958FC2AC1224 /* UIButton+AFNetworking.m */; };
+		B37459C0AAB3255D7CF9EDE4 /* Stripe+ApplePay.h in Headers */ = {isa = PBXBuildFile; fileRef = B71D2C9ADCEFBB98C9044B5A /* Stripe+ApplePay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B43B553BD1B0686226D59E23 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6522ACE28243D4CD38C2A7C4 /* TextFieldsEffects.swift */; };
+		B755B637A34484E0EF383841 /* STPStrictURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C99F04E4F8F8E8C325BDC4F8 /* STPStrictURLProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BA0D1E4082F99B170FD93DD1 /* STPCard.m in Sources */ = {isa = PBXBuildFile; fileRef = CED1D6E6F27C0B0FB5A5869F /* STPCard.m */; };
+		BEBF66FD4B40A8B1D52CA56C /* STPFormEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = BC8B511E678F2BFD59343B51 /* STPFormEncoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BFD220A90E527C81F595D2AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA60AAC2ED340BEC58C0792E /* Foundation.framework */; };
+		C0591CF59C87B07BAE93B584 /* STPColorUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 519EFF0DD03D0C4A939843C4 /* STPColorUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C31A3941D24D88925D36DE8A /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D41C732E175708CEEB8B90 /* AFHTTPSessionManager.m */; };
+		C388902FD13535BADA2D1C53 /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD0346045AF05C6D42E3C2 /* MadokaTextField.swift */; };
+		C4FB606CD8C41928468F061A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 875A45E3A5C5F01DF15BAD60 /* Images.xcassets */; };
+		C61A30BED913690AB5443381 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089B229CA61859D88972CEE7 /* LoadingView.swift */; };
+		C6A428230CB97BFFD1436413 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 647927D43027DD6E4B5C866B /* AFURLConnectionOperation.m */; };
+		CB173513171733FD7DB165E2 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464367B82E3514C8AD34602D /* AsyncButton.swift */; };
+		CC6365ABA2C7B2F5E0D8E711 /* STPIOSCheckoutWebViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE10D9BA649DE6C2743778 /* STPIOSCheckoutWebViewAdapter.m */; };
+		D0C7697C74CFB9EFE1D7D820 /* STPAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = F2B2C2AD9EE30D57EF58058C /* STPAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D18FBF8528DCFF5E0D4F0611 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D75AECC87BB4FAC51C66881 /* AFNetworkReachabilityManager.m */; };
+		D4D4FB0EFBB5D05F31662887 /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D9A45FFC7634DA0079D9EF5 /* AFSecurityPolicy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5434C106E2387A25BE1FDBA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B33EA4C54A2874F4832B07 /* SystemConfiguration.framework */; };
+		DA5856F495C36D6C5663CB89 /* Pods-Pineapple-TextFieldEffects-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDF654E866512EAA44B6D7C /* Pods-Pineapple-TextFieldEffects-dummy.m */; };
+		DB15C55F95DE64E7C879F07C /* Pods-Pineapple-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B16F0020F9ADB0273B9743C /* Pods-Pineapple-dummy.m */; };
+		DC9CD38CA351947015AFE585 /* STPAPIClient+ApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A27998842ED846FDD94E45B /* STPAPIClient+ApplePay.m */; };
+		DD73B96887C38F1C90FA4CF5 /* STPCheckoutOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6135FA3A478EDBC8105D37 /* STPCheckoutOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DE7D13F13001E8701EFDFFF2 /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A58957B437964B0FB6B6DD5 /* KeyboardLayoutConstraint.swift */; };
+		DEAFEE542A8F985D7F155AE0 /* UIColor+CIELAB.m in Sources */ = {isa = PBXBuildFile; fileRef = ED32108176A3C8DC7981EA16 /* UIColor+CIELAB.m */; };
+		DEE04713B8762F820B8D8593 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FABA4A1A6AD11CC20343254D /* UIRefreshControl+AFNetworking.m */; };
+		E4511137C8DAB918F6DA0791 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBDFEEB992C14CA490DDCF0 /* QuartzCore.framework */; };
+		E5553D8188ECBB61F00089B0 /* StripeError.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F772D804C4A6E804495947 /* StripeError.m */; };
+		EA990E66FD356E726FCCC007 /* Pods-Pineapple-SVProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC3772DAF17FCB17F8CAB68 /* Pods-Pineapple-SVProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EB597A9D974D2B77D38FD7AB /* STPCheckoutViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA1D9A644240B499D7E00CC /* STPCheckoutViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED74B1894BCA32288EB16782 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBB0F7A1917ADE3E1CB65B /* UIProgressView+AFNetworking.m */; };
+		EEF0D88AC0663DF9BB4BBFC5 /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 94D6BD1187F4AF159104A7B8 /* AFURLRequestSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EF8DE65900ADBEA72E4E1122 /* STPCheckoutInternalUIWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5800520379267BE327112C55 /* STPCheckoutInternalUIWebViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F367E53732FCD5B47486F95E /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5387D2AE3418302334DA39 /* DesignableTextField.swift */; };
+		F5BC20F8352AF5A1B9D2CF59 /* STPStrictURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B6D0DAA6E155DA5A34EF7F /* STPStrictURLProtocol.m */; };
+		F5F428133416001785B97CC2 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0E7CBC0B109E3CBA0B523 /* ImageLoader.swift */; };
+		F99CACD99D53E807582C7465 /* STPIOSCheckoutWebViewAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = EA9155F46DE3EAF770541F58 /* STPIOSCheckoutWebViewAdapter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FB8495EC4676BEF73ECDCEE2 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E05AA28372DAA11109BD193 /* AsyncImageView.swift */; };
+		FBFFE3D2957E404F8D909A00 /* STPOSXCheckoutWebViewAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E15ADFEB881DAD33A6184D0 /* STPOSXCheckoutWebViewAdapter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FC4535EFA343A30F72DE4099 /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 499FC1F3C4D105807DFB3158 /* AFURLConnectionOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC504BB4384CCC9014C61CCB /* SpringButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C333269C29225FA603B6E4 /* SpringButton.swift */; };
+		FD167D38E7C1471FEEB08657 /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F9405AB78C18BD69E14C8F4 /* AFURLResponseSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF17F6A7438424F60931E9AF /* STPBankAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = AD34DEB88B12AAC7972D2773 /* STPBankAccount.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFA3EF1CBF59755F32E7042E /* SpringTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAB17A0A51E8319D185541 /* SpringTextView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0B944E1518699A59D82B265D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 925B80347CE73C38CE1F598F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15D80AE75711F55D8FF48634;
+			remoteInfo = "Pods-Pineapple-AFNetworking";
+		};
+		0CA17C358C953E6D3F08F3FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 925B80347CE73C38CE1F598F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DB28A8AB707B527663D1ABC;
+			remoteInfo = "Pods-Pineapple-Spring";
+		};
+		36F25E46DB4F5D2631C5EE9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 925B80347CE73C38CE1F598F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F696EEA44D6645F8330D014C;
+			remoteInfo = "Pods-Pineapple-ChameleonFramework";
+		};
+		507987EC5F67D20CF1563987 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 925B80347CE73C38CE1F598F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38B229D611FA1CCA0F76E581;
+			remoteInfo = "Pods-Pineapple-TextFieldEffects";
+		};
+		B875A59547D65026EFEAFD79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 925B80347CE73C38CE1F598F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E404C3603DB1F04CFEA9AB8;
+			remoteInfo = "Pods-Pineapple-SVProgressHUD";
+		};
+		C80AC62B824E622FBEF0833B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 925B80347CE73C38CE1F598F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B66CF4CF794AC502E49DA630;
+			remoteInfo = "Pods-Pineapple-Stripe";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02BCADB8474BF12444542039 /* Pods-Pineapple-AFNetworking-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pineapple-AFNetworking-umbrella.h"; sourceTree = "<group>"; };
+		0389897A36104BCF0EAEC5EE /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		0550DC3325229996DEDD51DD /* SpringTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpringTextField.swift; path = Spring/SpringTextField.swift; sourceTree = "<group>"; };
+		062C748FDC37491691FBA5C1 /* Spring.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Spring.swift; path = Spring/Spring.swift; sourceTree = "<group>"; };
+		088D766444C7D8BFB271DA06 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		089B229CA61859D88972CEE7 /* LoadingView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = Spring/LoadingView.swift; sourceTree = "<group>"; };
+		0997BA1D51DD6CEBDC9C8312 /* HoshiTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HoshiTextField.swift; path = TextFieldEffects/TextFieldEffects/HoshiTextField.swift; sourceTree = "<group>"; };
+		0AA1D9A644240B499D7E00CC /* STPCheckoutViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPCheckoutViewController.h; path = Stripe/PublicHeaders/Checkout/STPCheckoutViewController.h; sourceTree = "<group>"; };
+		0CF93D95E4C18271FCD83A91 /* SpringLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpringLabel.swift; path = Spring/SpringLabel.swift; sourceTree = "<group>"; };
+		0D75AECC87BB4FAC51C66881 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		1036AA0FC3A538D4E45488DC /* STPAPIConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPAPIConnection.h; path = Stripe/STPAPIConnection.h; sourceTree = "<group>"; };
+		17BF9A3DE48765572C245911 /* Pods-Pineapple-Spring.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Pineapple-Spring.modulemap"; sourceTree = "<group>"; };
+		1854F947939E409F95C7DFD5 /* Pods-Pineapple-Stripe-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pineapple-Stripe-prefix.pch"; sourceTree = "<group>"; };
+		18C1ADE10BEE3A921F1C9133 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		1CBF17C04770D78D6722D424 /* STPCard.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPCard.h; path = Stripe/PublicHeaders/STPCard.h; sourceTree = "<group>"; };
+		1D9A45FFC7634DA0079D9EF5 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
+		1E05AA28372DAA11109BD193 /* AsyncImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsyncImageView.swift; path = Spring/AsyncImageView.swift; sourceTree = "<group>"; };
+		1E4E0078C552F181ED943711 /* StripeError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = StripeError.h; path = Stripe/PublicHeaders/StripeError.h; sourceTree = "<group>"; };
+		1ED4F68D54F299FFF4A35623 /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+AFNetworking.h"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
+		206E569CB59E6A5B98C4940A /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		226E0B57EAF97B79F533D676 /* Pods-Pineapple-SVProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pineapple-SVProgressHUD.xcconfig"; sourceTree = "<group>"; };
+		2350E727E97641A164A63D81 /* STPCheckoutInternalUIWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STPCheckoutInternalUIWebViewController.m; path = Stripe/Checkout/STPCheckoutInternalUIWebViewController.m; sourceTree = "<group>"; };
+		2394885723D1F7EC785CE8B7 /* Pods-Pineapple-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pineapple-umbrella.h"; sourceTree = "<group>"; };
+		2548476802EEE65AD821B9D9 /* Pods-Pineapple-TextFieldEffects-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pineapple-TextFieldEffects-umbrella.h"; sourceTree = "<group>"; };
+		2573B824768FE8F531B758EB /* Pods-Pineapple-AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Pineapple-AFNetworking-dummy.m"; sourceTree = "<group>"; };
+		259DE281638522C67E269036 /* Pods-Pineapple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pineapple.debug.xcconfig"; sourceTree = "<group>"; };
+		266425368795804A00E4340B /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
+		2710660A97E14A7BF6378895 /* Pods-Pineapple-ChameleonFramework-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Pineapple-ChameleonFramework-dummy.m"; sourceTree = "<group>"; };
+		2764513AE00C55C0E0770B5C /* Pods-Pineapple-AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pineapple-AFNetworking.xcconfig"; sourceTree = "<group>"; };
+		280BD7177A58F180CD2ED488 /* SpringImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpringImageView.swift; path = Spring/SpringImageView.swift; sourceTree = "<group>"; };
+		289CEE6B4E8D994FA95264CF /* UIColor+Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+Chameleon.h"; path = "Pod/Classes/Objective-C/UIColor+Chameleon.h"; sourceTree = "<group>"; };
+		29375668627B58A91BD82D34 /* Pods-Pineapple-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pineapple-environment.h"; sourceTree = "<group>"; };
+		2AE52C64D7A82430DC82342C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B92E1EA95A2E3CE0D03C6A0 /* Pods-Pineapple-AFNetworking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Pineapple-AFNetworking.modulemap"; sourceTree = "<group>"; };
+		2DC31736526C088BC1A4926D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DDA3B2C5F8521192105F609 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
+		2E521B6C2953807DEE80D458 /* STPToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STPToken.m; path = Stripe/STPToken.m; sourceTree = "<group>"; };
+		2EF6963E660CE4F15E9BC5C8 /* KaedeTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KaedeTextField.swift; path = TextFieldEffects/TextFieldEffects/KaedeTextField.swift; sourceTree = "<group>"; };
+		2FD982D357D7E51E1FC27312 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		31AD0346045AF05C6D42E3C2 /* MadokaTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MadokaTextField.swift; path = TextFieldEffects/TextFieldEffects/MadokaTextField.swift; sourceTree = "<group>"; };
+		32627E009669FD5C527BF902 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		344F64EF55BD56D468E92A84 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		34F772D804C4A6E804495947 /* StripeError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = StripeError.m; path = Stripe/StripeError.m; sourceTree = "<group>"; };
+		34FE5E7847D4049210C6DA91 /* Pods-Pineapple-SVProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Pineapple-SVProgressHUD.modulemap"; sourceTree = "<group>"; };
+		37208B3E67060183569DA25D /* TransitionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionManager.swift; path = Spring/TransitionManager.swift; sourceTree = "<group>"; };
+		3BE211C2505C958FC2AC1224 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		3C976CEFB65D64053DFA8013 /* ChameleonStatusBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ChameleonStatusBar.h; path = "Pod/Classes/Objective-C/ChameleonStatusBar.h"; sourceTree = "<group>"; };
+		3E3B2AC5FE786C0D94894DE4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E80E4DF1279253CFF4A0AFC /* Pods-Pineapple-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Pineapple-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3F8C62248D596119FC594E7D /* Spring.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Spring.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FFBB0F7A1917ADE3E1CB65B /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
+		40E912EAC54D1D2CD8FD5FE4 /* Pods-Pineapple-ChameleonFramework-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pineapple-ChameleonFramework-Private.xcconfig"; sourceTree = "<group>"; };
+		427D705309167C57862A09CD /* DesignableLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableLabel.swift; path = Spring/DesignableLabel.swift; sourceTree = "<group>"; };
+		42E307BF5CD9642FDB0D2DA2 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		43437AA723BB027861AC6F1F /* ChameleonStatusBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ChameleonStatusBar.m; path = "Pod/Classes/Objective-C/ChameleonStatusBar.m"; sourceTree = "<group>"; };
+		4601E50779559086DFC58F0D /* Pods-Pineapple-Spring-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pineapple-Spring-prefix.pch"; sourceTree = "<group>"; };
+		464367B82E3514C8AD34602D /* AsyncButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsyncButton.swift; path = Spring/AsyncButton.swift; sourceTree = "<group>"; };
+		46B5FB8BD86CC089B9280737 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		48E9E8B0C10D8864F95BB0DE /* Pods-Pineapple-Stripe.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Pineapple-Stripe.modulemap"; sourceTree = "<group>"; };
+		499FC1F3C4D105807DFB3158 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		49ABB798D0F5CEFE67D4B051 /* AkiraTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AkiraTextField.swift; path = TextFieldEffects/TextFieldEffects/AkiraTextField.swift; sourceTree = "<group>"; };
+		5040D926ADECEEEF25CC43D7 /* JiroTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JiroTextField.swift; path = TextFieldEffects/TextFieldEffects/JiroTextField.swift; sourceTree = "<group>"; };
+		519EFF0DD03D0C4A939843C4 /* STPColorUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPColorUtils.h; path = Stripe/Checkout/STPColorUtils.h; sourceTree = "<group>"; };
+		51BF66BBB9D6AF25C90BEF25 /* DesignableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableView.swift; path = Spring/DesignableView.swift; sourceTree = "<group>"; };
+		52519869EC8D9565CF32FE66 /* Pods-Pineapple-ChameleonFramework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Pineapple-ChameleonFramework.modulemap"; sourceTree = "<group>"; };
+		531EF32B8CB449C486E4F632 /* STPColorUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STPColorUtils.m; path = Stripe/Checkout/STPColorUtils.m; sourceTree = "<group>"; };
+		5375D5C808193F9BC254B608 /* SpringAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpringAnimation.swift; path = Spring/SpringAnimation.swift; sourceTree = "<group>"; };
+		5800520379267BE327112C55 /* STPCheckoutInternalUIWebViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPCheckoutInternalUIWebViewController.h; path = Stripe/Checkout/STPCheckoutInternalUIWebViewController.h; sourceTree = "<group>"; };
+		581D443405DF5FFABCE8173A /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		596979D555B28FDF08C33540 /* Pods-Pineapple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pineapple.release.xcconfig"; sourceTree = "<group>"; };
+		596DD7DF98CD79E046F62967 /* STPAPIClient+ApplePay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "STPAPIClient+ApplePay.h"; path = "Stripe/PublicHeaders/ApplePay/STPAPIClient+ApplePay.h"; sourceTree = "<group>"; };
+		5B16F0020F9ADB0273B9743C /* Pods-Pineapple-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Pineapple-dummy.m"; sourceTree = "<group>"; };
+		5B3A35C794D9E76E5C3BE7DC /* Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Chameleon.h; path = "Pod/Classes/Objective-C/Chameleon.h"; sourceTree = "<group>"; };
+		5E15ADFEB881DAD33A6184D0 /* STPOSXCheckoutWebViewAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPOSXCheckoutWebViewAdapter.h; path = Stripe/Checkout/STPOSXCheckoutWebViewAdapter.h; sourceTree = "<group>"; };
+		5E9BF4524540DA6D2F90DFA1 /* Pods-Pineapple-ChameleonFramework-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pineapple-ChameleonFramework-prefix.pch"; sourceTree = "<group>"; };
+		5F6135FA3A478EDBC8105D37 /* STPCheckoutOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPCheckoutOptions.h; path = Stripe/PublicHeaders/Checkout/STPCheckoutOptions.h; sourceTree = "<group>"; };
+		616D3DB4CFB8B34FC31971C3 /* Stripe+ApplePay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Stripe+ApplePay.m"; path = "Stripe/ApplePay/Stripe+ApplePay.m"; sourceTree = "<group>"; };
+		647927D43027DD6E4B5C866B /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		6522ACE28243D4CD38C2A7C4 /* TextFieldsEffects.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFieldsEffects.swift; path = TextFieldEffects/TextFieldEffects/TextFieldsEffects.swift; sourceTree = "<group>"; };
+		66158E4EE0695DC2BF78F6D0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67245EEB3BFF25855F04B41F /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
+		67CBF37241501E5B5B091D44 /* UnwindSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnwindSegue.swift; path = Spring/UnwindSegue.swift; sourceTree = "<group>"; };
+		68294CBB95B9475AA7AFD65F /* DesignableTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableTextView.swift; path = Spring/DesignableTextView.swift; sourceTree = "<group>"; };
+		69B6D0DAA6E155DA5A34EF7F /* STPStrictURLProtocol.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STPStrictURLProtocol.m; path = Stripe/Checkout/STPStrictURLProtocol.m; sourceTree = "<group>"; };
+		6C24211DC484A4D64F5D26D6 /* DesignableButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableButton.swift; path = Spring/DesignableButton.swift; sourceTree = "<group>"; };
+		72A2E068AAEDEF23B704185B /* ChameleonFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChameleonFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7363275746379FBDA7A7EA08 /* IsaoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IsaoTextField.swift; path = TextFieldEffects/TextFieldEffects/IsaoTextField.swift; sourceTree = "<group>"; };
+		75418A244C4DB2AFBC2A85D5 /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
+		7697E0AF1884752BB2DD13A8 /* Stripe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Stripe.h; path = Stripe/PublicHeaders/Stripe.h; sourceTree = "<group>"; };
+		77344CF2CE3FE80E1E0F28FA /* STPCheckoutOptions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STPCheckoutOptions.m; path = Stripe/Checkout/STPCheckoutOptions.m; sourceTree = "<group>"; };
+		775E06AC3E1259E94726A158 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperationManager.h; path = AFNetworking/AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		778FE9ADF9D06BF122709021 /* Pods-Pineapple-AFNetworking-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pineapple-AFNetworking-Private.xcconfig"; sourceTree = "<group>"; };
+		7805CE08A2F286984DDFFE85 /* Pods-Pineapple-TextFieldEffects.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pineapple-TextFieldEffects.xcconfig"; sourceTree = "<group>"; };
+		781A240240EA61D0C8530319 /* UIColor+CIELAB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+CIELAB.h"; path = "Pod/Classes/Objective-C/UIColor+CIELAB.h"; sourceTree = "<group>"; };
+		7825E9BFB77A6D4B9A6432AB /* TextFieldEffects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TextFieldEffects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A58957B437964B0FB6B6DD5 /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardLayoutConstraint.swift; path = Spring/KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
+		7F638247B160A71EB04255CF /* Pods-Pineapple-Spring-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pineapple-Spring-Private.xcconfig"; sourceTree = "<group>"; };
+		7F6C4B1ED6516831E3D0A989 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		80427276F7C06323940EA8FB /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		843AA723F951518030FC08C1 /* MinoruTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MinoruTextField.swift; path = TextFieldEffects/TextFieldEffects/MinoruTextField.swift; sourceTree = "<group>"; };
+		84694F3A1F9469D7EF6D4B89 /* UIColor+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Chameleon.m"; path = "Pod/Classes/Objective-C/UIColor+Chameleon.m"; sourceTree = "<group>"; };
+		85AAD77B3EB4E81D9A791E07 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		872CC84ABD79586843F2AF69 /* Pods-Pineapple-ChameleonFramework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pineapple-ChameleonFramework-umbrella.h"; sourceTree = "<group>"; };
+		875A45E3A5C5F01DF15BAD60 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SpringApp/Images.xcassets; sourceTree = "<group>"; };
+		88E3C1E84DDFFCF0E9F60A81 /* NSArray+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Chameleon.m"; path = "Pod/Classes/Objective-C/NSArray+Chameleon.m"; sourceTree = "<group>"; };
+		8AFA6BDDF31A550246D75355 /* Pods-Pineapple-Stripe-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pineapple-Stripe-umbrella.h"; sourceTree = "<group>"; };
+		8B516222DD3C3A5B7BFC79BF /* STPAPIConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STPAPIConnection.m; path = Stripe/STPAPIConnection.m; sourceTree = "<group>"; };
+		8E28134B486B40A762D27FD1 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		8F2DD6923FBB833398FAFB9F /* Pods-Pineapple-SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pineapple-SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		8F7BAA75D5A1B4061C3F2CC2 /* Misc.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Misc.swift; path = Spring/Misc.swift; sourceTree = "<group>"; };
+		91C0E7CBC0B109E3CBA0B523 /* ImageLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageLoader.swift; path = Spring/ImageLoader.swift; sourceTree = "<group>"; };
+		932E813C86E498D7331BAC58 /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
+		93B129D13FFA40EF1310ECB3 /* DesignableTabBarController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableTabBarController.swift; path = Spring/DesignableTabBarController.swift; sourceTree = "<group>"; };
+		94D6BD1187F4AF159104A7B8 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		95D8D8A001FD3375E129F239 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		97BDE904345A6F4A2EE028AD /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
+		9902C5027BB04DF91920CF1C /* Pods-Pineapple-Spring-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pineapple-Spring-umbrella.h"; sourceTree = "<group>"; };
+		996E20C441B4B29F60AFA971 /* DesignableImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableImageView.swift; path = Spring/DesignableImageView.swift; sourceTree = "<group>"; };
+		9A0C63114410820C2A4980AD /* Pods-Pineapple.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Pineapple.modulemap"; sourceTree = "<group>"; };
+		9A27998842ED846FDD94E45B /* STPAPIClient+ApplePay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "STPAPIClient+ApplePay.m"; path = "Stripe/ApplePay/STPAPIClient+ApplePay.m"; sourceTree = "<group>"; };
+		9B65E31D17458472E599C014 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9BDF654E866512EAA44B6D7C /* Pods-Pineapple-TextFieldEffects-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Pineapple-TextFieldEffects-dummy.m"; sourceTree = "<group>"; };
+		9CEFAB103FC119A6555CBB2A /* Pods-Pineapple-Spring.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pineapple-Spring.xcconfig"; sourceTree = "<group>"; };
+		9D589487165C2643229E9843 /* STPCheckoutViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STPCheckoutViewController.m; path = Stripe/Checkout/STPCheckoutViewController.m; sourceTree = "<group>"; };
+		9DC3772DAF17FCB17F8CAB68 /* Pods-Pineapple-SVProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pineapple-SVProgressHUD-umbrella.h"; sourceTree = "<group>"; };
+		9F9405AB78C18BD69E14C8F4 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		A17386BD7D85F4322AC93DDC /* SpringView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpringView.swift; path = Spring/SpringView.swift; sourceTree = "<group>"; };
+		A1A9194E53745CA8BFB2129C /* Pods-Pineapple-SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Pineapple-SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		A1C788DA94134CD232F7B424 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		A1CEED1C3FF0735644EBBAD3 /* STPToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPToken.h; path = Stripe/PublicHeaders/STPToken.h; sourceTree = "<group>"; };
+		A245B86BC3BC1A3A8EA102C7 /* NSArray+Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+Chameleon.h"; path = "Pod/Classes/Objective-C/NSArray+Chameleon.h"; sourceTree = "<group>"; };
+		A4DAB17A0A51E8319D185541 /* SpringTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpringTextView.swift; path = Spring/SpringTextView.swift; sourceTree = "<group>"; };
+		A7B9F759EC28E709B861C965 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		A89F6BA17E883F82D8DE8A8E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A944E1E0A9470A10ECAEBB24 /* Pods_Pineapple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pineapple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD34DEB88B12AAC7972D2773 /* STPBankAccount.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPBankAccount.h; path = Stripe/PublicHeaders/STPBankAccount.h; sourceTree = "<group>"; };
+		AD4E96B150F02E161C77FC46 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		AEE98C6CDC30F25E72C8A9AB /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		B1C4E95ED3BE59A13ECB0DAC /* Pods-Pineapple-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Pineapple-frameworks.sh"; sourceTree = "<group>"; };
+		B1EF386C00D6F04280A2A7A1 /* Pods-Pineapple-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Pineapple-resources.sh"; sourceTree = "<group>"; };
+		B372B73A20C9D745D6C339C3 /* LoadingView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = LoadingView.xib; path = Spring/LoadingView.xib; sourceTree = "<group>"; };
+		B3B33EA4C54A2874F4832B07 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		B4DE10D9BA649DE6C2743778 /* STPIOSCheckoutWebViewAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STPIOSCheckoutWebViewAdapter.m; path = Stripe/Checkout/STPIOSCheckoutWebViewAdapter.m; sourceTree = "<group>"; };
+		B4EF7603293996F27A516F76 /* Pods-Pineapple-TextFieldEffects.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Pineapple-TextFieldEffects.modulemap"; sourceTree = "<group>"; };
+		B6614F4B631D1BEFB651028B /* Pods-Pineapple-Stripe-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Pineapple-Stripe-dummy.m"; sourceTree = "<group>"; };
+		B69B40778BAB4989B585D410 /* STPCheckoutDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPCheckoutDelegate.h; path = Stripe/Checkout/STPCheckoutDelegate.h; sourceTree = "<group>"; };
+		B6FC928CD11C8D1CABA5F70F /* SVProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		B71D2C9ADCEFBB98C9044B5A /* Stripe+ApplePay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Stripe+ApplePay.h"; path = "Stripe/PublicHeaders/ApplePay/Stripe+ApplePay.h"; sourceTree = "<group>"; };
+		B7C6AFF4E8DFDEBA7B2C8B7C /* Pods-Pineapple-TextFieldEffects-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pineapple-TextFieldEffects-Private.xcconfig"; sourceTree = "<group>"; };
+		B9268079886F60874369650C /* TransitionZoom.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionZoom.swift; path = Spring/TransitionZoom.swift; sourceTree = "<group>"; };
+		B9D07172EED3C40FC56BA9DF /* STPNullabilityMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPNullabilityMacros.h; path = Stripe/PublicHeaders/STPNullabilityMacros.h; sourceTree = "<group>"; };
+		BA60AAC2ED340BEC58C0792E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		BC8B511E678F2BFD59343B51 /* STPFormEncoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPFormEncoder.h; path = Stripe/STPFormEncoder.h; sourceTree = "<group>"; };
+		BE1F27CDF5C0B77C05032CBB /* Pods-Pineapple-TextFieldEffects-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pineapple-TextFieldEffects-prefix.pch"; sourceTree = "<group>"; };
+		BE8F3C27125DCCA1E673F750 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5C333269C29225FA603B6E4 /* SpringButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpringButton.swift; path = Spring/SpringButton.swift; sourceTree = "<group>"; };
+		C6C30774EBEA0F52053DB032 /* UIViewController+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Chameleon.m"; path = "Pod/Classes/Objective-C/UIViewController+Chameleon.m"; sourceTree = "<group>"; };
+		C99F04E4F8F8E8C325BDC4F8 /* STPStrictURLProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPStrictURLProtocol.h; path = Stripe/Checkout/STPStrictURLProtocol.h; sourceTree = "<group>"; };
+		CADA5ED72D6A478CDBBF401D /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		CE5AE9EFD1FFE50D48F248FB /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		CE685675B84C3894A2B777D9 /* BlurView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlurView.swift; path = Spring/BlurView.swift; sourceTree = "<group>"; };
+		CE6B22C27E25A7EF16101CE3 /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED1D6E6F27C0B0FB5A5869F /* STPCard.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STPCard.m; path = Stripe/STPCard.m; sourceTree = "<group>"; };
+		D0D41C732E175708CEEB8B90 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		D0E8B01A80F70E280BD85777 /* ChameleonMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ChameleonMacros.h; path = "Pod/Classes/Objective-C/ChameleonMacros.h"; sourceTree = "<group>"; };
+		D417FBCC0AE872128944D6D8 /* YokoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YokoTextField.swift; path = TextFieldEffects/TextFieldEffects/YokoTextField.swift; sourceTree = "<group>"; };
+		D6145C086B0DD406BED4030F /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		D8AA1A50CED51B41EBBDF761 /* STPFormEncoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STPFormEncoder.m; path = Stripe/STPFormEncoder.m; sourceTree = "<group>"; };
+		D93F1CC25D0267A7922C3626 /* UIViewController+Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Chameleon.h"; path = "Pod/Classes/Objective-C/UIViewController+Chameleon.h"; sourceTree = "<group>"; };
+		D9959403482AE16C11B46760 /* Pods-Pineapple-AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pineapple-AFNetworking-prefix.pch"; sourceTree = "<group>"; };
+		DA1790F66A957B1219980F18 /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+AFNetworking.m"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
+		DAEEA05BA133D4BB380F1F67 /* STPBankAccount.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STPBankAccount.m; path = Stripe/STPBankAccount.m; sourceTree = "<group>"; };
+		DC5387D2AE3418302334DA39 /* DesignableTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableTextField.swift; path = Spring/DesignableTextField.swift; sourceTree = "<group>"; };
+		DD32139381D59C86E9BF6E66 /* Pods-Pineapple-Stripe-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pineapple-Stripe-Private.xcconfig"; sourceTree = "<group>"; };
+		E13E032E2D2AE977F3891F23 /* STPOSXCheckoutWebViewAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STPOSXCheckoutWebViewAdapter.m; path = Stripe/Checkout/STPOSXCheckoutWebViewAdapter.m; sourceTree = "<group>"; };
+		E314292B65F75FCB3DF0F833 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		E6787BCCC4C1B8A1FBFB9AA1 /* Pods-Pineapple-ChameleonFramework.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pineapple-ChameleonFramework.xcconfig"; sourceTree = "<group>"; };
+		E91D4C8018CCD129881CEFB4 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		EA9155F46DE3EAF770541F58 /* STPIOSCheckoutWebViewAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPIOSCheckoutWebViewAdapter.h; path = Stripe/Checkout/STPIOSCheckoutWebViewAdapter.h; sourceTree = "<group>"; };
+		EC28D87C72D0DA52FED75631 /* Pods-Pineapple-Stripe.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pineapple-Stripe.xcconfig"; sourceTree = "<group>"; };
+		ED32108176A3C8DC7981EA16 /* UIColor+CIELAB.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+CIELAB.m"; path = "Pod/Classes/Objective-C/UIColor+CIELAB.m"; sourceTree = "<group>"; };
+		ED34AF6C55A70DB5948887E2 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		EDBDFEEB992C14CA490DDCF0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		EF0B575829FCE303430F1636 /* Stripe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Stripe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1B2674D65134F260D5FA8EA /* Pods-Pineapple-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Pineapple-acknowledgements.plist"; sourceTree = "<group>"; };
+		F2B2C2AD9EE30D57EF58058C /* STPAPIClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPAPIClient.h; path = Stripe/PublicHeaders/STPAPIClient.h; sourceTree = "<group>"; };
+		F2E4EC508278F78AA5505601 /* Pods-Pineapple-Spring-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Pineapple-Spring-dummy.m"; sourceTree = "<group>"; };
+		F2EFF2D65871C4EC732E46E1 /* STPAPIClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STPAPIClient.m; path = Stripe/STPAPIClient.m; sourceTree = "<group>"; };
+		F3954D540A4862D2EA805F63 /* SoundPlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SoundPlayer.swift; path = Spring/SoundPlayer.swift; sourceTree = "<group>"; };
+		F41B693A19D1772C17B8E60E /* Pods-Pineapple-SVProgressHUD-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pineapple-SVProgressHUD-Private.xcconfig"; sourceTree = "<group>"; };
+		FABA4A1A6AD11CC20343254D /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		FBCE2C7D4837C40187261F44 /* AutoTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AutoTextView.swift; path = Spring/AutoTextView.swift; sourceTree = "<group>"; };
+		FE417EFD04076E73ED5C9EE3 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		FF6664E365363F20B8F59232 /* STPCheckoutWebViewAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STPCheckoutWebViewAdapter.h; path = Stripe/Checkout/STPCheckoutWebViewAdapter.h; sourceTree = "<group>"; };
+		FFB9739A774CABEF7E55F83F /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		35563E15089E4D66F47EE17D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1A057C5688359A0C3ED13C8 /* Foundation.framework in Frameworks */,
+				82DC35F7B188B653E807A336 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B52FCB11DCCEFE8337C6045 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CDB8EDEBC1FA34455F8D231 /* CoreGraphics.framework in Frameworks */,
+				BFD220A90E527C81F595D2AF /* Foundation.framework in Frameworks */,
+				13B0FDF873E03C6AAE3EF9C2 /* MobileCoreServices.framework in Frameworks */,
+				03202A5C43BACA57DEB0430A /* Security.framework in Frameworks */,
+				D5434C106E2387A25BE1FDBA /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92F40EB93BF166F372A703C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				945A7AA6CAF406C3AD087EB5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B07EAE3B2C86E5FB4C8FB0ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EC7EECC595BCF1E8B4E717E /* CoreGraphics.framework in Frameworks */,
+				6A02F01EEA8DF5776F87977F /* Foundation.framework in Frameworks */,
+				E4511137C8DAB918F6DA0791 /* QuartzCore.framework in Frameworks */,
+				234108229C711B4AE49BF30A /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB2CE5D16679AD82F075C2B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13CFDDDFDC8AA1D5B6C4CB2A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAE6F14FCF4F1C3D416A5B53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A459C8F34AE155F98C6C449 /* Foundation.framework in Frameworks */,
+				59F5AA6860CD76AF997FAF86 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6735588F6E7DB8B1678BB9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10E33FC4D562EFDDBDFD273 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		116C8031FCDDC542D30E2CC9 /* ChameleonFramework */ = {
+			isa = PBXGroup;
+			children = (
+				E37C36512F6B19ED26DF4547 /* Default */,
+				2750F309B42D248FA26E70D0 /* Support Files */,
+			);
+			path = ChameleonFramework;
+			sourceTree = "<group>";
+		};
+		11AFDDD4D4A1A9BCE93665E0 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				1D9A45FFC7634DA0079D9EF5 /* AFSecurityPolicy.h */,
+				67245EEB3BFF25855F04B41F /* AFSecurityPolicy.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
+		2750F309B42D248FA26E70D0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				088D766444C7D8BFB271DA06 /* Info.plist */,
+				52519869EC8D9565CF32FE66 /* Pods-Pineapple-ChameleonFramework.modulemap */,
+				E6787BCCC4C1B8A1FBFB9AA1 /* Pods-Pineapple-ChameleonFramework.xcconfig */,
+				40E912EAC54D1D2CD8FD5FE4 /* Pods-Pineapple-ChameleonFramework-Private.xcconfig */,
+				2710660A97E14A7BF6378895 /* Pods-Pineapple-ChameleonFramework-dummy.m */,
+				5E9BF4524540DA6D2F90DFA1 /* Pods-Pineapple-ChameleonFramework-prefix.pch */,
+				872CC84ABD79586843F2AF69 /* Pods-Pineapple-ChameleonFramework-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Pineapple-ChameleonFramework";
+			sourceTree = "<group>";
+		};
+		29CE9BF09C7FF79D2C3F4DE8 /* Pods-Pineapple */ = {
+			isa = PBXGroup;
+			children = (
+				3E3B2AC5FE786C0D94894DE4 /* Info.plist */,
+				9A0C63114410820C2A4980AD /* Pods-Pineapple.modulemap */,
+				3E80E4DF1279253CFF4A0AFC /* Pods-Pineapple-acknowledgements.markdown */,
+				F1B2674D65134F260D5FA8EA /* Pods-Pineapple-acknowledgements.plist */,
+				5B16F0020F9ADB0273B9743C /* Pods-Pineapple-dummy.m */,
+				29375668627B58A91BD82D34 /* Pods-Pineapple-environment.h */,
+				B1C4E95ED3BE59A13ECB0DAC /* Pods-Pineapple-frameworks.sh */,
+				B1EF386C00D6F04280A2A7A1 /* Pods-Pineapple-resources.sh */,
+				2394885723D1F7EC785CE8B7 /* Pods-Pineapple-umbrella.h */,
+				259DE281638522C67E269036 /* Pods-Pineapple.debug.xcconfig */,
+				596979D555B28FDF08C33540 /* Pods-Pineapple.release.xcconfig */,
+			);
+			name = "Pods-Pineapple";
+			path = "Target Support Files/Pods-Pineapple";
+			sourceTree = "<group>";
+		};
+		32DCFEE2BDA809AD72D4719B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				987BA53A0DCF71EA2800F742 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		33E61E29553280399C52B2EA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2AE52C64D7A82430DC82342C /* Info.plist */,
+				34FE5E7847D4049210C6DA91 /* Pods-Pineapple-SVProgressHUD.modulemap */,
+				226E0B57EAF97B79F533D676 /* Pods-Pineapple-SVProgressHUD.xcconfig */,
+				F41B693A19D1772C17B8E60E /* Pods-Pineapple-SVProgressHUD-Private.xcconfig */,
+				A1A9194E53745CA8BFB2129C /* Pods-Pineapple-SVProgressHUD-dummy.m */,
+				8F2DD6923FBB833398FAFB9F /* Pods-Pineapple-SVProgressHUD-prefix.pch */,
+				9DC3772DAF17FCB17F8CAB68 /* Pods-Pineapple-SVProgressHUD-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Pineapple-SVProgressHUD";
+			sourceTree = "<group>";
+		};
+		37740E9E1A1262EE56B11EFD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE8F3C27125DCCA1E673F750 /* AFNetworking.framework */,
+				72A2E068AAEDEF23B704185B /* ChameleonFramework.framework */,
+				A944E1E0A9470A10ECAEBB24 /* Pods_Pineapple.framework */,
+				CE6B22C27E25A7EF16101CE3 /* SVProgressHUD.framework */,
+				3F8C62248D596119FC594E7D /* Spring.framework */,
+				EF0B575829FCE303430F1636 /* Stripe.framework */,
+				7825E9BFB77A6D4B9A6432AB /* TextFieldEffects.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5083449D69BE58F00D07EF43 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				0389897A36104BCF0EAEC5EE /* AFNetworkReachabilityManager.h */,
+				0D75AECC87BB4FAC51C66881 /* AFNetworkReachabilityManager.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		5257236DBB0E0A65F5AC6A1E /* ApplePay */ = {
+			isa = PBXGroup;
+			children = (
+				596DD7DF98CD79E046F62967 /* STPAPIClient+ApplePay.h */,
+				9A27998842ED846FDD94E45B /* STPAPIClient+ApplePay.m */,
+				B71D2C9ADCEFBB98C9044B5A /* Stripe+ApplePay.h */,
+				616D3DB4CFB8B34FC31971C3 /* Stripe+ApplePay.m */,
+			);
+			name = ApplePay;
+			sourceTree = "<group>";
+		};
+		567B30661D53C535DA7F5A53 /* NSURLSession */ = {
+			isa = PBXGroup;
+			children = (
+				E91D4C8018CCD129881CEFB4 /* AFHTTPSessionManager.h */,
+				D0D41C732E175708CEEB8B90 /* AFHTTPSessionManager.m */,
+				266425368795804A00E4340B /* AFURLSessionManager.h */,
+				75418A244C4DB2AFBC2A85D5 /* AFURLSessionManager.m */,
+			);
+			name = NSURLSession;
+			sourceTree = "<group>";
+		};
+		62BACDAEC3B8C384F8D83E6D /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				2DDA3B2C5F8521192105F609 /* AFNetworkActivityIndicatorManager.h */,
+				97BDE904345A6F4A2EE028AD /* AFNetworkActivityIndicatorManager.m */,
+				581D443405DF5FFABCE8173A /* UIActivityIndicatorView+AFNetworking.h */,
+				344F64EF55BD56D468E92A84 /* UIActivityIndicatorView+AFNetworking.m */,
+				1ED4F68D54F299FFF4A35623 /* UIAlertView+AFNetworking.h */,
+				DA1790F66A957B1219980F18 /* UIAlertView+AFNetworking.m */,
+				FE417EFD04076E73ED5C9EE3 /* UIButton+AFNetworking.h */,
+				3BE211C2505C958FC2AC1224 /* UIButton+AFNetworking.m */,
+				AEE98C6CDC30F25E72C8A9AB /* UIImageView+AFNetworking.h */,
+				80427276F7C06323940EA8FB /* UIImageView+AFNetworking.m */,
+				E314292B65F75FCB3DF0F833 /* UIKit+AFNetworking.h */,
+				FFB9739A774CABEF7E55F83F /* UIProgressView+AFNetworking.h */,
+				3FFBB0F7A1917ADE3E1CB65B /* UIProgressView+AFNetworking.m */,
+				7F6C4B1ED6516831E3D0A989 /* UIRefreshControl+AFNetworking.h */,
+				FABA4A1A6AD11CC20343254D /* UIRefreshControl+AFNetworking.m */,
+				42E307BF5CD9642FDB0D2DA2 /* UIWebView+AFNetworking.h */,
+				CE5AE9EFD1FFE50D48F248FB /* UIWebView+AFNetworking.m */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
+		65ABD1C9C544002A1FEA73AE /* NSURLConnection */ = {
+			isa = PBXGroup;
+			children = (
+				ED34AF6C55A70DB5948887E2 /* AFHTTPRequestOperation.h */,
+				CADA5ED72D6A478CDBBF401D /* AFHTTPRequestOperation.m */,
+				775E06AC3E1259E94726A158 /* AFHTTPRequestOperationManager.h */,
+				206E569CB59E6A5B98C4940A /* AFHTTPRequestOperationManager.m */,
+				499FC1F3C4D105807DFB3158 /* AFURLConnectionOperation.h */,
+				647927D43027DD6E4B5C866B /* AFURLConnectionOperation.m */,
+			);
+			name = NSURLConnection;
+			sourceTree = "<group>";
+		};
+		69EB46B5618B8712861818A1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AD4E96B150F02E161C77FC46 /* SVProgressHUD.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6C7DA1905E89CFAC527D5336 /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				94D6BD1187F4AF159104A7B8 /* AFURLRequestSerialization.h */,
+				95D8D8A001FD3375E129F239 /* AFURLRequestSerialization.m */,
+				9F9405AB78C18BD69E14C8F4 /* AFURLResponseSerialization.h */,
+				A7B9F759EC28E709B861C965 /* AFURLResponseSerialization.m */,
+			);
+			name = Serialization;
+			sourceTree = "<group>";
+		};
+		6F8332EF5BB57B75A07B99C9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2DC31736526C088BC1A4926D /* Info.plist */,
+				2B92E1EA95A2E3CE0D03C6A0 /* Pods-Pineapple-AFNetworking.modulemap */,
+				2764513AE00C55C0E0770B5C /* Pods-Pineapple-AFNetworking.xcconfig */,
+				778FE9ADF9D06BF122709021 /* Pods-Pineapple-AFNetworking-Private.xcconfig */,
+				2573B824768FE8F531B758EB /* Pods-Pineapple-AFNetworking-dummy.m */,
+				D9959403482AE16C11B46760 /* Pods-Pineapple-AFNetworking-prefix.pch */,
+				02BCADB8474BF12444542039 /* Pods-Pineapple-AFNetworking-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Pineapple-AFNetworking";
+			sourceTree = "<group>";
+		};
+		72D59383201E6D852B0F57BC /* Spring */ = {
+			isa = PBXGroup;
+			children = (
+				464367B82E3514C8AD34602D /* AsyncButton.swift */,
+				1E05AA28372DAA11109BD193 /* AsyncImageView.swift */,
+				FBCE2C7D4837C40187261F44 /* AutoTextView.swift */,
+				CE685675B84C3894A2B777D9 /* BlurView.swift */,
+				6C24211DC484A4D64F5D26D6 /* DesignableButton.swift */,
+				996E20C441B4B29F60AFA971 /* DesignableImageView.swift */,
+				427D705309167C57862A09CD /* DesignableLabel.swift */,
+				93B129D13FFA40EF1310ECB3 /* DesignableTabBarController.swift */,
+				DC5387D2AE3418302334DA39 /* DesignableTextField.swift */,
+				68294CBB95B9475AA7AFD65F /* DesignableTextView.swift */,
+				51BF66BBB9D6AF25C90BEF25 /* DesignableView.swift */,
+				91C0E7CBC0B109E3CBA0B523 /* ImageLoader.swift */,
+				7A58957B437964B0FB6B6DD5 /* KeyboardLayoutConstraint.swift */,
+				089B229CA61859D88972CEE7 /* LoadingView.swift */,
+				8F7BAA75D5A1B4061C3F2CC2 /* Misc.swift */,
+				F3954D540A4862D2EA805F63 /* SoundPlayer.swift */,
+				062C748FDC37491691FBA5C1 /* Spring.swift */,
+				5375D5C808193F9BC254B608 /* SpringAnimation.swift */,
+				C5C333269C29225FA603B6E4 /* SpringButton.swift */,
+				280BD7177A58F180CD2ED488 /* SpringImageView.swift */,
+				0CF93D95E4C18271FCD83A91 /* SpringLabel.swift */,
+				0550DC3325229996DEDD51DD /* SpringTextField.swift */,
+				A4DAB17A0A51E8319D185541 /* SpringTextView.swift */,
+				A17386BD7D85F4322AC93DDC /* SpringView.swift */,
+				37208B3E67060183569DA25D /* TransitionManager.swift */,
+				B9268079886F60874369650C /* TransitionZoom.swift */,
+				67CBF37241501E5B5B091D44 /* UnwindSegue.swift */,
+				CA511345D9F17FA4035B8E78 /* Resources */,
+				BC607129CB45B208E3138647 /* Support Files */,
+			);
+			path = Spring;
+			sourceTree = "<group>";
+		};
+		734A087F4BD7016028503521 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				932E813C86E498D7331BAC58 /* AFNetworking.h */,
+				65ABD1C9C544002A1FEA73AE /* NSURLConnection */,
+				567B30661D53C535DA7F5A53 /* NSURLSession */,
+				5083449D69BE58F00D07EF43 /* Reachability */,
+				11AFDDD4D4A1A9BCE93665E0 /* Security */,
+				6C7DA1905E89CFAC527D5336 /* Serialization */,
+				6F8332EF5BB57B75A07B99C9 /* Support Files */,
+				62BACDAEC3B8C384F8D83E6D /* UIKit */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		8A33DB60BCD3AD2FC8B2EDCA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				66158E4EE0695DC2BF78F6D0 /* Info.plist */,
+				48E9E8B0C10D8864F95BB0DE /* Pods-Pineapple-Stripe.modulemap */,
+				EC28D87C72D0DA52FED75631 /* Pods-Pineapple-Stripe.xcconfig */,
+				DD32139381D59C86E9BF6E66 /* Pods-Pineapple-Stripe-Private.xcconfig */,
+				B6614F4B631D1BEFB651028B /* Pods-Pineapple-Stripe-dummy.m */,
+				1854F947939E409F95C7DFD5 /* Pods-Pineapple-Stripe-prefix.pch */,
+				8AFA6BDDF31A550246D75355 /* Pods-Pineapple-Stripe-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Pineapple-Stripe";
+			sourceTree = "<group>";
+		};
+		8E6513F1B89C2654B2A7C0E7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A89F6BA17E883F82D8DE8A8E /* Info.plist */,
+				B4EF7603293996F27A516F76 /* Pods-Pineapple-TextFieldEffects.modulemap */,
+				7805CE08A2F286984DDFFE85 /* Pods-Pineapple-TextFieldEffects.xcconfig */,
+				B7C6AFF4E8DFDEBA7B2C8B7C /* Pods-Pineapple-TextFieldEffects-Private.xcconfig */,
+				9BDF654E866512EAA44B6D7C /* Pods-Pineapple-TextFieldEffects-dummy.m */,
+				BE1F27CDF5C0B77C05032CBB /* Pods-Pineapple-TextFieldEffects-prefix.pch */,
+				2548476802EEE65AD821B9D9 /* Pods-Pineapple-TextFieldEffects-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Pineapple-TextFieldEffects";
+			sourceTree = "<group>";
+		};
+		987BA53A0DCF71EA2800F742 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				85AAD77B3EB4E81D9A791E07 /* CoreGraphics.framework */,
+				BA60AAC2ED340BEC58C0792E /* Foundation.framework */,
+				2FD982D357D7E51E1FC27312 /* MobileCoreServices.framework */,
+				EDBDFEEB992C14CA490DDCF0 /* QuartzCore.framework */,
+				46B5FB8BD86CC089B9280737 /* Security.framework */,
+				B3B33EA4C54A2874F4832B07 /* SystemConfiguration.framework */,
+				A1C788DA94134CD232F7B424 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		9C65A9DED58B35D22F5195C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				734A087F4BD7016028503521 /* AFNetworking */,
+				116C8031FCDDC542D30E2CC9 /* ChameleonFramework */,
+				EE76718015AC5DC46257EE0E /* SVProgressHUD */,
+				72D59383201E6D852B0F57BC /* Spring */,
+				AE8EC864594B0CB851D594E4 /* Stripe */,
+				DD573791A1E3EA7BEB05DEB0 /* TextFieldEffects */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AE8EC864594B0CB851D594E4 /* Stripe */ = {
+			isa = PBXGroup;
+			children = (
+				5257236DBB0E0A65F5AC6A1E /* ApplePay */,
+				C3CECAE4164764E84BCF5A32 /* Checkout */,
+				DF63CDB4C8BD26B6C392C26E /* Core */,
+				8A33DB60BCD3AD2FC8B2EDCA /* Support Files */,
+			);
+			path = Stripe;
+			sourceTree = "<group>";
+		};
+		BC607129CB45B208E3138647 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				32627E009669FD5C527BF902 /* Info.plist */,
+				17BF9A3DE48765572C245911 /* Pods-Pineapple-Spring.modulemap */,
+				9CEFAB103FC119A6555CBB2A /* Pods-Pineapple-Spring.xcconfig */,
+				7F638247B160A71EB04255CF /* Pods-Pineapple-Spring-Private.xcconfig */,
+				F2E4EC508278F78AA5505601 /* Pods-Pineapple-Spring-dummy.m */,
+				4601E50779559086DFC58F0D /* Pods-Pineapple-Spring-prefix.pch */,
+				9902C5027BB04DF91920CF1C /* Pods-Pineapple-Spring-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Pineapple-Spring";
+			sourceTree = "<group>";
+		};
+		C29E7088C8F0F09EB8583F54 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				29CE9BF09C7FF79D2C3F4DE8 /* Pods-Pineapple */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C3CECAE4164764E84BCF5A32 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				B69B40778BAB4989B585D410 /* STPCheckoutDelegate.h */,
+				5800520379267BE327112C55 /* STPCheckoutInternalUIWebViewController.h */,
+				2350E727E97641A164A63D81 /* STPCheckoutInternalUIWebViewController.m */,
+				5F6135FA3A478EDBC8105D37 /* STPCheckoutOptions.h */,
+				77344CF2CE3FE80E1E0F28FA /* STPCheckoutOptions.m */,
+				0AA1D9A644240B499D7E00CC /* STPCheckoutViewController.h */,
+				9D589487165C2643229E9843 /* STPCheckoutViewController.m */,
+				FF6664E365363F20B8F59232 /* STPCheckoutWebViewAdapter.h */,
+				519EFF0DD03D0C4A939843C4 /* STPColorUtils.h */,
+				531EF32B8CB449C486E4F632 /* STPColorUtils.m */,
+				EA9155F46DE3EAF770541F58 /* STPIOSCheckoutWebViewAdapter.h */,
+				B4DE10D9BA649DE6C2743778 /* STPIOSCheckoutWebViewAdapter.m */,
+				5E15ADFEB881DAD33A6184D0 /* STPOSXCheckoutWebViewAdapter.h */,
+				E13E032E2D2AE977F3891F23 /* STPOSXCheckoutWebViewAdapter.m */,
+				C99F04E4F8F8E8C325BDC4F8 /* STPStrictURLProtocol.h */,
+				69B6D0DAA6E155DA5A34EF7F /* STPStrictURLProtocol.m */,
+			);
+			name = Checkout;
+			sourceTree = "<group>";
+		};
+		CA511345D9F17FA4035B8E78 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				875A45E3A5C5F01DF15BAD60 /* Images.xcassets */,
+				B372B73A20C9D745D6C339C3 /* LoadingView.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DD573791A1E3EA7BEB05DEB0 /* TextFieldEffects */ = {
+			isa = PBXGroup;
+			children = (
+				49ABB798D0F5CEFE67D4B051 /* AkiraTextField.swift */,
+				0997BA1D51DD6CEBDC9C8312 /* HoshiTextField.swift */,
+				7363275746379FBDA7A7EA08 /* IsaoTextField.swift */,
+				5040D926ADECEEEF25CC43D7 /* JiroTextField.swift */,
+				2EF6963E660CE4F15E9BC5C8 /* KaedeTextField.swift */,
+				31AD0346045AF05C6D42E3C2 /* MadokaTextField.swift */,
+				843AA723F951518030FC08C1 /* MinoruTextField.swift */,
+				6522ACE28243D4CD38C2A7C4 /* TextFieldsEffects.swift */,
+				D417FBCC0AE872128944D6D8 /* YokoTextField.swift */,
+				8E6513F1B89C2654B2A7C0E7 /* Support Files */,
+			);
+			path = TextFieldEffects;
+			sourceTree = "<group>";
+		};
+		DF63CDB4C8BD26B6C392C26E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F2B2C2AD9EE30D57EF58058C /* STPAPIClient.h */,
+				F2EFF2D65871C4EC732E46E1 /* STPAPIClient.m */,
+				1036AA0FC3A538D4E45488DC /* STPAPIConnection.h */,
+				8B516222DD3C3A5B7BFC79BF /* STPAPIConnection.m */,
+				AD34DEB88B12AAC7972D2773 /* STPBankAccount.h */,
+				DAEEA05BA133D4BB380F1F67 /* STPBankAccount.m */,
+				1CBF17C04770D78D6722D424 /* STPCard.h */,
+				CED1D6E6F27C0B0FB5A5869F /* STPCard.m */,
+				BC8B511E678F2BFD59343B51 /* STPFormEncoder.h */,
+				D8AA1A50CED51B41EBBDF761 /* STPFormEncoder.m */,
+				B9D07172EED3C40FC56BA9DF /* STPNullabilityMacros.h */,
+				A1CEED1C3FF0735644EBBAD3 /* STPToken.h */,
+				2E521B6C2953807DEE80D458 /* STPToken.m */,
+				7697E0AF1884752BB2DD13A8 /* Stripe.h */,
+				1E4E0078C552F181ED943711 /* StripeError.h */,
+				34F772D804C4A6E804495947 /* StripeError.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		E37C36512F6B19ED26DF4547 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				5B3A35C794D9E76E5C3BE7DC /* Chameleon.h */,
+				D0E8B01A80F70E280BD85777 /* ChameleonMacros.h */,
+				3C976CEFB65D64053DFA8013 /* ChameleonStatusBar.h */,
+				43437AA723BB027861AC6F1F /* ChameleonStatusBar.m */,
+				A245B86BC3BC1A3A8EA102C7 /* NSArray+Chameleon.h */,
+				88E3C1E84DDFFCF0E9F60A81 /* NSArray+Chameleon.m */,
+				781A240240EA61D0C8530319 /* UIColor+CIELAB.h */,
+				ED32108176A3C8DC7981EA16 /* UIColor+CIELAB.m */,
+				289CEE6B4E8D994FA95264CF /* UIColor+Chameleon.h */,
+				84694F3A1F9469D7EF6D4B89 /* UIColor+Chameleon.m */,
+				D93F1CC25D0267A7922C3626 /* UIViewController+Chameleon.h */,
+				C6C30774EBEA0F52053DB032 /* UIViewController+Chameleon.m */,
+			);
+			name = Default;
+			sourceTree = "<group>";
+		};
+		EB99D12602666727FB441DF4 = {
+			isa = PBXGroup;
+			children = (
+				9B65E31D17458472E599C014 /* Podfile */,
+				32DCFEE2BDA809AD72D4719B /* Frameworks */,
+				9C65A9DED58B35D22F5195C3 /* Pods */,
+				37740E9E1A1262EE56B11EFD /* Products */,
+				C29E7088C8F0F09EB8583F54 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		EE76718015AC5DC46257EE0E /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				18C1ADE10BEE3A921F1C9133 /* SVIndefiniteAnimatedView.h */,
+				8E28134B486B40A762D27FD1 /* SVIndefiniteAnimatedView.m */,
+				B6FC928CD11C8D1CABA5F70F /* SVProgressHUD.h */,
+				D6145C086B0DD406BED4030F /* SVProgressHUD.m */,
+				69EB46B5618B8712861818A1 /* Resources */,
+				33E61E29553280399C52B2EA /* Support Files */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		249D1004D1ECEEA49340AD9B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA990E66FD356E726FCCC007 /* Pods-Pineapple-SVProgressHUD-umbrella.h in Headers */,
+				01C22D5006F47E69605D00FA /* SVIndefiniteAnimatedView.h in Headers */,
+				5FA5E79C28662518BB99027F /* SVProgressHUD.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E394E4372FB4CB483CA9A1D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07F959940B0FC4BE2434D2A5 /* Pods-Pineapple-TextFieldEffects-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FD86C61CA4FF8C6291FA772 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A85C6FF8C93D28F781516B37 /* AFHTTPRequestOperation.h in Headers */,
+				621C70E9C2B777642D37FBC8 /* AFHTTPRequestOperationManager.h in Headers */,
+				6AE71B665314B26925112C6A /* AFHTTPSessionManager.h in Headers */,
+				71DD137CE2258CC4458D0CE0 /* AFNetworkActivityIndicatorManager.h in Headers */,
+				9BF1947E80812BD5856C8E35 /* AFNetworkReachabilityManager.h in Headers */,
+				7A71F94D0FA652E5414379E0 /* AFNetworking.h in Headers */,
+				D4D4FB0EFBB5D05F31662887 /* AFSecurityPolicy.h in Headers */,
+				FC4535EFA343A30F72DE4099 /* AFURLConnectionOperation.h in Headers */,
+				EEF0D88AC0663DF9BB4BBFC5 /* AFURLRequestSerialization.h in Headers */,
+				FD167D38E7C1471FEEB08657 /* AFURLResponseSerialization.h in Headers */,
+				600AF4FFFA00AFCEB7E4D8D6 /* AFURLSessionManager.h in Headers */,
+				AB68951EF671928933AADE8D /* Pods-Pineapple-AFNetworking-umbrella.h in Headers */,
+				2EFF61BDFD6D5C81F8065B13 /* UIActivityIndicatorView+AFNetworking.h in Headers */,
+				6BBFC6BA592CDD09C0C1C9AC /* UIAlertView+AFNetworking.h in Headers */,
+				78D71DF6DCBE5BDD6AC54D17 /* UIButton+AFNetworking.h in Headers */,
+				98F35D82B1BB2E2353812C79 /* UIImageView+AFNetworking.h in Headers */,
+				680C20BD545B09C603206F34 /* UIKit+AFNetworking.h in Headers */,
+				47B72325E8ADB21AAF15039B /* UIProgressView+AFNetworking.h in Headers */,
+				6664AE80CBD81BDE1D94752B /* UIRefreshControl+AFNetworking.h in Headers */,
+				4C91EA0D690E7D834E85B2C2 /* UIWebView+AFNetworking.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D16994936BDA033C288920E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45FD8DC9A18CDA104376D071 /* Pods-Pineapple-Stripe-umbrella.h in Headers */,
+				2AD8925DED8EEF27106AB199 /* STPAPIClient+ApplePay.h in Headers */,
+				D0C7697C74CFB9EFE1D7D820 /* STPAPIClient.h in Headers */,
+				8A40A9B3AF13D1D709366177 /* STPAPIConnection.h in Headers */,
+				FF17F6A7438424F60931E9AF /* STPBankAccount.h in Headers */,
+				8DC90E6B71B9E616D7BA5515 /* STPCard.h in Headers */,
+				90905BE10E57D9F76E5DD519 /* STPCheckoutDelegate.h in Headers */,
+				EF8DE65900ADBEA72E4E1122 /* STPCheckoutInternalUIWebViewController.h in Headers */,
+				DD73B96887C38F1C90FA4CF5 /* STPCheckoutOptions.h in Headers */,
+				EB597A9D974D2B77D38FD7AB /* STPCheckoutViewController.h in Headers */,
+				28981B8C2E9FB692FF81C3B8 /* STPCheckoutWebViewAdapter.h in Headers */,
+				C0591CF59C87B07BAE93B584 /* STPColorUtils.h in Headers */,
+				BEBF66FD4B40A8B1D52CA56C /* STPFormEncoder.h in Headers */,
+				F99CACD99D53E807582C7465 /* STPIOSCheckoutWebViewAdapter.h in Headers */,
+				25044BE567627B9240289608 /* STPNullabilityMacros.h in Headers */,
+				FBFFE3D2957E404F8D909A00 /* STPOSXCheckoutWebViewAdapter.h in Headers */,
+				B755B637A34484E0EF383841 /* STPStrictURLProtocol.h in Headers */,
+				9656B08DEEE6A14C475898D9 /* STPToken.h in Headers */,
+				B37459C0AAB3255D7CF9EDE4 /* Stripe+ApplePay.h in Headers */,
+				45D331294DDF0C5E0476F168 /* Stripe.h in Headers */,
+				56D907E34BFE1779A6A31446 /* StripeError.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7CD38BFF2A1D64EA3A6416C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6621E01EFC179B9E968CB91A /* Pods-Pineapple-Spring-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C849EA53892722579DD491B9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C9B80E3A3CDEC8029C4439D /* Chameleon.h in Headers */,
+				9C4AA922ECE79FE481AC6CF3 /* ChameleonMacros.h in Headers */,
+				23A28B541052590AF08A39CB /* ChameleonStatusBar.h in Headers */,
+				9BC0FB92F41C572710E3B7DD /* NSArray+Chameleon.h in Headers */,
+				67EEBCAE0F6958550EC17164 /* Pods-Pineapple-ChameleonFramework-umbrella.h in Headers */,
+				1A16184833F5251258B78166 /* UIColor+CIELAB.h in Headers */,
+				A5E77DBF40936FE5AD3A73DC /* UIColor+Chameleon.h in Headers */,
+				525EAB051689C09EC3CA1DD5 /* UIViewController+Chameleon.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA38D85B3CD7804C5AE2CE06 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ED5AA79BEF5FD0984637594 /* Pods-Pineapple-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		15D80AE75711F55D8FF48634 /* Pods-Pineapple-AFNetworking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 614B1019DB5EAA94545CDE14 /* Build configuration list for PBXNativeTarget "Pods-Pineapple-AFNetworking" */;
+			buildPhases = (
+				0A62F8C692D472B196109479 /* Sources */,
+				7B52FCB11DCCEFE8337C6045 /* Frameworks */,
+				6FD86C61CA4FF8C6291FA772 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Pineapple-AFNetworking";
+			productName = "Pods-Pineapple-AFNetworking";
+			productReference = BE8F3C27125DCCA1E673F750 /* AFNetworking.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		38B229D611FA1CCA0F76E581 /* Pods-Pineapple-TextFieldEffects */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5A93448A5F270BA5FB459AC /* Build configuration list for PBXNativeTarget "Pods-Pineapple-TextFieldEffects" */;
+			buildPhases = (
+				7344A5B44BCBECACC14B2D98 /* Sources */,
+				92F40EB93BF166F372A703C7 /* Frameworks */,
+				2E394E4372FB4CB483CA9A1D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Pineapple-TextFieldEffects";
+			productName = "Pods-Pineapple-TextFieldEffects";
+			productReference = 7825E9BFB77A6D4B9A6432AB /* TextFieldEffects.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4E404C3603DB1F04CFEA9AB8 /* Pods-Pineapple-SVProgressHUD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 412534188C76DCE26A0D0D00 /* Build configuration list for PBXNativeTarget "Pods-Pineapple-SVProgressHUD" */;
+			buildPhases = (
+				A983B11C2958ACB6FC8DE5DD /* Sources */,
+				35563E15089E4D66F47EE17D /* Frameworks */,
+				249D1004D1ECEEA49340AD9B /* Headers */,
+				21BAC8A0685FE6EE224AAE51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Pineapple-SVProgressHUD";
+			productName = "Pods-Pineapple-SVProgressHUD";
+			productReference = CE6B22C27E25A7EF16101CE3 /* SVProgressHUD.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6DB28A8AB707B527663D1ABC /* Pods-Pineapple-Spring */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D37215517C7DDE1B96B1C77 /* Build configuration list for PBXNativeTarget "Pods-Pineapple-Spring" */;
+			buildPhases = (
+				CB8BAC0783C2F7716E791613 /* Sources */,
+				CB2CE5D16679AD82F075C2B0 /* Frameworks */,
+				55BD0A00DA16941D0E75865A /* Resources */,
+				C7CD38BFF2A1D64EA3A6416C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Pineapple-Spring";
+			productName = "Pods-Pineapple-Spring";
+			productReference = 3F8C62248D596119FC594E7D /* Spring.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B66CF4CF794AC502E49DA630 /* Pods-Pineapple-Stripe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C6F5456AD54715D2D105576 /* Build configuration list for PBXNativeTarget "Pods-Pineapple-Stripe" */;
+			buildPhases = (
+				3C98894F58659363AD0AADEF /* Sources */,
+				EAE6F14FCF4F1C3D416A5B53 /* Frameworks */,
+				7D16994936BDA033C288920E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Pineapple-Stripe";
+			productName = "Pods-Pineapple-Stripe";
+			productReference = EF0B575829FCE303430F1636 /* Stripe.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BC22120DC5EBE6EF909EE7D1 /* Pods-Pineapple */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDDD6D2F2C762681855DD242 /* Build configuration list for PBXNativeTarget "Pods-Pineapple" */;
+			buildPhases = (
+				A9677B661D4976F81BA0E373 /* Sources */,
+				F6735588F6E7DB8B1678BB9C /* Frameworks */,
+				CA38D85B3CD7804C5AE2CE06 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				54D89DB9529471E97C13ADBA /* PBXTargetDependency */,
+				2BD314EBE51A076E4E71E29B /* PBXTargetDependency */,
+				85B6DDE1A4728F586C9294A8 /* PBXTargetDependency */,
+				954DA74ECD4E152CA616C705 /* PBXTargetDependency */,
+				1FA017C8862B806B32EF21CB /* PBXTargetDependency */,
+				CF5EEBD317A87DA3B7215901 /* PBXTargetDependency */,
+			);
+			name = "Pods-Pineapple";
+			productName = "Pods-Pineapple";
+			productReference = A944E1E0A9470A10ECAEBB24 /* Pods_Pineapple.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F696EEA44D6645F8330D014C /* Pods-Pineapple-ChameleonFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53CD3C24A6DF83694F78DA0F /* Build configuration list for PBXNativeTarget "Pods-Pineapple-ChameleonFramework" */;
+			buildPhases = (
+				2EFD1E39C5C735D1F8488710 /* Sources */,
+				B07EAE3B2C86E5FB4C8FB0ED /* Frameworks */,
+				C849EA53892722579DD491B9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Pineapple-ChameleonFramework";
+			productName = "Pods-Pineapple-ChameleonFramework";
+			productReference = 72A2E068AAEDEF23B704185B /* ChameleonFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		925B80347CE73C38CE1F598F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+			};
+			buildConfigurationList = 39A12FCF15D3304C3472FD76 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EB99D12602666727FB441DF4;
+			productRefGroup = 37740E9E1A1262EE56B11EFD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC22120DC5EBE6EF909EE7D1 /* Pods-Pineapple */,
+				15D80AE75711F55D8FF48634 /* Pods-Pineapple-AFNetworking */,
+				F696EEA44D6645F8330D014C /* Pods-Pineapple-ChameleonFramework */,
+				4E404C3603DB1F04CFEA9AB8 /* Pods-Pineapple-SVProgressHUD */,
+				6DB28A8AB707B527663D1ABC /* Pods-Pineapple-Spring */,
+				B66CF4CF794AC502E49DA630 /* Pods-Pineapple-Stripe */,
+				38B229D611FA1CCA0F76E581 /* Pods-Pineapple-TextFieldEffects */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		21BAC8A0685FE6EE224AAE51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A50D5F6E96D4BC689269CAC0 /* SVProgressHUD.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55BD0A00DA16941D0E75865A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4FB606CD8C41928468F061A /* Images.xcassets in Resources */,
+				00E56954FD527B54453588DC /* LoadingView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0A62F8C692D472B196109479 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B072D9052AACE90FDAB2B0D /* AFHTTPRequestOperation.m in Sources */,
+				7E47F2F47FCD4277A10A0F9E /* AFHTTPRequestOperationManager.m in Sources */,
+				C31A3941D24D88925D36DE8A /* AFHTTPSessionManager.m in Sources */,
+				5ABD873E889E3948750E44AF /* AFNetworkActivityIndicatorManager.m in Sources */,
+				D18FBF8528DCFF5E0D4F0611 /* AFNetworkReachabilityManager.m in Sources */,
+				36CDA08F4FD80C153A2D0157 /* AFSecurityPolicy.m in Sources */,
+				C6A428230CB97BFFD1436413 /* AFURLConnectionOperation.m in Sources */,
+				AB7676B514B743E6D4D87678 /* AFURLRequestSerialization.m in Sources */,
+				76D543C8FE5BBC670C9BE4AB /* AFURLResponseSerialization.m in Sources */,
+				52115298C37AC0CEFD12DB56 /* AFURLSessionManager.m in Sources */,
+				822D978D7C9B3BAAFB51E7F2 /* Pods-Pineapple-AFNetworking-dummy.m in Sources */,
+				0537EFC7B85272BFAEEFA9DF /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				0A680DE6E20301A078712CD5 /* UIAlertView+AFNetworking.m in Sources */,
+				B053FB625817BA60050FD816 /* UIButton+AFNetworking.m in Sources */,
+				9454092817A3ED3CED4C9358 /* UIImageView+AFNetworking.m in Sources */,
+				ED74B1894BCA32288EB16782 /* UIProgressView+AFNetworking.m in Sources */,
+				DEE04713B8762F820B8D8593 /* UIRefreshControl+AFNetworking.m in Sources */,
+				0CED040AC69EE7CFB9BCBE8B /* UIWebView+AFNetworking.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EFD1E39C5C735D1F8488710 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FC58934E28924E0FFA92643 /* ChameleonStatusBar.m in Sources */,
+				A5007DD5A0369AA61D799181 /* NSArray+Chameleon.m in Sources */,
+				A59E5554AE17B9BFAC3C5EAD /* Pods-Pineapple-ChameleonFramework-dummy.m in Sources */,
+				DEAFEE542A8F985D7F155AE0 /* UIColor+CIELAB.m in Sources */,
+				876ECF8DD6A5C041BF3C8E82 /* UIColor+Chameleon.m in Sources */,
+				9B592FD0B3883956901063A9 /* UIViewController+Chameleon.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C98894F58659363AD0AADEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20EE1031D1619FF07854307F /* Pods-Pineapple-Stripe-dummy.m in Sources */,
+				DC9CD38CA351947015AFE585 /* STPAPIClient+ApplePay.m in Sources */,
+				260CCE3F515BB81FFEC63ABD /* STPAPIClient.m in Sources */,
+				6A26D9FB3C0777C08CC9430A /* STPAPIConnection.m in Sources */,
+				AE015F6813204E257E989DAC /* STPBankAccount.m in Sources */,
+				BA0D1E4082F99B170FD93DD1 /* STPCard.m in Sources */,
+				0039024C22DA642D12A41D03 /* STPCheckoutInternalUIWebViewController.m in Sources */,
+				8335F980DC4BAF9364617A40 /* STPCheckoutOptions.m in Sources */,
+				3FE0AA69DF592613D0D423BF /* STPCheckoutViewController.m in Sources */,
+				662202A528864CC64494C479 /* STPColorUtils.m in Sources */,
+				36F7C44C8B5190DB66FD1697 /* STPFormEncoder.m in Sources */,
+				CC6365ABA2C7B2F5E0D8E711 /* STPIOSCheckoutWebViewAdapter.m in Sources */,
+				8548A727215B4F5990021DA9 /* STPOSXCheckoutWebViewAdapter.m in Sources */,
+				F5BC20F8352AF5A1B9D2CF59 /* STPStrictURLProtocol.m in Sources */,
+				A4EDF353C19A2EC7DDE26FE4 /* STPToken.m in Sources */,
+				70819B93A20B7372C81EFCA9 /* Stripe+ApplePay.m in Sources */,
+				E5553D8188ECBB61F00089B0 /* StripeError.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7344A5B44BCBECACC14B2D98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A237B35E926751AAC8CFDE45 /* AkiraTextField.swift in Sources */,
+				1497DDFD44F0B56681D5915D /* HoshiTextField.swift in Sources */,
+				9994437896B330C7188F91EB /* IsaoTextField.swift in Sources */,
+				738CC3E986C63A0DC5D80959 /* JiroTextField.swift in Sources */,
+				0EAE2DDB77A289028976B085 /* KaedeTextField.swift in Sources */,
+				C388902FD13535BADA2D1C53 /* MadokaTextField.swift in Sources */,
+				322F4D95F45EA2EC746B4F7B /* MinoruTextField.swift in Sources */,
+				DA5856F495C36D6C5663CB89 /* Pods-Pineapple-TextFieldEffects-dummy.m in Sources */,
+				B43B553BD1B0686226D59E23 /* TextFieldsEffects.swift in Sources */,
+				7BB4563A5B9D357D29D68C04 /* YokoTextField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9677B661D4976F81BA0E373 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB15C55F95DE64E7C879F07C /* Pods-Pineapple-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A983B11C2958ACB6FC8DE5DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A913E719A8409DFACA0353F3 /* Pods-Pineapple-SVProgressHUD-dummy.m in Sources */,
+				9B9A125E4AB55E3856227506 /* SVIndefiniteAnimatedView.m in Sources */,
+				5E35A999FD60E27EC7B8F3A0 /* SVProgressHUD.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB8BAC0783C2F7716E791613 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB173513171733FD7DB165E2 /* AsyncButton.swift in Sources */,
+				FB8495EC4676BEF73ECDCEE2 /* AsyncImageView.swift in Sources */,
+				09AC1895131A27F79057BBFF /* AutoTextView.swift in Sources */,
+				2157E13B3A76C1CBEE7AACD1 /* BlurView.swift in Sources */,
+				927445A0D26CF5DB02EE227E /* DesignableButton.swift in Sources */,
+				6E9533EED0DABB6D32AACDDD /* DesignableImageView.swift in Sources */,
+				3C3A0AC5031A50874E0536FE /* DesignableLabel.swift in Sources */,
+				5DE87A98CD085497125D4E34 /* DesignableTabBarController.swift in Sources */,
+				F367E53732FCD5B47486F95E /* DesignableTextField.swift in Sources */,
+				1C51A2F4D1167F13D0613705 /* DesignableTextView.swift in Sources */,
+				07C07F743FDCB7A9273B0502 /* DesignableView.swift in Sources */,
+				F5F428133416001785B97CC2 /* ImageLoader.swift in Sources */,
+				DE7D13F13001E8701EFDFFF2 /* KeyboardLayoutConstraint.swift in Sources */,
+				C61A30BED913690AB5443381 /* LoadingView.swift in Sources */,
+				0F0C2BFD9F9E8EDC7D8FA1A8 /* Misc.swift in Sources */,
+				A7BC2176BE165C256CD48735 /* Pods-Pineapple-Spring-dummy.m in Sources */,
+				0E8EF6B98DBB2707B64835CC /* SoundPlayer.swift in Sources */,
+				8F1530F1C44FF6D51F296893 /* Spring.swift in Sources */,
+				2BE3C61FCD2E398E4A96502C /* SpringAnimation.swift in Sources */,
+				FC504BB4384CCC9014C61CCB /* SpringButton.swift in Sources */,
+				618292A3D7177352A78368B6 /* SpringImageView.swift in Sources */,
+				A8D3BA258BC04673808F43BD /* SpringLabel.swift in Sources */,
+				4AC8A9D4BDB93A52DC60B124 /* SpringTextField.swift in Sources */,
+				FFA3EF1CBF59755F32E7042E /* SpringTextView.swift in Sources */,
+				437DDDA696D0367525AAD4E8 /* SpringView.swift in Sources */,
+				450C081F0B2714EA4087D42B /* TransitionManager.swift in Sources */,
+				94D37268D1681F8BFB66DE12 /* TransitionZoom.swift in Sources */,
+				2D7EF1D96374BBF2B627DD7E /* UnwindSegue.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FA017C8862B806B32EF21CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Pineapple-Stripe";
+			target = B66CF4CF794AC502E49DA630 /* Pods-Pineapple-Stripe */;
+			targetProxy = C80AC62B824E622FBEF0833B /* PBXContainerItemProxy */;
+		};
+		2BD314EBE51A076E4E71E29B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Pineapple-ChameleonFramework";
+			target = F696EEA44D6645F8330D014C /* Pods-Pineapple-ChameleonFramework */;
+			targetProxy = 36F25E46DB4F5D2631C5EE9A /* PBXContainerItemProxy */;
+		};
+		54D89DB9529471E97C13ADBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Pineapple-AFNetworking";
+			target = 15D80AE75711F55D8FF48634 /* Pods-Pineapple-AFNetworking */;
+			targetProxy = 0B944E1518699A59D82B265D /* PBXContainerItemProxy */;
+		};
+		85B6DDE1A4728F586C9294A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Pineapple-SVProgressHUD";
+			target = 4E404C3603DB1F04CFEA9AB8 /* Pods-Pineapple-SVProgressHUD */;
+			targetProxy = B875A59547D65026EFEAFD79 /* PBXContainerItemProxy */;
+		};
+		954DA74ECD4E152CA616C705 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Pineapple-Spring";
+			target = 6DB28A8AB707B527663D1ABC /* Pods-Pineapple-Spring */;
+			targetProxy = 0CA17C358C953E6D3F08F3FA /* PBXContainerItemProxy */;
+		};
+		CF5EEBD317A87DA3B7215901 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Pineapple-TextFieldEffects";
+			target = 38B229D611FA1CCA0F76E581 /* Pods-Pineapple-TextFieldEffects */;
+			targetProxy = 507987EC5F67D20CF1563987 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		18B24B8C839C0B04FD9517B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD32139381D59C86E9BF6E66 /* Pods-Pineapple-Stripe-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Pineapple-Stripe/Pods-Pineapple-Stripe-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pineapple-Stripe/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Pineapple-Stripe/Pods-Pineapple-Stripe.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Stripe;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		22FFDCA8962B659737C70BF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 778FE9ADF9D06BF122709021 /* Pods-Pineapple-AFNetworking-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Pineapple-AFNetworking/Pods-Pineapple-AFNetworking-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pineapple-AFNetworking/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Pineapple-AFNetworking/Pods-Pineapple-AFNetworking.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = AFNetworking;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		407DF787E7B5BAD3F6A3BF6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 778FE9ADF9D06BF122709021 /* Pods-Pineapple-AFNetworking-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Pineapple-AFNetworking/Pods-Pineapple-AFNetworking-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pineapple-AFNetworking/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Pineapple-AFNetworking/Pods-Pineapple-AFNetworking.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = AFNetworking;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		48FAB7DD187D7834EC4CDA35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 596979D555B28FDF08C33540 /* Pods-Pineapple.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Pineapple/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Pineapple/Pods-Pineapple.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_Pineapple;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4BC1C83C941A621BAF1E80CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 259DE281638522C67E269036 /* Pods-Pineapple.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Pineapple/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Pineapple/Pods-Pineapple.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_Pineapple;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5077AD0212149B85F180DBE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		678524A73D9DAC8D29250060 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40E912EAC54D1D2CD8FD5FE4 /* Pods-Pineapple-ChameleonFramework-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Pineapple-ChameleonFramework/Pods-Pineapple-ChameleonFramework-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pineapple-ChameleonFramework/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Pineapple-ChameleonFramework/Pods-Pineapple-ChameleonFramework.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = ChameleonFramework;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6DBEC90E7657697F5188C1A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD32139381D59C86E9BF6E66 /* Pods-Pineapple-Stripe-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Pineapple-Stripe/Pods-Pineapple-Stripe-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pineapple-Stripe/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Pineapple-Stripe/Pods-Pineapple-Stripe.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Stripe;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		809684DACAFABEB6404E20EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F638247B160A71EB04255CF /* Pods-Pineapple-Spring-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Pineapple-Spring/Pods-Pineapple-Spring-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pineapple-Spring/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Pineapple-Spring/Pods-Pineapple-Spring.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Spring;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		909E10410F2BBC705507CCA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7C6AFF4E8DFDEBA7B2C8B7C /* Pods-Pineapple-TextFieldEffects-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Pineapple-TextFieldEffects/Pods-Pineapple-TextFieldEffects-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pineapple-TextFieldEffects/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Pineapple-TextFieldEffects/Pods-Pineapple-TextFieldEffects.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = TextFieldEffects;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		996D3BD58BA42358339EDE55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F41B693A19D1772C17B8E60E /* Pods-Pineapple-SVProgressHUD-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Pineapple-SVProgressHUD/Pods-Pineapple-SVProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pineapple-SVProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Pineapple-SVProgressHUD/Pods-Pineapple-SVProgressHUD.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SVProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D965DE5D874C448A8C36B4B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DDB64B9B072CCF76EC2540D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F638247B160A71EB04255CF /* Pods-Pineapple-Spring-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Pineapple-Spring/Pods-Pineapple-Spring-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pineapple-Spring/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Pineapple-Spring/Pods-Pineapple-Spring.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Spring;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ED0E3E8EE856EEBACD58CB91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7C6AFF4E8DFDEBA7B2C8B7C /* Pods-Pineapple-TextFieldEffects-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Pineapple-TextFieldEffects/Pods-Pineapple-TextFieldEffects-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pineapple-TextFieldEffects/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Pineapple-TextFieldEffects/Pods-Pineapple-TextFieldEffects.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = TextFieldEffects;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EDF16BD4F287ED3E6B1266FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40E912EAC54D1D2CD8FD5FE4 /* Pods-Pineapple-ChameleonFramework-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Pineapple-ChameleonFramework/Pods-Pineapple-ChameleonFramework-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pineapple-ChameleonFramework/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Pineapple-ChameleonFramework/Pods-Pineapple-ChameleonFramework.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = ChameleonFramework;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FDC93100CD96B9F3B8F86F22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F41B693A19D1772C17B8E60E /* Pods-Pineapple-SVProgressHUD-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Pineapple-SVProgressHUD/Pods-Pineapple-SVProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pineapple-SVProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Pineapple-SVProgressHUD/Pods-Pineapple-SVProgressHUD.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SVProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		39A12FCF15D3304C3472FD76 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5077AD0212149B85F180DBE5 /* Debug */,
+				D965DE5D874C448A8C36B4B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3C6F5456AD54715D2D105576 /* Build configuration list for PBXNativeTarget "Pods-Pineapple-Stripe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DBEC90E7657697F5188C1A4 /* Debug */,
+				18B24B8C839C0B04FD9517B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		412534188C76DCE26A0D0D00 /* Build configuration list for PBXNativeTarget "Pods-Pineapple-SVProgressHUD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDC93100CD96B9F3B8F86F22 /* Debug */,
+				996D3BD58BA42358339EDE55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D37215517C7DDE1B96B1C77 /* Build configuration list for PBXNativeTarget "Pods-Pineapple-Spring" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				809684DACAFABEB6404E20EC /* Debug */,
+				DDB64B9B072CCF76EC2540D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53CD3C24A6DF83694F78DA0F /* Build configuration list for PBXNativeTarget "Pods-Pineapple-ChameleonFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				678524A73D9DAC8D29250060 /* Debug */,
+				EDF16BD4F287ED3E6B1266FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		614B1019DB5EAA94545CDE14 /* Build configuration list for PBXNativeTarget "Pods-Pineapple-AFNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407DF787E7B5BAD3F6A3BF6D /* Debug */,
+				22FFDCA8962B659737C70BF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5A93448A5F270BA5FB459AC /* Build configuration list for PBXNativeTarget "Pods-Pineapple-TextFieldEffects" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				909E10410F2BBC705507CCA3 /* Debug */,
+				ED0E3E8EE856EEBACD58CB91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDDD6D2F2C762681855DD242 /* Build configuration list for PBXNativeTarget "Pods-Pineapple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BC1C83C941A621BAF1E80CD /* Debug */,
+				48FAB7DD187D7834EC4CDA35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 925B80347CE73C38CE1F598F /* Project object */;
+}

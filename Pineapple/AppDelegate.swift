@@ -2,23 +2,73 @@
 //  AppDelegate.swift
 //  Pineapple
 //
-//  Created by Valentin Perez on 7/29/15.
+//  Created by Valentin Perez on 5/21/15.
 //  Copyright (c) 2015 Valpe Technologies. All rights reserved.
 //
 
 import UIKit
+import Parse
+import Bolts
+import Stripe
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
+
+    // [Optional] Power your app with Local Datastore. For more info, go to
+    // https://parse.com/docs/ios_guide#localdatastore/iOS
+    Parse.enableLocalDatastore()
+
+    Stripe.setDefaultPublishableKey(Constants.Payment.stripePublishableKey)
+
+    // Initialize Parse.
+    Parse.setApplicationId(Constants.Parse.applicationId,
+      clientKey: Constants.Parse.clientKey)
+
+    UIApplication.sharedApplication().statusBarStyle = .LightContent
+
+    // [Optional] Track statistics around application opens.
+    PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+    //[Braintree setReturnURLScheme:@"com.your-company.Your-App.payments"];
+
+
+
+    self.setTabbarWidth()
+    // Braintree.setReturnURLScheme(<#scheme: String!#>)
+    var currentUser = PFUser.currentUser()
+    if currentUser != nil {
+      // Do stuff with the user
+      // normal, keep doing what you're doing bruh
+
+    } else {
+      // Show the signup or login screen
+      //
+      let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+
+      let vc : OnboardViewController = mainStoryboard.instantiateViewControllerWithIdentifier("onboardController") as! OnboardViewController
+
+      self.window?.rootViewController = vc
+
+      //LogInViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"logInController"];
+      //self.window.rootViewController = vc;
+    }
+
+
+
+
     return true
   }
 
+  func setTabbarWidth() {
+    var screenSize = UIScreen.mainScreen().applicationFrame
+    var tabBarItemsCount : CGFloat = 2
+    var width = screenSize.size.width / tabBarItemsCount
+    UITabBar.appearance().itemWidth = width
+  }
   func applicationWillResignActive(application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
