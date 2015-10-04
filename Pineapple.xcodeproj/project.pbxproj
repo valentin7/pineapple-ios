@@ -71,6 +71,7 @@
 		A7330B261B689058009EFC5A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7330B251B689058009EFC5A /* Accounts.framework */; };
 		A7330B281B6F07A1009EFC5A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7330B271B6F07A1009EFC5A /* AVFoundation.framework */; };
 		A7330B2A1B6F07B5009EFC5A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7330B291B6F07B5009EFC5A /* CoreMedia.framework */; };
+		A74E04701B844154002FFBA3 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E046F1B844154002FFBA3 /* SweetAlert.swift */; };
 		A7A867A11B6F105E0066078D /* libCardIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A867A01B6F105E0066078D /* libCardIO.a */; };
 		A7A867A41B6F11360066078D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A867A31B6F11360066078D /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
@@ -158,6 +159,7 @@
 		A7330B251B689058009EFC5A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		A7330B271B6F07A1009EFC5A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A7330B291B6F07B5009EFC5A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A74E046F1B844154002FFBA3 /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 		A7A867981B6F105E0066078D /* CardIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIO.h; sourceTree = "<group>"; };
 		A7A867991B6F105E0066078D /* CardIOCreditCardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIOCreditCardInfo.h; sourceTree = "<group>"; };
 		A7A8679A1B6F105E0066078D /* CardIODetectionMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardIODetectionMode.h; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				A7330A8C1B688A76009EFC5A /* AppDelegate.swift */,
 				A7330AB81B688B42009EFC5A /* Constants.swift */,
 				A7330AB61B688B3A009EFC5A /* TabBarController.swift */,
+				A74E046F1B844154002FFBA3 /* SweetAlert.swift */,
 				A7A867A21B6F10640066078D /* CardIO */,
 				A7330AD71B688BA7009EFC5A /* ViewControllers */,
 				A7330AC21B688B5E009EFC5A /* Others */,
@@ -429,7 +432,9 @@
 		A7330A7F1B688A76009EFC5A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Valpe Technologies";
 				TargetAttributes = {
 					A7330A861B688A76009EFC5A = {
@@ -574,6 +579,7 @@
 				A7330ABE1B688B58009EFC5A /* MenuTransitionManager.swift in Sources */,
 				A7330A8F1B688A76009EFC5A /* ViewController.swift in Sources */,
 				A7330B1F1B688FEF009EFC5A /* PhoneChangeViewController.swift in Sources */,
+				A74E04701B844154002FFBA3 /* SweetAlert.swift in Sources */,
 				A7330AD61B688B8E009EFC5A /* SignupViewController.swift in Sources */,
 				A7330AC01B688B58009EFC5A /* PlaceTableViewCell.swift in Sources */,
 				A7330AB71B688B3A009EFC5A /* TabBarController.swift in Sources */,
@@ -629,6 +635,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -698,12 +705,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Pineapple/Pineapple.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Pineapple/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -744,6 +752,7 @@
 					"\"UIKit\"",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Valpe-Technologies.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pineapple/Pineapple-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -761,12 +770,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Pineapple/Pineapple.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Pineapple/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -807,6 +817,7 @@
 					"\"UIKit\"",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Valpe-Technologies.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pineapple/Pineapple-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -828,6 +839,7 @@
 				);
 				INFOPLIST_FILE = PineappleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Valpe-Technologies.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pineapple.app/Pineapple";
 			};
@@ -843,6 +855,7 @@
 				);
 				INFOPLIST_FILE = PineappleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Valpe-Technologies.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pineapple.app/Pineapple";
 			};

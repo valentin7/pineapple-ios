@@ -45,9 +45,9 @@ class CellAnimator {
         //now make the image view a bit bigger, so we can do a zoomout effect when it becomes visible
         cell.contentView.alpha = 0.4;
         
-        var transformScale : CGAffineTransform = CGAffineTransformMakeScale(1.2, 1.2)
+        let transformScale : CGAffineTransform = CGAffineTransformMakeScale(1.2, 1.2)
         
-        var transformTranslate : CGAffineTransform = CGAffineTransformMakeTranslation(0,0)
+        let transformTranslate : CGAffineTransform = CGAffineTransformMakeTranslation(0,0)
         
         cell.contentView.transform = CGAffineTransformConcat(transformScale, transformTranslate);
         

@@ -113,7 +113,7 @@ class OnboardViewController: UIViewController {
     
     func showLogin() {
         
-        println("showing login")
+        print("showing login")
         self.backButton.alpha = 1
 
         UIView.animateWithDuration(0.6, delay: 0.0, options: .CurveEaseIn, animations: {
@@ -162,11 +162,11 @@ class OnboardViewController: UIViewController {
     
     func showSignup() {
         
-        println("MOVING OUT BRAH")
+        print("MOVING OUT BRAH")
 //        backButton.animation = "squeezeLeft"
 //        backButton.animate()
 
-        print("is not hidden so moving out!!")
+        print("is not hidden so moving out!!", terminator: "")
         UIView.animateWithDuration(1.5, delay: 0, options: .CurveEaseIn, animations: {
            // self.moveViewByX(self.emailTextfield, by: -self.view.frame.width)
             self.emailTextfield.alpha = 0
@@ -256,16 +256,16 @@ class OnboardViewController: UIViewController {
     
     func logIn(){
         
-        println("trying to login")
+        print("trying to login")
         SVProgressHUD.show()
         if (emailTextfield.hasText() && passwordTextfield.hasText()) {
-            PFUser.logInWithUsernameInBackground(emailTextfield.text, password: passwordTextfield.text) {
+            PFUser.logInWithUsernameInBackground(emailTextfield.text!, password: passwordTextfield.text!) {
                 (user: PFUser?, error: NSError?) -> Void in
                 if user != nil {
                     // Do stuff after successful login.
-                    println("successfull login")
-                  println("with pass: \(self.passwordTextfield.text)")
-                  println("user pass: \(user?.password)")
+                    print("successfull login")
+                  print("with pass: \(self.passwordTextfield.text)")
+                  print("user pass: \(user?.password)")
                     SVProgressHUD.dismiss()
                     self.showApp()
                     
@@ -273,16 +273,16 @@ class OnboardViewController: UIViewController {
                 } else {
                     SVProgressHUD.dismiss()
                     // The login failed. Check error to see why.
-                    UIAlertView(title: "Could not log in", message: "Please try again later!", delegate: self, cancelButtonTitle: "Ok").show()
+                    UIAlertView(title: "Could not log in", message: "Please double-check your log in info!", delegate: self, cancelButtonTitle: "Ok").show()
                     
-                    println("log in error: ")
-                    println("error?.description")
+                    print("log in error: ")
+                    print("error?.description")
                     
                 }
             }
         } else {
             SVProgressHUD.dismiss()
-            UIAlertView(title: "Don't get too excited!", message: "You forgot your email or password", delegate: self, cancelButtonTitle: "Ah yes").show();
+            UIAlertView(title: "Don't get too excited!", message: "You forgot your email or password", delegate: self, cancelButtonTitle: "Ok").show();
             
         }
         

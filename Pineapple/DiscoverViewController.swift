@@ -9,28 +9,36 @@
 import UIKit
 import Parse
 import AFNetworking
+import Mixpanel
 
 class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource  {
     
-    var placeNames: [String] = ["Ritz Carlton", "Nizuc", "Aqua", "Riu Palace", "Le Blanc", "Mayakoba", "JW Marriot", "Oasis Cancun", "Omni Hotel", "Dreams"]
-    
-    var places : [PFObject] = []
-    
-    var sunnyRefresher : YALSunnyRefreshControl!
-    var refreshing = false
-    
-    @IBOutlet var tableView: UITableView!
+  var placeNames: [String] = ["Ritz Carlton", "Nizuc", "Aqua", "Riu Palace", "Le Blanc", "Mayakoba", "JW Marriot", "Oasis Cancun", "Omni Hotel", "Dreams"]
+  
+  var places : [PFObject] = []
+  
+  var sunnyRefresher : YALSunnyRefreshControl!
+  var refreshing = false
+
+  var mixPanel : Mixpanel!
+  var user : PFUser!
+
+
+  @IBOutlet var tableView: UITableView!
     
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    println("DISCOVER")
+    print("DISCOVER")
 
     sunnyRefresher  = YALSunnyRefreshControl.attachToScrollView(self.tableView, target: self, refreshAction: "didStartRefreshAnimation")
 
     self.tableView.delegate = self
     self.tableView.dataSource = self
 
+    user = PFUser.currentUser()
+
+    mixPanel = Mixpanel.sharedInstance()
 
     refreshPlaces()
 
@@ -70,7 +78,7 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
     return .LightContent
   }
     func didStartRefreshAnimation (){
-        println("REFRESHING YOO")
+        print("REFRESHING YOO")
         self.refreshPlaces()
        // self.navigationController?.navigationBar.hidden = true
         //self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -85,10 +93,10 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
     }
     
     override func viewDidAppear(animated: Bool) {
-      println("PLACES: \(self.places.count)")
+      print("PLACES: \(self.places.count)")
 
       if (self.places.count <= 0) {
-        println("REFRESHING AGAIN")
+        print("REFRESHING AGAIN")
         self.refreshPlaces()
       }
      // var tracker = GAI.sharedInstance().defaultTracker
@@ -110,7 +118,7 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-      var cell : PlaceTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("placeCell") as! PlaceTableViewCell
+      let cell : PlaceTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("placeCell") as! PlaceTableViewCell
       
       
       //cell.imageView?.image = UIImage(named: self.imageNames[indexPath.row])
@@ -127,15 +135,8 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
         let imageFile = place["image"] as? PFFile
         let url = imageFile!.url
         
-        cell.placeImage!.setImageWithURL(NSURL(string: url!), placeholderImage: UIImage(named: "nizuc-beach.jpg"))
+        cell.placeImage!.setImageWithURL(NSURL(string: url!)!, placeholderImage: UIImage(named: "nizuc-beach.jpg"))
       }
-
-//      } else {
-//          cell.placeName?.text = self.placeNames[indexPath.row]
-//          cell.placeDescription?.text = "Pool, beach, and gym."
-//          cell.placeImage?.image = UIImage(named: "nizuc-beach.jpg")
-//      }
-//
       cell.clipsToBounds = true
 
       return cell
@@ -152,35 +153,67 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
 
     func refreshPlaces() {
 
-      println("trynna refresh")
+      print("trynna refresh")
 
         if (!self.refreshing) {
           self.refreshing = true
-          var query = PFQuery(className:"Place")
 
-          let user = PFUser.currentUser()!
           PFGeoPoint.geoPointForCurrentLocationInBackground {
             (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
             if error == nil {
-              query.whereKey("location", nearGeoPoint: geoPoint!)
-              query.findObjectsInBackgroundWithBlock {
+              //let query1 = PFQuery(className:"Place")
+              let query2 = PFQuery(className:"Place")
+
+              //let locationsSorted = query1.whereKey("location", nearGeoPoint: geoPoint!)
+              let onlyShowing = query2.whereKey("show", equalTo: "yes")
+              //let combined = [query1, query2]
+              //let query = PFQuery.orQueryWithSubqueries(combined)
+
+             // onlyShowing.whereKey("location", notEqualTo: "yes")
+
+
+//              var sortDescriptor = NSSortDescriptor(key: "location", ascending: true, comparator: { (obj1 : AnyObject!, obj2 : AnyObject!) -> NSComparisonResult in
+//                var loc1 = obj1 as! PFGeoPoint
+//                var loc2 = obj2 as! PFGeoPoint
+//                var distance1 = geoPoint?.distanceInKilometersTo(loc1)
+//                var distance2 = geoPoint?.distanceInKilometersTo(loc2)
+//                return NSComparisonResult(rawValue: Int(distance1! - distance2!))!
+//              })
+
+
+             // onlyShowing.orderBySortDescriptor(sortDescriptor)
+              //query.whereKey("show", notEqualTo: "yes")
+              //query.whereKey("toShow", equalTo: 1)
+
+              onlyShowing.findObjectsInBackgroundWithBlock {
                 (objects: [AnyObject]?, error: NSError?) -> Void in
                 self.stopRefreshing()
 
                 if error == nil {
                   // The find succeeded.
-                  println("Successfully retrieved \(objects!.count) places.")
+                  print("Successfully retrieved \(objects!.count) places.")
                   // Do something with the found objects
-                  if let objects = objects as? [PFObject] {
-                    self.places = objects
 
-                    for object in objects {
-                      println(object.objectId)
-                    }
+                  if let objects = objects as? [PFObject] {
+
+                    let sorted = objects.sort({ (o1, o2) -> Bool in
+                      let loc1 = o1["location"] as! PFGeoPoint
+                      let loc2 = o2["location"] as! PFGeoPoint
+
+                      let dist1 = loc1.distanceInKilometersTo(geoPoint)
+                      let dist2 = loc2.distanceInKilometersTo(geoPoint)
+
+                      return dist1 < dist2
+                    })
+
+//                    objects.sort({ (obj1, obj2) -> Bool in
+//                      return false
+//                    })
+                    self.places = sorted
                   }
                 } else {
                   // Log details of the failure
-                  println("Error: \(error!) \(error!.userInfo!)")
+                  print("Error: \(error!) \(error!.userInfo)")
                 }
                 self.tableView.reloadData()
               }
@@ -205,11 +238,24 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
         placeSelected = self.places[indexPath.row]
 
 
-      println("PLACE TAPPED: \(placeSelected)")
-      if placeSelected["available"] as! Bool == false {
-        println("PLACE UNAVAILABLE")
+      let placeName = placeSelected["name"] as! String
+      let userName = user["name"] as! String
+      let placeAvailable = placeSelected["available"] as! Bool
+
+      var placeAvailableString = "no"
+      if placeAvailable == true {
+        placeAvailableString = "yes"
+      }
 
 
+      let info : [String: String] = ["placeName" : placeName, "userEmail" : user.email!, "nameOfUser" : userName, "placeAvailable" : placeAvailableString]
+
+      PFAnalytics.trackEvent("tappedPlace", dimensions: info)
+      mixPanel.track("tappedPlace", properties: info)
+
+      if placeAvailable == false {
+        self.showPlaceUnavailableAlert(info)
+        return
       }
         vc.placeObject = placeSelected
      }
@@ -217,18 +263,35 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
     self.navigationController?.pushViewController(vc, animated: true);
     
     //self.presentViewController(vc, animated: true, completion: nil)
-    
-    println("clickedbrah")
 
     tableView.cellForRowAtIndexPath(indexPath)?.selected = false
   }
 
+  func showPlaceUnavailableAlert(placeInfo : [String: String]){
+
+    let placeName = placeInfo["placeName"]
+    let title = "\(placeName!) is unavailable"
+
+    SweetAlert().showAlert(title, subTitle: "Would you like to see \(placeName!) in Pineapple?", style: AlertStyle.Warning, buttonTitle:"No", buttonColor: UIColor.flatRedColor(), otherButtonTitle:  "Yes!", otherButtonColor: UIColor.flatMintColor()) { (isOtherButton) -> Void in
+      if isOtherButton == true {
+        print("DOES NOT WANT to see hotel \(placeInfo)")
+        PFAnalytics.trackEvent("notWantPlace", dimensions: placeInfo)
+        self.mixPanel.track("notWantPlace", properties: placeInfo)
+      }
+      else {
+        PFAnalytics.trackEvent("wantsPlace", dimensions: placeInfo)
+        self.mixPanel.track("wantsPlace", properties: placeInfo)
+        SweetAlert().showAlert("Thanks!", subTitle: "If you have any other hotel recommendation, you can contact us by tapping 'Send feedback' in the profile screen.", style: AlertStyle.Success)
+      }
+
+    }
+
+  }
 
     //This function is where all the table cell animations magic happens
 
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
 
-        
         if cell.respondsToSelector("setSeparatorInset:") {
             cell.separatorInset = UIEdgeInsetsZero
         }
@@ -239,41 +302,13 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
             cell.preservesSuperviewLayoutMargins = false
         }
         
-        
         CellAnimator.animateZoom(cell)
-
         
         var rotationAndPerspectiveTransform : CATransform3D = CATransform3DIdentity
         rotationAndPerspectiveTransform.m34 = 1.0 / -500
-        
-        
-        //rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, 45.0 * M_PI / 180.0, 0.0, 1.0, 0.0)
-        
-        
-        
-        
+
         cell.layer.transform = rotationAndPerspectiveTransform;
-        
-//        
-//        //var rotation : CATransform3D
-//
-//        //rotation = CATransform3DMakeRotation((90.0*3.14159)/180, 0.0, 0.7, 0.4)
-//
-//        //rotation.m34 = 1.0/(-600)
-//        cell.layer.shadowColor = UIColor.blackColor().CGColor
-//        cell.layer.shadowOffset = CGSizeMake(10, 10)
-//        cell.alpha = 0
-//        
-//    
-//        //cell.layer.transform = rotation
-//        cell.layer.anchorPoint = CGPointMake(0.5, 0.5)
-//        
-//        UIView.beginAnimations("rotation", context: nil)
-//        UIView.setAnimationDuration(0.3)
-//        
-//        cell.layer.transform = CATransform3DIdentity
-//        cell.alpha = 1
-//        cell.layer.shadowOffset = CGSizeMake(0, 0)
+
         UIView.commitAnimations()
         
     }
@@ -281,7 +316,7 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
     
   func scrollViewDidScroll(scrollView: UIScrollView) {
 
-    var translation : CGPoint = scrollView.panGestureRecognizer.translationInView(scrollView.superview!)
+    let translation : CGPoint = scrollView.panGestureRecognizer.translationInView(scrollView.superview!)
 
 
     //[scrollView.panGestureRecognizer translationInView:scrollView.superview];

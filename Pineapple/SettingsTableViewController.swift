@@ -59,30 +59,30 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     }
   }
   override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-    println("YOO")
+    print("YOO")
     if (indexPath.section == 0) {
-      println("SECTION 0 DAW")
+      print("SECTION 0 DAW")
       switch  indexPath.row {
         case 0:
-          println("ch pass")
+          print("ch pass")
           let vc = self.storyboard?.instantiateViewControllerWithIdentifier("passwordChangeController") as! PasswordChangeViewController
           parent.presentViewController(vc, animated: true, completion: nil)
 
         case 1:
-          println("Change phone")
+          print("Change phone")
           let vc = self.storyboard?.instantiateViewControllerWithIdentifier("phoneChangeController") as! PasswordChangeViewController
           parent.presentViewController(vc, animated: true, completion: nil)
-        default: println("Add credit yo")
+        default: print("Add credit yo")
       }
 
     } else if (indexPath.section == 1) {
-      println("DIFF SECTION 1")
+      print("DIFF SECTION 1")
     }
 
   }
 
   func sendFeedback() {
-    println("TRYNNA SEND FEEDBACK")
+    print("TRYNNA SEND FEEDBACK")
     let mailComposeViewController = configuredMailComposeViewController()
     if MFMailComposeViewController.canSendMail() {
       self.presentViewController(mailComposeViewController, animated: true, completion: nil)
@@ -109,7 +109,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 
   // MARK: MFMailComposeViewControllerDelegate
 
-  func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+  func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
     controller.dismissViewControllerAnimated(true, completion: nil)
 
   }

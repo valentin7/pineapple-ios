@@ -8,9 +8,17 @@
 
 import UIKit
 
+/**
+ A MinoruTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the edges of the control.
+ */
 @IBDesignable public class MinoruTextField: TextFieldEffects {
     
-    @IBInspectable public var placeholderColor: UIColor? {
+    /**
+     The color of the placeholder text.
+     
+     This property applies a color to the complete placeholder string. The default value for this property is a black color.
+     */
+    @IBInspectable dynamic public var placeholderColor: UIColor = .blackColor() {
         didSet {
             updatePlaceholder()
         }
@@ -18,7 +26,7 @@ import UIKit
     
     override public var backgroundColor: UIColor? {
         set {
-            backgroundLayerColor = newValue!
+            backgroundLayerColor = newValue
         }
         get {
             return backgroundLayerColor
@@ -44,13 +52,13 @@ import UIKit
     private let borderLayer = CALayer()
     private var backgroundLayerColor: UIColor?    
     
-    // MARK: - TextFieldsEffectsProtocol
+    // MARK: - TextFieldsEffects
     
-    override func drawViewsForRect(rect: CGRect) {
+    override public func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
-        placeholderLabel.font = placeholderFontFromFont(font)
+        placeholderLabel.font = placeholderFontFromFont(font!)
         
         updateBorder()
         updatePlaceholder()
@@ -58,6 +66,26 @@ import UIKit
         layer.addSublayer(borderLayer)
         addSubview(placeholderLabel)        
     }
+    
+    override public func animateViewsForTextEntry() {
+        borderLayer.borderColor = textColor?.CGColor
+        borderLayer.shadowOffset = CGSizeZero
+        borderLayer.borderWidth = borderThickness
+        borderLayer.shadowColor = textColor?.CGColor
+        borderLayer.shadowOpacity = 0.5
+        borderLayer.shadowRadius = 1
+    }
+    
+    override public func animateViewsForTextDisplay() {
+        borderLayer.borderColor = nil
+        borderLayer.shadowOffset = CGSizeZero
+        borderLayer.borderWidth = 0
+        borderLayer.shadowColor = nil
+        borderLayer.shadowOpacity = 0
+        borderLayer.shadowRadius = 0
+    }
+    
+    // MARK: - Private
     
     private func updateBorder() {
         borderLayer.frame = rectForBorder(frame)
@@ -81,17 +109,13 @@ import UIKit
     }
     
     private func rectForBorder(bounds: CGRect) -> CGRect {
-        var newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font.lineHeight + textFieldInsets.y)
+        let newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
         
         return newRect
     }
     
     private func layoutPlaceholderInTextRect() {
-        
-        if !text.isEmpty {
-            return
-        }
-        
+                
         let textRect = textRectForBounds(bounds)
         var originX = textRect.origin.x
         switch textAlignment {
@@ -104,24 +128,6 @@ import UIKit
         }
         placeholderLabel.frame = CGRect(x: originX, y: bounds.height - placeholderLabel.frame.height,
             width: placeholderLabel.frame.size.width, height: placeholderLabel.frame.size.height)
-    }
-    
-    override func animateViewsForTextEntry() {
-        borderLayer.borderColor = textColor?.CGColor
-        borderLayer.shadowOffset = CGSizeZero
-        borderLayer.borderWidth = borderThickness
-        borderLayer.shadowColor = textColor?.CGColor
-        borderLayer.shadowOpacity = 0.5
-        borderLayer.shadowRadius = 1
-    }
-    
-    override func animateViewsForTextDisplay() {
-        borderLayer.borderColor = nil
-        borderLayer.shadowOffset = CGSizeZero
-        borderLayer.borderWidth = 0
-        borderLayer.shadowColor = nil
-        borderLayer.shadowOpacity = 0
-        borderLayer.shadowRadius = 0
     }
     
     // MARK: - Overrides

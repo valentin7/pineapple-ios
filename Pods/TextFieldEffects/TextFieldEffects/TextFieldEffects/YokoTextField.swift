@@ -8,23 +8,36 @@
 
 import UIKit
 
+/**
+ A YokoTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable 3D visual effect on the background of the control.
+ */
 @IBDesignable public class YokoTextField: TextFieldEffects {
+    
+    /**
+     The color of the placeholder text.
+     
+     This property applies a color to the complete placeholder string. The default value for this property is a black color.
+     */
+    @IBInspectable dynamic public var placeholderColor: UIColor? {
+        didSet {
+            updatePlaceholder()
+        }
+    }
+    
+    /**
+     The view’s foreground color.
+     
+     The default value for this property is a clear color.
+     */
+    @IBInspectable dynamic public var foregroundColor: UIColor = UIColor.blackColor() {
+        didSet {
+            updateForeground()
+        }
+    }
     
     override public var placeholder: String? {
         didSet {
             updatePlaceholder()
-        }
-    }
-    
-    @IBInspectable public var placeholderColor: UIColor? {
-        didSet {
-            updatePlaceholder()
-        }
-    }
-    
-    @IBInspectable public var foregroundColor: UIColor = UIColor.blackColor() {
-        didSet {
-            updateForeground()
         }
     }
     
@@ -41,9 +54,9 @@ import UIKit
     private let placeholderInsets = CGPoint(x: 6, y: 6)
     private let textFieldInsets = CGPoint(x: 6, y: 6)
     
-    // MARK: - TextFieldsEffectsProtocol
+    // MARK: - TextFieldsEffects
     
-    override func drawViewsForRect(rect: CGRect) {
+    override public func drawViewsForRect(rect: CGRect) {
         updateForeground()
         updatePlaceholder()
         
@@ -51,6 +64,28 @@ import UIKit
         addSubview(placeholderLabel)
         layer.addSublayer(foregroundLayer)        
     }
+    
+    override public func animateViewsForTextEntry() {
+        UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: .BeginFromCurrentState, animations: {
+            
+            self.foregroundView.layer.transform = CATransform3DIdentity
+            
+            }, completion: nil)
+        
+        foregroundLayer.frame = rectForBorder(foregroundView.frame, isFilled: false)
+    }
+    
+    override public func animateViewsForTextDisplay() {
+        if text!.isEmpty {
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: .BeginFromCurrentState, animations: {
+                
+                self.foregroundLayer.frame = self.rectForBorder(self.foregroundView.frame, isFilled: true)
+                self.foregroundView.layer.transform = self.rotationAndPerspectiveTransformForView(self.foregroundView)
+                }, completion: nil)
+        }
+    }
+    
+    // MARK: - Private
     
     private func updateForeground() {
         foregroundView.frame = rectForForeground(frame)
@@ -60,17 +95,17 @@ import UIKit
         
         foregroundLayer.borderWidth = borderThickness
         foregroundLayer.borderColor = colorWithBrightnessFactor(foregroundColor, factor: 0.8).CGColor
-        foregroundLayer.frame = rectForBorder(foregroundView.frame, isFill: true)
+        foregroundLayer.frame = rectForBorder(foregroundView.frame, isFilled: true)
     }
     
     private func updatePlaceholder() {
-        placeholderLabel.font = placeholderFontFromFont(font)
+        placeholderLabel.font = placeholderFontFromFont(font!)
         placeholderLabel.text = placeholder
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
         
-        if isFirstResponder() || !text.isEmpty {
+        if isFirstResponder() || text!.isNotEmpty {
             animateViewsForTextEntry()
         }
     }
@@ -81,13 +116,13 @@ import UIKit
     }
     
     private func rectForForeground(bounds: CGRect) -> CGRect {
-        let newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font.lineHeight + textFieldInsets.y - borderThickness)
+        let newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y - borderThickness)
         
         return newRect
     }
     
-    private func rectForBorder(bounds: CGRect, isFill: Bool) -> CGRect {
-        var newRect = CGRect(x: 0, y: bounds.size.height, width: bounds.size.width, height: isFill ? borderThickness : 0)
+    private func rectForBorder(bounds: CGRect, isFilled: Bool) -> CGRect {
+        var newRect = CGRect(x: 0, y: bounds.size.height, width: bounds.size.width, height: isFilled ? borderThickness : 0)
         
         if !CATransform3DIsIdentity(foregroundView.layer.transform) {
             newRect.origin = CGPoint(x: 0, y: bounds.origin.y)
@@ -109,26 +144,6 @@ import UIKit
         }
         placeholderLabel.frame = CGRect(x: originX, y: bounds.height - placeholderLabel.frame.height,
             width: placeholderLabel.frame.size.width, height: placeholderLabel.frame.size.height)
-    }
-    
-    override func animateViewsForTextEntry() {
-        UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
-        
-                self.foregroundView.layer.transform = CATransform3DIdentity
-            
-            }, completion: nil)
-        
-        foregroundLayer.frame = rectForBorder(foregroundView.frame, isFill: false)
-    }
-    
-    override func animateViewsForTextDisplay() {
-        if text.isEmpty {
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
-                
-                self.foregroundLayer.frame = self.rectForBorder(self.foregroundView.frame, isFill: true)
-                self.foregroundView.layer.transform = self.rotationAndPerspectiveTransformForView(self.foregroundView)
-            }, completion: nil)
-        }
     }
     
     // MARK: -
@@ -178,12 +193,12 @@ import UIKit
     // MARK: - Overrides
         
     override public func editingRectForBounds(bounds: CGRect) -> CGRect {
-        let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font.lineHeight + textFieldInsets.y)
+        let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
         return CGRectInset(newBounds, textFieldInsets.x, 0)
     }
     
     override public func textRectForBounds(bounds: CGRect) -> CGRect {
-        let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font.lineHeight + textFieldInsets.y)
+        let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
         
         return CGRectInset(newBounds, textFieldInsets.x, 0)
     }

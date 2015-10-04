@@ -38,7 +38,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
 //            self.fabricTop.frame = fabricTopFrame
 //            self.fabricBottom.frame = fabricBottomFrame
             }, completion: { finished in
-                println("Napkins opened!")
+                print("Napkins opened!")
         })
         
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("tappedOnScreen"))
@@ -59,7 +59,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(animated:Bool) {
         super.viewWillAppear(animated)
         
-        println("will APPEAR!")
+        print("will APPEAR!")
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
     }
@@ -126,7 +126,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
 
 
   @IBAction func swipedDown(sender: AnyObject) {
-    println("Swiped down yo!!")
+    print("Swiped down yo!!")
     self.dismissViewControllerAnimated(true, completion: nil)
 
   }
@@ -167,9 +167,9 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         user.signUpInBackgroundWithBlock {
             (succeeded: Bool, error: NSError?) -> Void in
             if let error = error {
-                let errorString = error.userInfo?["error"] as? NSString
+                let errorString = error.userInfo["error"] as? NSString
                 // Show the errorString somewhere and let the user try again.
-                var message = "\(errorString)"
+                var message = "\(errorString?.description)"
 
                 switch (error.code) {
                     case 125:
@@ -180,13 +180,13 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                     break;
                 }
                 UIAlertView(title: "Oops, couldn't sign you up.", message: message, delegate: self, cancelButtonTitle: "Ok").show()
-                println("error signup message: ")
-                println(message)
+                print("error signup message: ")
+                print(message)
                 
                 SVProgressHUD.dismiss()
             } else {
                 // Hooray! Let them use the app now.
-                println("created \(user.email)")
+                print("created \(user.email)")
                 SVProgressHUD.dismiss()
                 self.showApp()  
             }
@@ -203,14 +203,14 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func tappedCreate(sender: AnyObject) {
-        println("TAPPED CREATE BUTTON")
+        print("TAPPED CREATE BUTTON")
         self.view.endEditing(true)
         signUp()
     }
     
     @IBAction func createAccount(sender: AnyObject) {
         
-        print("tapped create")
+        print("tapped create", terminator: "")
         signUp()
         
         

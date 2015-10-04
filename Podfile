@@ -9,7 +9,7 @@ pod 'Stripe'
 pod 'Stripe/ApplePay'
 pod 'SVProgressHUD', :head
 pod 'ChameleonFramework'
-pod 'Spring', '~> 1.0.3'
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 pod 'Mixpanel'
 
 

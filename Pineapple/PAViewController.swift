@@ -27,7 +27,7 @@ class PAViewController: UIViewController {
 
   func showAlertWithText(text: String, title: String) {
 
-    var alert = UIAlertController(title: title, message: text, preferredStyle: .Alert)
+    let alert = UIAlertController(title: title, message: text, preferredStyle: .Alert)
 
     let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
     }

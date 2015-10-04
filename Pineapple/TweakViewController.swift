@@ -43,7 +43,7 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      var placeStringPrice = place["price"] as! String
+      let placeStringPrice = place["price"] as! String
 
       placeName = (place["name"] as? String)!
 
@@ -52,15 +52,10 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 
       let imageFile = place["image"] as? PFFile
       let url = imageFile!.url
-      placeImageView!.setImageWithURL(NSURL(string: url!))
+      placeImageView!.setImageWithURL(NSURL(string: url!)!)
 
-      println("PLACE STRING: \(placeStringPrice)")
       let s: String = (placeStringPrice as NSString).substringFromIndex(1)
-      println("PLACE S: \(s)")
-
-      placePrice = s.toInt()
-
-      println("PLACE P: \(placePrice)")
+      placePrice = Int(s)
 
       placeDescription = (place["description"] as? String)!
       placeCity = (place["city"] as? String)!
@@ -79,12 +74,12 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 
   func processPayment() {
     if let paymentRequest = Stripe.paymentRequestWithMerchantIdentifier(Constants.Payment.appleMerchantId) {
-      println("in here")
+      print("in here")
       let decimalPrice = "\(totalPrice).00"
       let labelDescription = "\(placeName) in \(placeCity)"
 
       if Stripe.canSubmitPaymentRequest(paymentRequest) {
-        println("can submit payment")
+        print("can submit payment")
         paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: labelDescription, amount: NSDecimalNumber(string: decimalPrice))]
         let paymentAuthVC = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest)
         paymentAuthVC.delegate = self
@@ -94,7 +89,7 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 
         self.inProgressMode()
 
-        var query = PFQuery(className: "StripeCustomer")
+        let query = PFQuery(className: "StripeCustomer")
         let email = user?.email
         query.whereKey("userEmail", equalTo: email!)
 
@@ -103,16 +98,16 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
           self.finishProgressMode()
 
           if error != nil || customer == nil {
-            println("The getFirstObject request failed.")
+            print("The getFirstObject request failed.")
             self.customerId = "unavailable"
             self.presentViewController(self.scanVC, animated: true, completion: nil)
 
           } else {
             // The find succeeded.
-            println("Successfully retrieved the StripeCustomer: \(customer).")
+            print("Successfully retrieved the StripeCustomer: \(customer).")
             if let  customerIdRetrieved = customer?.objectForKey("customerId") as? NSString {
 
-              println("customerId: \(customerIdRetrieved)")
+              print("customerId: \(customerIdRetrieved)")
               self.customerId = customerIdRetrieved as String
               self.createBackendChargeWithCustomerId()
 
@@ -146,7 +141,7 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 //          }
 
 
-        println("can't use apple pay dude!!")
+        print("can't use apple pay dude!!")
       }
     }
   }
@@ -167,7 +162,7 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 
 
     if let url = NSURL(string: Constants.Payment.backendChargeURLString  + "/charge") {
-      println("customer id charging: \(customerId)")
+      print("customer id charging: \(customerId)")
       let chargeParams : [String: AnyObject!] = ["stripeToken": "unavailable", "amount": amount, "userEmail" : user?.email!, "customerId" : customerId, "placeDescription": placeDescription, "customerName" : customerName]
 
       let request = NSMutableURLRequest(URL: url)
@@ -177,19 +172,24 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
       request.setValue("application/json", forHTTPHeaderField: "Accept")
 
       var error: NSError?
-      request.HTTPBody = NSJSONSerialization.dataWithJSONObject(chargeParams, options: NSJSONWritingOptions(), error: &error)
+      do {
+        request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(chargeParams, options: NSJSONWritingOptions())
+      } catch let error1 as NSError {
+        error = error1
+        request.HTTPBody = nil
+      }
 
       NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response, data, error) -> Void in
         self.finishProgressMode()
 
         if (error != nil) {
-          println("Aw: \(error)")
+          print("Aw: \(error)")
         } else {
-          println("response: \(response)")
+          print("response: \(response)")
           if let httpResponse = response as? NSHTTPURLResponse {
-            println("error \(httpResponse.description)")
+            print("error \(httpResponse.description)")
             let statusCode = httpResponse.statusCode
-            println("STATUS CODE: \(statusCode)")
+            print("STATUS CODE: \(statusCode)")
             if statusCode == 402 {
               self.showAlertWithText("Make sure your credit card info matches your Pineapple account.", title: "Credit card rejected")
             } else {
@@ -216,8 +216,8 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 
   func createBackendChargeWithToken(token: STPToken, completion: STPTokenSubmissionHandler) {
     let amount = totalPrice * 100
-    println("USER'S EMAIL: \(user?.email)")
-    println("CREATING BACKEND CHARGE with token: \(token.tokenId)")
+    print("USER'S EMAIL: \(user?.email)")
+    print("CREATING BACKEND CHARGE with token: \(token.tokenId)")
     let placePDescription = "\(placeName) at \(placeCity)"
 
     if let url = NSURL(string: Constants.Payment.backendChargeURLString  + "/charge") {
@@ -229,7 +229,12 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
       request.setValue("application/json", forHTTPHeaderField: "Accept")
 
       var error: NSError?
-      request.HTTPBody = NSJSONSerialization.dataWithJSONObject(chargeParams, options: NSJSONWritingOptions(), error: &error)
+      do {
+        request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(chargeParams, options: NSJSONWritingOptions())
+      } catch let error1 as NSError {
+        error = error1
+        request.HTTPBody = nil
+      }
 
       self.inProgressMode()
 
@@ -237,12 +242,12 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
         self.finishProgressMode()
 
         if (error != nil) {
-          println("Aw: \(error)")
+          print("Aw: \(error)")
           completion(STPBackendChargeResult.Failure, error)
           self.showAlertPaymentError()
         } else {
-          println("YASSSS TRYING TO SHOW CONFIRMATION")
-          println("response: \(response)")
+          print("YASSSS TRYING TO SHOW CONFIRMATION")
+          print("response: \(response)")
           completion(STPBackendChargeResult.Success, nil)
         }
       }
@@ -258,15 +263,15 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
       case .UserCancelled:
         return // just do nothing in this case
       case .Success:
-        println("great success!")
+        print("great success!")
       case .Error:
-        println("oh no, an error: \(error?.localizedDescription)")
+        print("oh no, an error: \(error?.localizedDescription)")
       }
     })
   }
 
   func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: ((PKPaymentAuthorizationStatus) -> Void)) {
-    println("payment authorization vc")
+    print("payment authorization vc")
     let apiClient = STPAPIClient(publishableKey: Constants.Payment.stripePublishableKey)
 
     self.inProgressMode()
@@ -274,7 +279,7 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
     apiClient.createTokenWithPayment(payment, completion: { (token, error) -> Void in
       self.finishProgressMode()
       if error == nil {
-        println("no error creating token")
+        print("no error creating token")
         if let token = token {
           self.createBackendChargeWithToken(token, completion: { (result, error) -> Void in
             if result == STPBackendChargeResult.Success {
@@ -292,9 +297,9 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
     })
   }
 
-  func paymentAuthorizationViewControllerDidFinish(controller: PKPaymentAuthorizationViewController!) {
+  func paymentAuthorizationViewControllerDidFinish(controller: PKPaymentAuthorizationViewController) {
     dismissViewControllerAnimated(true, completion: { () -> Void in
-      println("HIDING APPLE PAY")
+      print("HIDING APPLE PAY")
       self.updateGuests(self.peopleInRequest)
       self.showConfirmationController()
     })
@@ -323,16 +328,16 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
   // MARK: CardIO Delegate Methods
   func userDidCancelPaymentViewController(paymentViewController: CardIOPaymentViewController!) {
 
-    println("user cancelled payment!!")
+    print("user cancelled payment!!")
     scanVC.dismissViewControllerAnimated(true, completion: nil)
   }
 
   func userDidProvideCreditCardInfo(cardInfo: CardIOCreditCardInfo!, inPaymentViewController paymentViewController: CardIOPaymentViewController!) {
-    println("received card info! number: \(cardInfo.cardNumber)")
+    print("received card info! number: \(cardInfo.cardNumber)")
     scanVC.dismissViewControllerAnimated(true, completion: nil)
 
     let customerName = user["name"] as! String
-    var card = STPCard()
+    let card = STPCard()
     card.name = customerName
     card.number = cardInfo.cardNumber
     card.expMonth = cardInfo.expiryMonth
@@ -345,23 +350,23 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
   func payWithCard(card : STPCard) {
     self.inProgressMode()
     STPAPIClient.sharedClient().createTokenWithCard(card, completion: { (token, error) -> Void in
-      println("ERROR STATUS: \(error)")
+      print("ERROR STATUS: \(error)")
       self.finishProgressMode()
       if (error == nil) {
         self.createBackendChargeWithToken(token!, completion: { (result, error) -> Void in
           if result == STPBackendChargeResult.Success {
-            println("SUCCESFUL DAWGG")
+            print("SUCCESFUL DAWGG")
             self.updateGuests(self.peopleInRequest)
             self.showConfirmationController()
             // completion(PKPaymentAuthorizationStatus.Success)
           }
           else {
-            println("FAILURE DAWGG")
+            print("FAILURE DAWGG")
             // completion(PKPaymentAuthorizationStatus.Failure)
           }
         })
       } else {
-        println("not nil and \(error)")
+        print("not nil and \(error)")
        self.showAlertPaymentError()
       }
     })
@@ -376,7 +381,7 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
   }
 
   func showConfirmationController () {
-    var vc : CheckinConfirmationViewController = self.storyboard!.instantiateViewControllerWithIdentifier("checkinConfirmationController") as! CheckinConfirmationViewController
+    let vc : CheckinConfirmationViewController = self.storyboard!.instantiateViewControllerWithIdentifier("checkinConfirmationController") as! CheckinConfirmationViewController
         vc.beforeVC = self
 
         self.presentViewController(vc, animated: true, completion: nil)
@@ -410,13 +415,13 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
   }
 
   @IBAction func changedStepper(sender: AnyObject) {
-    var stepper : UIStepper = sender as! UIStepper
+    let stepper : UIStepper = sender as! UIStepper
     
     totalPeopleLabel.text = "\(Int(stepper.value))"
     peopleInRequest = Int(stepper.value)
     
-    var totalPriceCalculation = Int(stepper.value) * placePrice
-    println("totalPrice calculation: \(totalPriceCalculation)")
+    let totalPriceCalculation = Int(stepper.value) * placePrice
+    print("totalPrice calculation: \(totalPriceCalculation)")
 
     totalPriceLabel.text = "$\(Int(totalPriceCalculation))"
     self.totalPrice = totalPriceCalculation
@@ -425,10 +430,10 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 
   @IBAction func timeSliderChanged(sender: AnyObject) {
       
-      var slider : UISlider = sender as! UISlider
-      var timeValue : Int = Int(slider.value)
+      let slider : UISlider = sender as! UISlider
+      let timeValue : Int = Int(slider.value)
       
-      println("timevalue: "); print(timeValue)
+      print("timevalue: "); print(timeValue, terminator: "")
       
       var timeDescription : String = "\(Int(timeValue)) min"
 
@@ -466,7 +471,7 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 
 
   @IBAction func tappedGo(sender: AnyObject) {
-    println("PROCESSING...")
+    print("PROCESSING...")
 
     if self.spaceAvailable() {
       processPayment()

@@ -10,9 +10,9 @@ import UIKit
 
 class PAButton: UIButton {
 
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    println("WAZZU YP")
+    print("WAZZU YP")
     self.layer.cornerRadius = 5
     self.clipsToBounds = true
   }

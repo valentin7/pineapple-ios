@@ -34,7 +34,7 @@ class DetailViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         if (placeObject != nil) {
-          println("PLACE IS NOT NIL YOO")
+          print("PLACE IS NOT NIL YOO")
 
             descriptionLabel.text = placeObject["description"] as? String
 
@@ -45,7 +45,7 @@ class DetailViewController: UIViewController {
             let imageFile = placeObject["image"] as? PFFile
             let url = imageFile!.url
             
-          placeImageView!.setImageWithURL(NSURL(string: url!))
+          placeImageView!.setImageWithURL(NSURL(string: url!)!)
 
 
           let placeLocation : PFGeoPoint = placeObject["location"] as! PFGeoPoint
@@ -75,7 +75,7 @@ class DetailViewController: UIViewController {
                   
                   let userLoc = CLLocation(latitude: geoPoint!.latitude, longitude: geoPoint!.longitude)
                   
-                  println(" user location: \n",  userLoc)
+                  print(" user location: \n",  userLoc)
                   
                   self.centerMapOnLocation(userLoc)
                   // do something with the new geoPoint
@@ -118,7 +118,7 @@ class DetailViewController: UIViewController {
     
     @IBAction func tappedDetails(sender: AnyObject) {
         
-      var vc : TweakViewController = self.storyboard?.instantiateViewControllerWithIdentifier("tweakController")! as! TweakViewController
+      var vc : TweakViewController = self.storyboard?.instantiateViewControllerWithIdentifier("tweakController") as! TweakViewController
 
       vc.place = self.placeObject
       vc.placeName = self.placeName

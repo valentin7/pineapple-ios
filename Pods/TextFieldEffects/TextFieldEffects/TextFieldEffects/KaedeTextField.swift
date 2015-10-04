@@ -8,15 +8,28 @@
 
 import UIKit
 
+/**
+ A KaedeTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the foreground of the control.
+ */
 @IBDesignable public class KaedeTextField: TextFieldEffects {
     
-    @IBInspectable public var placeholderColor: UIColor? {
+    /**
+     The color of the placeholder text.
+     
+     This property applies a color to the complete placeholder string. The default value for this property is a black color.
+     */
+    @IBInspectable dynamic public var placeholderColor: UIColor? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    @IBInspectable public var foregroundColor: UIColor? {
+    /**
+     The view’s foreground color.
+     
+     The default value for this property is a clear color.
+     */
+    @IBInspectable dynamic public var foregroundColor: UIColor? {
         didSet {
             updateForegroundColor()
         }
@@ -38,20 +51,20 @@ import UIKit
     private let placeholderInsets = CGPoint(x: 10, y: 5)
     private let textFieldInsets = CGPoint(x: 10, y: 0)
         
-    // MARK: - TextFieldsEffectsProtocol
+    // MARK: - TextFieldsEffects
 
-    override func drawViewsForRect(rect: CGRect) {
+    override public func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         foregroundView.frame = frame
         foregroundView.userInteractionEnabled = false
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
-        placeholderLabel.font = placeholderFontFromFont(font)
+        placeholderLabel.font = placeholderFontFromFont(font!)
         
         updateForegroundColor()
         updatePlaceholder()
         
-        if !text.isEmpty || isFirstResponder() {
+        if text!.isNotEmpty || isFirstResponder() {
             animateViewsForTextEntry()
         }
         
@@ -59,7 +72,29 @@ import UIKit
         addSubview(placeholderLabel)        
     }
     
-    // MARK: -
+    override public func animateViewsForTextEntry() {
+        UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .BeginFromCurrentState, animations: ({
+            self.placeholderLabel.frame.origin = CGPoint(x: self.frame.size.width * 0.65, y: self.placeholderInsets.y)
+        }), completion: nil)
+        
+        UIView.animateWithDuration(0.45, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.5, options: .BeginFromCurrentState, animations: ({
+            self.foregroundView.frame.origin = CGPoint(x: self.frame.size.width * 0.6, y: 0)
+        }), completion: nil)
+    }
+    
+    override public func animateViewsForTextDisplay() {
+        if text!.isEmpty {
+            UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .BeginFromCurrentState, animations: ({
+                self.placeholderLabel.frame.origin = self.placeholderInsets
+            }), completion: nil)
+            
+            UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: .BeginFromCurrentState, animations: ({
+                self.foregroundView.frame.origin = CGPointZero
+            }), completion: nil)
+        }
+    }
+    
+    // MARK: - Private
     
     private func updateForegroundColor() {
         foregroundView.backgroundColor = foregroundColor
@@ -73,28 +108,6 @@ import UIKit
     private func placeholderFontFromFont(font: UIFont) -> UIFont! {
         let smallerFont = UIFont(name: font.fontName, size: font.pointSize * 0.8)
         return smallerFont
-    }
-    
-    override func animateViewsForTextEntry() {
-        UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
-            self.placeholderLabel.frame.origin = CGPoint(x: self.frame.size.width * 0.65, y: self.placeholderInsets.y)
-        }), completion: nil)
-        
-        UIView.animateWithDuration(0.45, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.5, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
-            self.foregroundView.frame.origin = CGPoint(x: self.frame.size.width * 0.6, y: 0)
-        }), completion: nil)
-    }
-    
-    override func animateViewsForTextDisplay() {
-        if text.isEmpty {
-            UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
-                self.placeholderLabel.frame.origin = self.placeholderInsets
-            }), completion: nil)
-            
-            UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
-                self.foregroundView.frame.origin = CGPointZero
-            }), completion: nil)
-        }
     }
     
     // MARK: - Overrides

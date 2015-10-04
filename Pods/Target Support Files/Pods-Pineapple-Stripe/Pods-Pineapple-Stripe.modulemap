@@ -1,6 +1,0 @@
-framework module Stripe {
-  umbrella header "Pods-Pineapple-Stripe-umbrella.h"
-
-  export *
-  module * { export * }
-}

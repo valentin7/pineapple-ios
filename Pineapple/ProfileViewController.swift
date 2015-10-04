@@ -32,7 +32,7 @@ class ProfileViewController: PAViewController, UIImagePickerControllerDelegate, 
     super.viewDidLoad()
     self.tabBarItem.imageInsets = UIEdgeInsetsMake(6.0, 0.0, -6.0, 0.0);
 
-    var user : PFUser = PFUser.currentUser()!
+    let user : PFUser = PFUser.currentUser()!
     
 //    emailLabel.text = user.email
 //    nameLabel.text = user["name"] as? String
@@ -92,17 +92,17 @@ class ProfileViewController: PAViewController, UIImagePickerControllerDelegate, 
 
   // MARK: - UIImagePickerControllerDelegate Methods
 
-  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
       if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
         self.setForImage()
         profileImageView.image = pickedImage
 
         let scaledImage = resizeImage(pickedImage, targetSize: CGSizeMake(320, 320))
         let imageData = UIImagePNGRepresentation(scaledImage)
-        let imageFile:PFFile = PFFile(data: imageData)
+        let imageFile:PFFile = PFFile(data: imageData!)
         user.setObject(imageFile, forKey: "profilePhoto")
         user.saveInBackgroundWithBlock({ (success) -> Void in
-          println("saved succesfully ")
+          print("saved succesfully ")
           self.setForImage()
           self.profileImageView.image = scaledImage
         })
@@ -113,7 +113,7 @@ class ProfileViewController: PAViewController, UIImagePickerControllerDelegate, 
   }
 
   func setForImage() {
-    println("SET FOR IMAGE")
+    print("SET FOR IMAGE")
     self.imageHeightConstraint.constant = 130
     self.imageWidthConstraint.constant = 130
     self.view.layoutSubviews()

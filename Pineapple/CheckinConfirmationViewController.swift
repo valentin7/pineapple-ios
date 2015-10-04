@@ -42,7 +42,7 @@ class CheckinConfirmationViewController: UIViewController {
   }
 
   func updateTimeStaying() {
-    println("staying \(hoursStaying) , yo.")
+    print("staying \(hoursStaying) , yo.")
   }
     
   @IBAction func soundsGoodClicked(sender: AnyObject) {
@@ -53,10 +53,10 @@ class CheckinConfirmationViewController: UIViewController {
 
   @IBAction func timeSliderChanged(sender: AnyObject) {
 
-    var slider : UISlider = sender as! UISlider
-    var timeValue : Int = Int(slider.value)
+    let slider : UISlider = sender as! UISlider
+    let timeValue : Int = Int(slider.value)
 
-    println("timevalue: "); print(timeValue)
+    print("timevalue: "); print(timeValue, terminator: "")
 
     var timeDescription : String = "\(Int(timeValue)) min"
 

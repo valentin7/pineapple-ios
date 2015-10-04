@@ -18,10 +18,10 @@ class PasswordChangeViewController: PAViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      println("before: \(user)")
+      print("before: \(user)")
       user = PFUser.currentUser()
 
-      println("adter: \(user)")
+      print("adter: \(user)")
       self.transitioningDelegate = self.transitionManager
         // Do any additional setup after loading the view.
     }

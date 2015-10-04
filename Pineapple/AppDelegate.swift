@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import Bolts
 import Stripe
+import Mixpanel
 
 
 @UIApplicationMain
@@ -35,11 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
     //[Braintree setReturnURLScheme:@"com.your-company.Your-App.payments"];
 
+    Mixpanel.sharedInstanceWithToken(Constants.Mixpanel.token)
 
 
     self.setTabbarWidth()
     // Braintree.setReturnURLScheme(<#scheme: String!#>)
-    var currentUser = PFUser.currentUser()
+    let currentUser = PFUser.currentUser()
     if currentUser != nil {
       // Do stuff with the user
       // normal, keep doing what you're doing bruh
@@ -64,9 +66,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func setTabbarWidth() {
-    var screenSize = UIScreen.mainScreen().applicationFrame
-    var tabBarItemsCount : CGFloat = 2
-    var width = screenSize.size.width / tabBarItemsCount
+    let screenSize = UIScreen.mainScreen().applicationFrame
+    let tabBarItemsCount : CGFloat = 2
+    let width = screenSize.size.width / tabBarItemsCount
     UITabBar.appearance().itemWidth = width
   }
   func applicationWillResignActive(application: UIApplication) {

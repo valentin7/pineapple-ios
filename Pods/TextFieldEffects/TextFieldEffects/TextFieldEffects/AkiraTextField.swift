@@ -8,20 +8,33 @@
 
 import UIKit
 
+/**
+ An AkiraTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the edges of the control.
+ */
 @IBDesignable public class AkiraTextField : TextFieldEffects {
     
-    private let borderSize : (active: CGFloat, inactive: CGFloat) = (1,3)
+    private let borderSize : (active: CGFloat, inactive: CGFloat) = (1, 2)
     private let borderLayer = CALayer()
     private let textFieldInsets = CGPoint(x: 6, y: 0)
     private let placeHolderInsets = CGPoint(x: 6, y: 0)
     
-    @IBInspectable public var borderColor: UIColor? {
+    /**
+     The color of the border.
+     
+     This property applies a color to the bounds of the control. The default value for this property is a clear color.
+    */
+    @IBInspectable dynamic public var borderColor: UIColor? {
         didSet {
             updateBorder()
         }
     }
     
-    @IBInspectable public var placeholderColor: UIColor? {
+    /**
+     The color of the placeholder text.
+     
+     This property applies a color to the complete placeholder string. The default value for this property is a  black color.
+     */
+    @IBInspectable dynamic public var placeholderColor: UIColor = .blackColor() {
         didSet {
             updatePlaceholder()
         }
@@ -39,6 +52,8 @@ import UIKit
         }
     }
     
+    // MARK: TextFieldEffects
+    
     override public func drawViewsForRect(rect: CGRect) {
         updateBorder()
         updatePlaceholder()
@@ -47,32 +62,33 @@ import UIKit
         layer.addSublayer(borderLayer)
     }
     
-    override func animateViewsForTextEntry() {
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+    override public func animateViewsForTextEntry() {
+        UIView.animateWithDuration(0.3, animations: {
             self.updateBorder()
             self.updatePlaceholder()
         })
     }
     
-    override func animateViewsForTextDisplay() {
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+    override public func animateViewsForTextDisplay() {
+        UIView.animateWithDuration(0.3, animations: {
             self.updateBorder()
             self.updatePlaceholder()
         })
     }
     
-    private func updatePlaceholder()
-    {
+    // MARK: Private
+    
+    private func updatePlaceholder() {
         placeholderLabel.frame = placeholderRectForBounds(bounds)
         placeholderLabel.text = placeholder
-        placeholderLabel.font = placeholderFontFromFont(self.font)
+        placeholderLabel.font = placeholderFontFromFont(font!)
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.textAlignment = textAlignment
     }
     
     private func updateBorder() {
         borderLayer.frame = rectForBounds(bounds)
-        borderLayer.borderWidth = (isFirstResponder() || !text.isEmpty) ? borderSize.active : borderSize.inactive
+        borderLayer.borderWidth = (isFirstResponder() || text!.isNotEmpty) ? borderSize.active : borderSize.inactive
         borderLayer.borderColor = borderColor?.CGColor
     }
     
@@ -81,17 +97,18 @@ import UIKit
         return smallerFont
     }
     
-    private var placeholderHeight : CGFloat
-    {
-        return placeHolderInsets.y + placeholderFontFromFont(self.font).lineHeight;
+    private var placeholderHeight : CGFloat {
+        return placeHolderInsets.y + placeholderFontFromFont(font!).lineHeight;
     }
     
     private func rectForBounds(bounds: CGRect) -> CGRect {
         return CGRect(x: bounds.origin.x, y: bounds.origin.y + placeholderHeight, width: bounds.size.width, height: bounds.size.height - placeholderHeight)
     }
     
+    // MARK: - Overrides
+    
     public override func placeholderRectForBounds(bounds: CGRect) -> CGRect {
-        if isFirstResponder() || !text.isEmpty {
+        if isFirstResponder() || text!.isNotEmpty {
             return CGRectMake(placeHolderInsets.x, placeHolderInsets.y, bounds.width, placeholderHeight)
         } else {
             return textRectForBounds(bounds)

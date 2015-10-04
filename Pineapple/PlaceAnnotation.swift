@@ -11,7 +11,7 @@ import MapKit
 import AddressBook
 
 class PlaceAnnotation: NSObject, MKAnnotation {
-  let title: String
+  let title: String?
   let placeDescription: String
   let coordinate: CLLocationCoordinate2D
 
@@ -23,18 +23,20 @@ class PlaceAnnotation: NSObject, MKAnnotation {
     super.init()
   }
 
-  var subtitle: String {
+  var subtitle: String? {
     return self.placeDescription
   }
 
-  // annotation callout info button opens this mapItem in Maps app
-  func mapItem() -> MKMapItem {
-    let addressDictionary = [String(kABPersonAddressStreetKey): subtitle]
-    let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
+  //TODO: FIX MAP ITEM
 
-    let mapItem = MKMapItem(placemark: placemark)
-    mapItem.name = title
-
-    return mapItem
-  }
+//  // annotation callout info button opens this mapItem in Maps app
+//  func mapItem() -> MKMapItem {
+//    let addressDictionary = [String(kABPersonAddressStreetKey): subtitle]
+//    let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
+//
+//    let mapItem = MKMapItem(placemark: placemark)
+//    mapItem.name = title
+//
+//    return mapItem
+//  }
 }

@@ -20,9 +20,14 @@ struct Constants {
     static let clientKey = "KO0L0TIYcen481FGu2lPY1rmJCBqgtH2RIMEjyqU"
   }
 
+
   struct Path {
-    static let Documents = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+    static let Documents = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
     static let Tmp = NSTemporaryDirectory()
+  }
+
+  struct Mixpanel {
+    static let token = "570a829684449afa74fd7ab592d93997"
   }
 
 }
