@@ -8,7 +8,8 @@
 
 import UIKit
 import MapKit
-import AddressBook
+import Contacts
+
 
 class PlaceAnnotation: NSObject, MKAnnotation {
   let title: String?
@@ -29,14 +30,33 @@ class PlaceAnnotation: NSObject, MKAnnotation {
 
   //TODO: FIX MAP ITEM
 
-//  // annotation callout info button opens this mapItem in Maps app
-//  func mapItem() -> MKMapItem {
-//    let addressDictionary = [String(kABPersonAddressStreetKey): subtitle]
-//    let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
-//
-//    let mapItem = MKMapItem(placemark: placemark)
-//    mapItem.name = title
-//
-//    return mapItem
-//  }
+  // annotation callout info button opens this mapItem in Maps app
+  func mapItem() -> MKMapItem {
+    //var addressDictionary = ["" : "f"] as! [String:]
+
+    if #available(iOS 9.0, *) {
+      //let addressDictionary = [String(CNPostalAddressStreetKey): subtitle]
+      let addressDictionary = [CNPostalAddressStreetKey: self.placeDescription]
+
+      let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
+      //let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)//MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
+
+      let mapItem = MKMapItem(placemark: placemark)
+      mapItem.name = title
+
+      return mapItem
+    } else {
+        // Fallback on earlier versions
+     // let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)//MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
+
+      let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
+
+      let mapItem = MKMapItem(placemark: placemark)
+      mapItem.name = title
+
+      return mapItem
+    }
+
+
+  }
 }

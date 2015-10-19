@@ -36,7 +36,7 @@ PODS:
   - TextFieldEffects (0.4.5)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.0)
+  - AFNetworking
   - ChameleonFramework
   - Mixpanel
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)

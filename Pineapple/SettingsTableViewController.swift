@@ -117,7 +117,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 
 
   func logout(){
-    let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    //let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     PFUser.logOut()
     SVProgressHUD.show()
 

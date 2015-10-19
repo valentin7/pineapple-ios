@@ -16,6 +16,7 @@ class PlaceTableViewCell: UITableViewCell {
   @IBOutlet var placeDescription: UILabel!
   @IBOutlet var placeCity: UILabel!
   @IBOutlet var shadeView: UIView!
+  @IBOutlet var spotsLeftLabel: UILabel!
     
   override func awakeFromNib() {
     super.awakeFromNib()

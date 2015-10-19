@@ -11,18 +11,24 @@ import Parse
 import AFNetworking
 import Mixpanel
 
-class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource  {
+class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource, OptionsViewControllerDelegate  {
     
   var placeNames: [String] = ["Ritz Carlton", "Nizuc", "Aqua", "Riu Palace", "Le Blanc", "Mayakoba", "JW Marriot", "Oasis Cancun", "Omni Hotel", "Dreams"]
   
   var places : [PFObject] = []
-  
+  var placeToShow : PFObject!
+  let kNearby : String = "Nearest"
+  var cityId : String = "Nearest"
+  var locationOptions : [PFObject] = []
+
+
   var sunnyRefresher : YALSunnyRefreshControl!
   var refreshing = false
 
   var mixPanel : Mixpanel!
   var user : PFUser!
 
+  @IBOutlet var locationOptionsButton: UIBarButtonItem!
 
   @IBOutlet var tableView: UITableView!
     
@@ -30,6 +36,8 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
     super.viewDidLoad()
 
     print("DISCOVER")
+    locationOptionsButton.title = cityId
+
 
     sunnyRefresher  = YALSunnyRefreshControl.attachToScrollView(self.tableView, target: self, refreshAction: "didStartRefreshAnimation")
 
@@ -41,6 +49,15 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
     mixPanel = Mixpanel.sharedInstance()
 
     refreshPlaces()
+    getLocationOptions()
+
+    
+    //UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UINavigationBar.self]).
+    let font = UIFont(name: "HelveticaNeue-Thin", size: 14) as! AnyObject
+    locationOptionsButton.setTitleTextAttributes([NSFontAttributeName: font
+], forState: UIControlState.Normal)
+
+
 
     //UIBarButtonItem.appearance().setBackButtonBackgroundImage(UIImage(named: "back")
     //, forState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
@@ -131,10 +148,20 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
         cell.placeDescription?.text = place["description"] as? String
         cell.placePrice?.text = place["price"] as? String
         cell.placeCity?.text = place["city"] as? String
+
+        let spotsLeft = place["spacesLeft"] as? Int
+
+        cell.spotsLeftLabel?.text = "\(spotsLeft!) spots left"
         
         let imageFile = place["image"] as? PFFile
         let url = imageFile!.url
-        
+        print("image url: \(url!)")
+        //cell.placeImage.setImageWithURL(NSURL(string: url!)!)
+
+        //cell.placeImage.setImageWithURL(NSURL(string: url!)!, placeholderImage: UIImage(named: "nizuc-beach.jpg"))
+        let imageName = place["imageName"] as! String
+        print("imageName: \(imageName)")
+        //cell.placeImage.image = UIImage(named: imageName)
         cell.placeImage!.setImageWithURL(NSURL(string: url!)!, placeholderImage: UIImage(named: "nizuc-beach.jpg"))
       }
       cell.clipsToBounds = true
@@ -148,7 +175,7 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 158
+        return 350
     }
 
     func refreshPlaces() {
@@ -166,6 +193,10 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
 
               //let locationsSorted = query1.whereKey("location", nearGeoPoint: geoPoint!)
               let onlyShowing = query2.whereKey("show", equalTo: "yes")
+
+              if (self.cityId != self.kNearby) {
+                onlyShowing.whereKey("cityId", equalTo: self.cityId)
+              }
               //let combined = [query1, query2]
               //let query = PFQuery.orQueryWithSubqueries(combined)
 
@@ -210,6 +241,14 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
 //                      return false
 //                    })
                     self.places = sorted
+
+                    let temp = self.places[0]
+                    let temp2 = self.places[1]
+                    self.places[0] = temp2
+                    self.places[1] = temp
+
+                    PlaceManager.sharedInstance.currentPlace = self.places[0]
+                   // print("meow: \(PlaceManager.sharedInstance.currentPlace)")
                   }
                 } else {
                   // Log details of the failure
@@ -226,17 +265,19 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-    let vc : DetailViewController = self.storyboard?.instantiateViewControllerWithIdentifier("detailController") as! DetailViewController
-    
+    //let vc : DetailViewController = self.storyboard?.instantiateViewControllerWithIdentifier("detailController") as! DetailViewController
+    let vc : TweakViewController = self.storyboard?.instantiateViewControllerWithIdentifier("tweakController") as! TweakViewController
+
 //        vc.descriptionString = moreDescriptions[indexPath.row]
 //        vc.buttonTitle = buttonTitles[indexPath.row]
 //        vc.actionURL = actionURLs[indexPath.row]
 //
     
      if (self.places.count > indexPath.row) {
-        var placeSelected = PFObject(className:"Place")
-        placeSelected = self.places[indexPath.row]
+      var placeSelected = PFObject(className:"Place")
 
+      print("PLACESSS: \(self.places)")
+      placeSelected = self.places[indexPath.row]
 
       let placeName = placeSelected["name"] as! String
       let userName = user["name"] as! String
@@ -247,7 +288,6 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
         placeAvailableString = "yes"
       }
 
-
       let info : [String: String] = ["placeName" : placeName, "userEmail" : user.email!, "nameOfUser" : userName, "placeAvailable" : placeAvailableString]
 
       PFAnalytics.trackEvent("tappedPlace", dimensions: info)
@@ -257,11 +297,26 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
         self.showPlaceUnavailableAlert(info)
         return
       }
-        vc.placeObject = placeSelected
+      print("BEFORE PUSHING NEW SCREEN:: \(placeSelected)")
+
+      //vc.placeStringPrice = placeSelected["price"] as! String
+      vc.placeStringPrice = placeSelected["price"] as! String
+
+      vc.placeName = placeName
+      vc.place = placeSelected
+      vc.placePrice = 5
+      vc.imageName = placeSelected["imageName"] as! String
+      PlaceManager.sharedInstance.currentPlace = placeSelected
+      placeToShow = placeSelected
+      print("SINGLETON BEFORE AGORA: \(PlaceManager.sharedInstance.currentPlace)")
+
+
+      print("suppose:: \(vc.place!)")
+      self.presentViewController(vc, animated: true, completion: nil)
+      //self.performSegueWithIdentifier("toTweakSegue", sender: self)
+      //self.navigationController?.pushViewController(vc, animated: true);
      }
 
-    self.navigationController?.pushViewController(vc, animated: true);
-    
     //self.presentViewController(vc, animated: true, completion: nil)
 
     tableView.cellForRowAtIndexPath(indexPath)?.selected = false
@@ -310,7 +365,6 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
         cell.layer.transform = rotationAndPerspectiveTransform;
 
         UIView.commitAnimations()
-        
     }
 
     
@@ -332,13 +386,48 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
     }
 
   }
-    
+
+  func getLocationOptions() {
+    let optionsQuery = PFQuery(className:"Cities")
+
+    optionsQuery.findObjectsInBackgroundWithBlock { (result, error) -> Void in
+      if (result == nil) {
+        return
+      }
+      self.locationOptions = result as! [PFObject]
+    }
+  }
+
+
+  @IBAction func tappedLocationOption(sender: AnyObject) {
+    let optionVC = self.storyboard?.instantiateViewControllerWithIdentifier("locationOptionsController") as! OptionsViewController
+
+    var options : [String] = [kNearby]
+
+    for location in self.locationOptions {
+      options.append(location["cityDisplayName"] as! String)
+    }
+
+    optionVC.options = options
+
+    self.presentViewController(optionVC, animated: true, completion: nil)
+  }
+
+  func didChooseOption(option: Int) {
+    self.cityId = self.locationOptions[option]["cityID"] as! String
+    print("chosen city is: \(self.cityId)")
+    self.locationOptionsButton.title = (self.locationOptions[option]["cityDisplayName"] as! String)
+
+    self.tableView.reloadData()
+  }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+      let vc : TweakViewController = segue.destinationViewController as! TweakViewController
+      vc.place = placeToShow
         
         
     }

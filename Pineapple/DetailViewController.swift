@@ -83,9 +83,6 @@ class DetailViewController: UIViewController {
           }
           
       }
-      
-
-
     }
     
     override func viewDidAppear(animated: Bool) {

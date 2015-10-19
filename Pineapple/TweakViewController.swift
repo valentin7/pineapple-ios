@@ -18,22 +18,30 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
   @IBOutlet var totalPriceLabel: UILabel!
   @IBOutlet var totalPeopleLabel: UILabel!
   @IBOutlet var timeLabel: UILabel!
+  @IBOutlet var includesLabel: UILabel!
+  @IBOutlet var hoursLabel: UILabel!
+  @IBOutlet var placeLocationLabel: UILabel!
 
 
   private var scanVC : CardIOPaymentViewController!
 
-  var place : PFObject!
+  internal var place : PFObject?
 
   var placePrice : Int!
   var totalPrice : Int!
+  var placeStringPrice : String = ""
   var placeName : String = ""
   var placeDescription : String = ""
   var placeCity : String = ""
   var customerId = "unavailable"
 
+  var imageName : String = ""
+
   var peopleInRequest : Int!
   var imageURL : String = ""
   var closeDisabled = false
+  var acceptedApplePay = false
+
 
     
     // create instance of our custom transition manager
@@ -41,24 +49,38 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+      super.viewDidLoad()
+      print("the PLACE: \(place)")
+      print("placeName: \(placeName)")
+      print("placeprice: \(placePrice)")
 
-      let placeStringPrice = place["price"] as! String
+      print("SINGLETON POWER: \(PlaceManager.sharedInstance.currentPlace)")
 
-      placeName = (place["name"] as? String)!
+      //placeName = (place["name"] as? String)!
 
+      print("after getting place: \(place)")
       self.placeNameLabel.text = placeName
       self.totalPriceLabel.text = placeStringPrice
 
-      let imageFile = place["image"] as? PFFile
-      let url = imageFile!.url
-      placeImageView!.setImageWithURL(NSURL(string: url!)!)
+
+      let includesAccess = place!["description"] as! String
+
+      self.includesLabel.text = "Includes access to \(includesAccess)"
+      let city = place!["city"] as! String
+      self.placeLocationLabel.text = city
+
+
+      //let imageFile = place!["image"] as? PFFile
+      //let url = imageFile!.url
+      //placeImageView!.setImageWithURL(NSURL(string: url!)!)
+      placeImageView.image = UIImage(named: imageName)
+
 
       let s: String = (placeStringPrice as NSString).substringFromIndex(1)
       placePrice = Int(s)
 
-      placeDescription = (place["description"] as? String)!
-      placeCity = (place["city"] as? String)!
+      placeDescription = (place!["description"] as? String)!
+      placeCity = (place!["city"] as? String)!
 
       totalPrice = placePrice
       peopleInRequest = 1
@@ -69,7 +91,10 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
     }
     
     override func viewWillAppear(animated: Bool) {
-
+      print("WILL APPEAR")
+      print("the PLACE: \(place)")
+      print("placeName: \(placeName)")
+      print("placeprice: \(placePrice)")
     }
 
   func processPayment() {
@@ -86,7 +111,6 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
         presentViewController(paymentAuthVC, animated: true, completion: nil)
         return
       } else {
-
         self.inProgressMode()
 
         let query = PFQuery(className: "StripeCustomer")
@@ -156,7 +180,7 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 
     let amount = totalPrice * 100
 
-    let placePDescription = "\(placeName) at \(placeCity)"
+    //let placePDescription = "\(placeName) at \(placeCity)"
 
     let customerName = user["name"] as! String
 
@@ -273,6 +297,7 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
   func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: ((PKPaymentAuthorizationStatus) -> Void)) {
     print("payment authorization vc")
     let apiClient = STPAPIClient(publishableKey: Constants.Payment.stripePublishableKey)
+    acceptedApplePay = false
 
     self.inProgressMode()
 
@@ -283,7 +308,13 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
         if let token = token {
           self.createBackendChargeWithToken(token, completion: { (result, error) -> Void in
             if result == STPBackendChargeResult.Success {
+              self.acceptedApplePay = true
+
               completion(PKPaymentAuthorizationStatus.Success)
+              print("REAL APPLE PAY SUCCESS")
+              //dismissViewControllerAnimated(true, completion: { () -> Void in
+
+              //})
             }
             else {
               completion(PKPaymentAuthorizationStatus.Failure)
@@ -298,11 +329,19 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
   }
 
   func paymentAuthorizationViewControllerDidFinish(controller: PKPaymentAuthorizationViewController) {
-    dismissViewControllerAnimated(true, completion: { () -> Void in
-      print("HIDING APPLE PAY")
-      self.updateGuests(self.peopleInRequest)
-      self.showConfirmationController()
-    })
+
+    if (acceptedApplePay) {
+      dismissViewControllerAnimated(true, completion: { () -> Void in
+        print("HIDING APPLE PAY")
+        self.updateGuests(self.peopleInRequest)
+        self.showConfirmationController()
+      })
+    } else {
+      print("DIDN'T ACCEPT APPLE PAY")
+      dismissViewControllerAnimated(true, completion: { () -> Void in
+        print("HIDING APPLE PAY")
+      })
+    }
 
   }
 
@@ -382,7 +421,8 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 
   func showConfirmationController () {
     let vc : CheckinConfirmationViewController = self.storyboard!.instantiateViewControllerWithIdentifier("checkinConfirmationController") as! CheckinConfirmationViewController
-        vc.beforeVC = self
+    vc.placeObject = place
+    vc.beforeVC = self
 
         self.presentViewController(vc, animated: true, completion: nil)
   }
@@ -391,9 +431,10 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
     SVProgressHUD.show()
 
     for view in self.view.subviews {
-      if let realView = view as? UIView {
-        realView.userInteractionEnabled = false
-      }
+      //if let realView = view as? UIView {
+
+        view.userInteractionEnabled = false
+      //}
     }
 
     self.closeDisabled = true
@@ -401,12 +442,13 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
   func finishProgressMode() {
     SVProgressHUD.dismiss()
     for view in self.view.subviews {
-      if let realView = view as? UIView {
-        realView.userInteractionEnabled = true
-      }
+      //if let realView = view as? UIView {
+        view.userInteractionEnabled = true
+      //}
     }
-   // self.closeDisabled = false
   }
+
+
 // MARK: IBActions
   @IBAction func tappedClose(sender: AnyObject) {
     //if (!self.closeDisabled) {
@@ -479,8 +521,8 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
   }
 
   func spaceAvailable() -> Bool {
-    let numberOfCurrentGuests =  place["currentGuestsNumber"] as! Int
-    let maxNumberOfGuests = place["maxGuests"] as! Int
+    let numberOfCurrentGuests =  place!["currentGuestsNumber"] as! Int
+    let maxNumberOfGuests = place!["maxGuests"] as! Int
 
     if (numberOfCurrentGuests + peopleInRequest > maxNumberOfGuests) {
       if (peopleInRequest <= 1) {
@@ -495,10 +537,10 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 
 
   func updateGuests(number : Int) {
-    var newGuests = place["currentGuestsNumber"] as! Int
+    var newGuests = place!["currentGuestsNumber"] as! Int
     newGuests += number
-    place["currentGuestsNumber"] = newGuests
-    place.saveInBackground()
+    place!["currentGuestsNumber"] = newGuests
+    place!.saveInBackground()
   }
 
 
