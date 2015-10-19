@@ -3,7 +3,9 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/platform-iOS%207%2B-blue.svg?style=flat" alt="Platform: iOS 7+" />
+<a href="https://gratipay.com/chameleon/"><img src="https://img.shields.io/gratipay/JSFiddle.svg" alt="Support Chameleon" /></a>
+    <img src="https://img.shields.io/badge/downloads-7,990+-ffc003.svg?style=flat" alt="Downloads"/>
+    <img src="https://img.shields.io/badge/platform-iOS%207%2B-blue.svg?style=flat" alt="Platform: iOS 7+"/>
     <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift2-compatible-4BC51D.svg?style=flat" alt="Language: Swift 2" /></a>
     <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible" /></a>
     <a href="https://cocoapods.org/pods/ChameleonFramework"><img src="https://cocoapod-badges.herokuapp.com/v/ChameleonFramework/badge.png" alt="Cocoapods compatible" /></a>
@@ -59,13 +61,19 @@ Chameleon equips you with 3 different classes of flat color schemes that can be 
 
 ###### Analogous Flat Color Scheme
 
-![Analogous Scheme](http://i.imgur.com/cPAkSWA.png)
+<p align="center">
+  <img src="http://i.imgur.com/cPAkSWA.png" alt="Analogous Scheme"/>
+</p>
 
 ###### Complementary Flat Color Scheme
-![Complementary Scheme](http://i.imgur.com/kisXJsu.png)
+<p align="center">
+  <img src="http://i.imgur.com/kisXJsu.png" alt="Complementary Scheme"/>
+</p>
 
 ###### Triadic Flat Color Scheme
-![Triadic Scheme](http://i.imgur.com/Cy452jQ.png)
+<p align="center">
+  <img src="http://i.imgur.com/Cy452jQ.png" alt="Triadic Scheme"/>
+</p>
 
 ### Contrasting Text
 With a plethora of color choices available for text, it's difficult to choose one that all users will appreciate and be able to read. Whether you're in doubt of your text and tint color choices, or afraid to let users customize their profile colors because it may disturb the legibility or usability of the app, you no longer have to worry. With Chameleon, you can ensure that all text stands out independent of the background color.
@@ -73,7 +81,7 @@ With a plethora of color choices available for text, it's difficult to choose on
 Oh... Chameleon works with the status bar as well. : )
 
 <p align="center">
-  <img src="http://i.imgur.com/rTz01Qb.gif" alt="Status Bar"/>
+  <img src="http://s29.postimg.org/i1syd7bkn/Contrast.gif" alt="Status Bar"/>
 </p>
 
 ### Themes ![Beta](http://i.imgur.com/JyYiUJq.png) ![New](http://i.imgur.com/BX3b9ES.png)
@@ -81,7 +89,7 @@ Oh... Chameleon works with the status bar as well. : )
 Chameleon now allows you easily theme your app with as little as **one line of code**. You can set a theme for all your views, and for specific views as well.
 
 <p align="center">
-  <img src="http://i.imgur.com/NoCCXIy.png" alt="Themes"/>
+  <img src="http://i.imgur.com/ypfqpIn.png" alt="Themes"/>
 </p>
 
 ### Colors From Images ![New](http://i.imgur.com/BX3b9ES.png)
@@ -117,7 +125,6 @@ If you're like me and love to use storyboard, Chameleon's got you covered. We've
   <img src="http://i.imgur.com/QhhPFHY.gif" alt="Chameleon Palette"/>
 </p>
 
-
 ## ⚠️ Requirements
 
 * Objective-C or Swift
@@ -128,9 +135,9 @@ If you're like me and love to use storyboard, Chameleon's got you covered. We've
 Chameleon is released and distributed under the terms and conditions of the [MIT license](https://github.com/ViccAlexander/Chameleon/blob/master/LICENSE.md).
 
 ## 👥 Contributions
-If you run into problems, please open up an issue. I also actively welcome pull requests. By contributing to Chameleon you agree that your contributions will be licensed under its MIT license.
+If you run into problems, please open up an issue. We also actively welcome pull requests. By contributing to Chameleon you agree that your contributions will be licensed under its MIT license.
 
-If you use Chameleon in your app I would love to hear about it! Drop me a line on [twitter](http://twitter.com/viccsmind).
+If you use Chameleon in your app we would love to hear about it! Drop Vicc a line on [twitter](http://twitter.com/viccsmind).
 
 ## 📗 Documentation
 All methods, properties, and types available in Chameleon are documented below.   
@@ -651,14 +658,28 @@ But what if you want a different theme for a specific `UIViewController?` No pro
 
 ###### **Note:** In order for the status bar style to automatically be set using a theme, you need to make sure that the *View controller-based status bar appearance* key in **Info.plist** is set to `NO`.
 
+#### Navigation Bar Hairline
+
+![No Hairline](http://i.imgur.com/tjwx53y.png)
+
+As of `2.0.3` the navigation bar hairline view is no longer hidden by default. However, if you're seeking a true flat look (like the image above), you can hide the hairline at the bottom of the navigation bar by doing the following: 
+
+######Objective-C
+```objective-c
+[self.navigationController setHidesNavigationBarHairline:YES];
+
+//or
+
+self.navigationController.hidesNavigationBarHairline = YES;
+```
+
 ## 👑 Author
-Chameleon was developed by **Vicc Alexander** [(@ViccsMind)](https://twitter.com/viccsmind).
+Chameleon was developed by **Vicc Alexander** [(@ViccsMind)](https://twitter.com/viccsmind). It is currently maintained by [@ViccAlexander](https://github.com/ViccAlexander) and [@Bre7](https://github.com/bre7).
 
 Using Chameleon in your App? [Let me know](https://twitter.com/viccsmind). 🌈📲  
 
-## 📝 To Do List
-*No particular order.*  
-• ~~Cocoapods Support~~ ![1.0.1](http://i.imgur.com/8Li5aRR.png)  
+## 📝 To Do List 
+* ~~Cocoapods Support~~ ![1.0.1](http://i.imgur.com/8Li5aRR.png)  
 * ~~Table of Contents~~ ![1.0.1](http://i.imgur.com/8Li5aRR.png)  
 * ~~Storyboard Color Picker Add-On~~ ![1.1.0](http://i.imgur.com/Py4QvaK.png)  
 * ~~Xcode In-App Documentation~~ ![1.1.0](http://i.imgur.com/Py4QvaK.png)  
@@ -670,8 +691,10 @@ Using Chameleon in your App? [Let me know](https://twitter.com/viccsmind). 🌈�
 * ~~Swift Support~~ ![1.1.3](http://i.imgur.com/WgpBlLo.png)     
 * ~~Color Scheme From Images~~ ![2.0.0](http://i.imgur.com/HdE8kjQ.png)  
 * ~~UIAppearance Convenience Methods~~  ![2.0.0](http://i.imgur.com/HdE8kjQ.png)  
+* ~~Add option to hide `NavigationBar` hairline~~ ![2.0.3](http://i.imgur.com/DmlOKPJ.png)
+* Allow Gradient Colors to Adapt To Frame Changes
 
 ## 📄 Change Log
 
-### Check CHANGELOG.MD
+### See [Changelog.md](https://github.com/ViccAlexander/Chameleon/blob/master/CHANGELOG.md) 👀
 

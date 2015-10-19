@@ -1112,7 +1112,7 @@
         <!--LocationOptionsController-->
         <scene sceneID="HC3-je-ZRd">
             <objects>
-                <viewController storyboardIdentifier="locationOptionsController" title="LocationOptionsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ORV-PF-Iah" customClass="OptionsViewController" customModule="Pineapple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="locationOptionsController" title="LocationOptionsController" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ORV-PF-Iah" customClass="OptionsViewController" customModule="Pineapple" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pqf-dX-412"/>
                         <viewControllerLayoutGuide type="bottom" id="ZNn-KR-9Ej"/>
@@ -1155,17 +1155,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nsa-WE-bD2">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="82"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.88" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="nsa-WE-bD2" firstAttribute="leading" secondItem="8J2-6q-vqd" secondAttribute="leading" id="Bk7-uj-JhI"/>
                             <constraint firstItem="ZNn-KR-9Ej" firstAttribute="top" secondItem="mTa-Xo-ChM" secondAttribute="bottom" id="CDt-i6-ZfO"/>
                             <constraint firstAttribute="trailing" secondItem="mTa-Xo-ChM" secondAttribute="trailing" id="U05-ne-Pvg"/>
                             <constraint firstItem="mTa-Xo-ChM" firstAttribute="top" secondItem="Pqf-dX-412" secondAttribute="bottom" constant="70" id="eq6-Cn-eaa"/>
+                            <constraint firstItem="mTa-Xo-ChM" firstAttribute="top" secondItem="nsa-WE-bD2" secondAttribute="bottom" constant="8" id="gad-BQ-IUI"/>
+                            <constraint firstItem="nsa-WE-bD2" firstAttribute="top" secondItem="8J2-6q-vqd" secondAttribute="top" id="iQg-vw-u44"/>
+                            <constraint firstAttribute="trailing" secondItem="nsa-WE-bD2" secondAttribute="trailing" id="iR6-dj-7NY"/>
                             <constraint firstItem="mTa-Xo-ChM" firstAttribute="leading" secondItem="8J2-6q-vqd" secondAttribute="leading" id="kbS-as-VA8"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="optionsTableView" destination="mTa-Xo-ChM" id="BuQ-PQ-bPN"/>
+                        <outlet property="touchBufferView" destination="nsa-WE-bD2" id="V4O-ZB-RQA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2e-yJ-Osp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1688,7 +1697,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miami, Florida" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xov-7V-QIR">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miami, Florida" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xov-7V-QIR">
                                         <rect key="frame" x="15" y="424" width="253" height="39"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="94" id="2JU-HT-5hR"/>

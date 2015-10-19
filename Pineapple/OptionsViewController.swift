@@ -17,34 +17,46 @@ class OptionsViewController: UIViewController, UITableViewDataSource, UITableVie
 
   var delegate : OptionsViewControllerDelegate?
 
+  @IBOutlet var touchBufferView: UIView!
   @IBOutlet var optionsTableView: UITableView!
   var options : Array<String>!
+
+  // create instance of our custom transition manager
+  let transitionManager = MenuTransitionManager()
 
     override func viewDidLoad() {
       super.viewDidLoad()
 
       optionsTableView.dataSource = self
       optionsTableView.delegate = self
+      optionsTableView.backgroundColor = UIColor.clearColor()
+      self.transitioningDelegate = self.transitionManager
 
+      let tap = UITapGestureRecognizer(target: self, action: "tappedScreen")
+      self.touchBufferView.addGestureRecognizer(tap)
       // Do any additional setup after loading the view.
     }
+
+  func tappedScreen() {
+    self.dismissViewControllerAnimated(true, completion: nil)
+  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-  func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-    print("selected \(indexPath.row)")
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    print("SELECTED MAN \(indexPath.row)")
     delegate?.didChooseOption(indexPath.row)
-    
-    self.dismissViewControllerAnimated(true, completion: nil)
 
+    self.dismissViewControllerAnimated(true, completion: nil)
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell : OptionTableViewCell = tableView.dequeueReusableCellWithIdentifier("optionCell") as! OptionTableViewCell
     cell.titleLabel.text = options[indexPath.row]
+    cell.backgroundColor = UIColor.clearColor()
     return cell
   }
 

@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import AFNetworking
+//import SDWebImage
 import Mixpanel
 
 class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource, OptionsViewControllerDelegate  {
@@ -53,7 +54,7 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
 
     
     //UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UINavigationBar.self]).
-    let font = UIFont(name: "HelveticaNeue-Thin", size: 14) as! AnyObject
+    let font = UIFont(name: "HelveticaNeue-Thin", size: 17) as! AnyObject
     locationOptionsButton.setTitleTextAttributes([NSFontAttributeName: font
 ], forState: UIControlState.Normal)
 
@@ -139,6 +140,7 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
       
       
       //cell.imageView?.image = UIImage(named: self.imageNames[indexPath.row])
+      print("places count: \(self.places.count)")
 
       if (self.places.count > indexPath.row) {
         var place = PFObject(className:"Place")
@@ -159,10 +161,23 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
         //cell.placeImage.setImageWithURL(NSURL(string: url!)!)
 
         //cell.placeImage.setImageWithURL(NSURL(string: url!)!, placeholderImage: UIImage(named: "nizuc-beach.jpg"))
-        let imageName = place["imageName"] as! String
-        print("imageName: \(imageName)")
+        //let imageName = place["imageName"] as! String
+        //print("imageName: \(imageName)")
         //cell.placeImage.image = UIImage(named: imageName)
         cell.placeImage!.setImageWithURL(NSURL(string: url!)!, placeholderImage: UIImage(named: "nizuc-beach.jpg"))
+
+//        if (url != nil) {
+//          let urlN = NSURL(string: url!)
+//
+//          let task = NSURLSession.sharedSession().dataTaskWithURL(urlN!) {(data, response, error) in
+//            print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+//
+//            cell.placeImage!.image = UIImage(data: data!)
+//          }
+//          
+//          task.resume()
+//        }
+
       }
       cell.clipsToBounds = true
 
@@ -194,8 +209,10 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
               //let locationsSorted = query1.whereKey("location", nearGeoPoint: geoPoint!)
               let onlyShowing = query2.whereKey("show", equalTo: "yes")
 
+              print("CITY ID IN QUERY IS: \(self.cityId)")
+
               if (self.cityId != self.kNearby) {
-                onlyShowing.whereKey("cityId", equalTo: self.cityId)
+                onlyShowing.whereKey("cityID", equalTo: self.cityId)
               }
               //let combined = [query1, query2]
               //let query = PFQuery.orQueryWithSubqueries(combined)
@@ -226,8 +243,13 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
                   // Do something with the found objects
 
                   if let objects = objects as? [PFObject] {
-
+                    print("BEFORE SORT")
                     let sorted = objects.sort({ (o1, o2) -> Bool in
+
+                      if (o1["location"] == nil || o2["location"] == nil) {
+                        return false;
+                      }
+
                       let loc1 = o1["location"] as! PFGeoPoint
                       let loc2 = o2["location"] as! PFGeoPoint
 
@@ -242,19 +264,21 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
 //                    })
                     self.places = sorted
 
-                    let temp = self.places[0]
-                    let temp2 = self.places[1]
-                    self.places[0] = temp2
-                    self.places[1] = temp
+//                    let temp = self.places[0]
+//                    let temp2 = self.places[1]
+//                    self.places[0] = temp2
+//                    self.places[1] = temp
 
-                    PlaceManager.sharedInstance.currentPlace = self.places[0]
+                    //PlaceManager.sharedInstance.currentPlace = self.places[0]
                    // print("meow: \(PlaceManager.sharedInstance.currentPlace)")
                   }
                 } else {
                   // Log details of the failure
                   print("Error: \(error!) \(error!.userInfo)")
                 }
+                print("before reload data")
                 self.tableView.reloadData()
+
               }
             }
           }
@@ -316,8 +340,6 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
       //self.performSegueWithIdentifier("toTweakSegue", sender: self)
       //self.navigationController?.pushViewController(vc, animated: true);
      }
-
-    //self.presentViewController(vc, animated: true, completion: nil)
 
     tableView.cellForRowAtIndexPath(indexPath)?.selected = false
   }
@@ -402,6 +424,7 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
   @IBAction func tappedLocationOption(sender: AnyObject) {
     let optionVC = self.storyboard?.instantiateViewControllerWithIdentifier("locationOptionsController") as! OptionsViewController
 
+    optionVC.delegate = self
     var options : [String] = [kNearby]
 
     for location in self.locationOptions {
@@ -414,11 +437,15 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
   }
 
   func didChooseOption(option: Int) {
-    self.cityId = self.locationOptions[option]["cityID"] as! String
-    print("chosen city is: \(self.cityId)")
-    self.locationOptionsButton.title = (self.locationOptions[option]["cityDisplayName"] as! String)
-
-    self.tableView.reloadData()
+    print("DID CHOOSE OPTION \(option)")
+    if (option == 0) {
+      self.cityId = kNearby
+    } else {
+      self.cityId = self.locationOptions[option-1]["cityID"] as! String
+      print("chosen city is: \(self.cityId)")
+      self.locationOptionsButton.title = (self.locationOptions[option-1]["cityDisplayName"] as! String)
+    }
+    self.refreshPlaces()
   }
     // MARK: - Navigation
 
