@@ -40,8 +40,9 @@ class CellAnimator {
            // view.layer.bounds.size = CGSize(width: view.layer.bounds.width-5, height: view.layer.bounds.height-5)
         }
     }
-    
-    class func animateZoom(cell: UITableViewCell) {
+
+
+class func animateZoom(cell: UITableViewCell) {
         //now make the image view a bit bigger, so we can do a zoomout effect when it becomes visible
         cell.contentView.alpha = 0.4;
         

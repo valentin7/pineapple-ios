@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		93BB146B405A74BE098FDF50 /* Pods_Pineapple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AE3F467F48298259A8762D /* Pods_Pineapple.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		A72B03351BC302B500F0C457 /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B03341BC302B500F0C457 /* PlaceManager.swift */; settings = {ASSET_TAGS = (); }; };
+		93BB146B405A74BE098FDF50 /* Pods_Pineapple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AE3F467F48298259A8762D /* Pods_Pineapple.framework */; };
+		A72B03351BC302B500F0C457 /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B03341BC302B500F0C457 /* PlaceManager.swift */; };
 		A7330A8D1B688A76009EFC5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7330A8C1B688A76009EFC5A /* AppDelegate.swift */; };
 		A7330A8F1B688A76009EFC5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7330A8E1B688A76009EFC5A /* ViewController.swift */; };
 		A7330AA31B688A77009EFC5A /* PineappleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7330AA21B688A77009EFC5A /* PineappleTests.swift */; };
@@ -74,8 +74,8 @@
 		A74E04701B844154002FFBA3 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E046F1B844154002FFBA3 /* SweetAlert.swift */; };
 		A7A867A11B6F105E0066078D /* libCardIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A867A01B6F105E0066078D /* libCardIO.a */; };
 		A7A867A41B6F11360066078D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A867A31B6F11360066078D /* MobileCoreServices.framework */; };
-		A7AED3EC1BD410C600476035 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AED3EB1BD410C600476035 /* OptionsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		A7AED3EE1BD4112800476035 /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AED3ED1BD4112700476035 /* OptionTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		A7AED3EC1BD410C600476035 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AED3EB1BD410C600476035 /* OptionsViewController.swift */; };
+		A7AED3EE1BD4112800476035 /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AED3ED1BD4112700476035 /* OptionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -764,7 +764,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pineapple/Pineapple-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods/GoogleAnalytics-iOS-SDK/**";
 			};
 			name = Debug;
@@ -828,7 +828,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Valpe-Technologies.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pineapple/Pineapple-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods/GoogleAnalytics-iOS-SDK/**";
 			};
 			name = Release;

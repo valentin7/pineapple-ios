@@ -22,6 +22,7 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
   @IBOutlet var hoursLabel: UILabel!
   @IBOutlet var placeLocationLabel: UILabel!
 
+  @IBOutlet var actionButton: UIButton!
 
   private var scanVC : CardIOPaymentViewController!
 
@@ -44,58 +45,51 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 
 
     
-    // create instance of our custom transition manager
-    let transitionManager = MenuTransitionManager()
+  // create instance of our custom transition manager
+  let transitionManager = MenuTransitionManager()
 
-    
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      print("the PLACE: \(place)")
-      print("placeName: \(placeName)")
-      print("placeprice: \(placePrice)")
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-      print("SINGLETON POWER: \(PlaceManager.sharedInstance.currentPlace)")
-
-      //placeName = (place["name"] as? String)!
-
-      print("after getting place: \(place)")
-      self.placeNameLabel.text = placeName
-      self.totalPriceLabel.text = placeStringPrice
+    self.placeNameLabel.text = placeName
+    self.totalPriceLabel.text = placeStringPrice
 
 
-      let includesAccess = place!["description"] as! String
+    let includesAccess = place!["description"] as! String
 
-      self.includesLabel.text = "Includes access to \(includesAccess)"
-      let city = place!["city"] as! String
-      self.placeLocationLabel.text = city
-
-
-      //let imageFile = place!["image"] as? PFFile
-      //let url = imageFile!.url
-      //placeImageView!.setImageWithURL(NSURL(string: url!)!)
-      placeImageView.image = UIImage(named: imageName)
+    self.includesLabel.text = "Includes access to \(includesAccess)"
+    let city = place!["city"] as! String
+    self.placeLocationLabel.text = city
 
 
-      let s: String = (placeStringPrice as NSString).substringFromIndex(1)
-      placePrice = Int(s)
+    //let imageFile = place!["image"] as? PFFile
+    //let url = imageFile!.url
+    //placeImageView!.setImageWithURL(NSURL(string: url!)!)
 
-      placeDescription = (place!["description"] as? String)!
-      placeCity = (place!["city"] as? String)!
+    placeImageView.image = UIImage(named: imageName)
 
-      totalPrice = placePrice
-      peopleInRequest = 1
 
-      self.transitioningDelegate = self.transitionManager
-      scanVC = CardIOPaymentViewController(paymentDelegate: self)
+    let s: String = (placeStringPrice as NSString).substringFromIndex(1)
+    placePrice = Int(s)
 
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-      print("WILL APPEAR")
-      print("the PLACE: \(place)")
-      print("placeName: \(placeName)")
-      print("placeprice: \(placePrice)")
-    }
+    placeDescription = (place!["description"] as? String)!
+    placeCity = (place!["city"] as? String)!
+
+    totalPrice = placePrice
+    peopleInRequest = 1
+
+    self.transitioningDelegate = self.transitionManager
+    scanVC = CardIOPaymentViewController(paymentDelegate: self)
+
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    print("WILL APPEAR")
+    print("the PLACE: \(place)")
+    print("placeName: \(placeName)")
+    print("placeprice: \(placePrice)")
+  }
 
   func processPayment() {
     if let paymentRequest = Stripe.paymentRequestWithMerchantIdentifier(Constants.Payment.appleMerchantId) {

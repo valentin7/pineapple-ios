@@ -12,7 +12,6 @@ class PAButton: UIButton {
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    print("WAZZU YP")
     self.layer.cornerRadius = 5
     self.clipsToBounds = true
   }
