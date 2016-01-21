@@ -34,8 +34,8 @@ extension DetailViewController: MKMapViewDelegate {
 
   func mapView(mapView: MKMapView, annotationView view: MKAnnotationView,
     calloutAccessoryControlTapped control: UIControl) {
-      let location = view.annotation as! PlaceAnnotation
-      let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+      //let location = view.annotation as! PlaceAnnotation
+      //let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
       //location.mapItem().openInMapsWithLaunchOptions(launchOptions)
   }
 

@@ -36,9 +36,7 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    print("DISCOVER")
     locationOptionsButton.title = cityId
-
 
     sunnyRefresher  = YALSunnyRefreshControl.attachToScrollView(self.tableView, target: self, refreshAction: "didStartRefreshAnimation")
 
@@ -56,7 +54,7 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
     //UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UINavigationBar.self]).
     let font = UIFont(name: "HelveticaNeue-Thin", size: 17) as! AnyObject
     locationOptionsButton.setTitleTextAttributes([NSFontAttributeName: font
-], forState: UIControlState.Normal)
+      ], forState: UIControlState.Normal)
 
 
 
@@ -96,7 +94,6 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
     return .LightContent
   }
     func didStartRefreshAnimation (){
-        print("REFRESHING YOO")
         self.refreshPlaces()
        // self.navigationController?.navigationBar.hidden = true
         //self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -111,10 +108,8 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
     }
     
     override func viewDidAppear(animated: Bool) {
-      print("PLACES: \(self.places.count)")
 
       if (self.places.count <= 0) {
-        print("REFRESHING AGAIN")
         self.refreshPlaces()
       }
      // var tracker = GAI.sharedInstance().defaultTracker
@@ -209,8 +204,6 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
               //let locationsSorted = query1.whereKey("location", nearGeoPoint: geoPoint!)
               let onlyShowing = query2.whereKey("show", equalTo: "yes")
 
-              print("CITY ID IN QUERY IS: \(self.cityId)")
-
               if (self.cityId != self.kNearby) {
                 onlyShowing.whereKey("cityID", equalTo: self.cityId)
               }
@@ -243,7 +236,6 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
                   // Do something with the found objects
 
                   if let objects = objects as? [PFObject] {
-                    print("BEFORE SORT")
                     let sorted = objects.sort({ (o1, o2) -> Bool in
 
                       if (o1["location"] == nil || o2["location"] == nil) {
@@ -259,9 +251,7 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
                       return dist1 < dist2
                     })
 
-//                    objects.sort({ (obj1, obj2) -> Bool in
-//                      return false
-//                    })
+
                     self.places = sorted
 
 //                    let temp = self.places[0]
@@ -282,7 +272,6 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
               }
             }
           }
-
         }
 
     }
@@ -304,7 +293,13 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
       placeSelected = self.places[indexPath.row]
 
       let placeName = placeSelected["name"] as! String
-      let userName = user["name"] as! String
+
+      var userName = "notSignedUp"
+      if (user != nil) {
+        userName = user["name"] as! String
+      }
+
+
       let placeAvailable = placeSelected["available"] as! Bool
 
       var placeAvailableString = "no"
@@ -312,33 +307,30 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
         placeAvailableString = "yes"
       }
 
-      let info : [String: String] = ["placeName" : placeName, "userEmail" : user.email!, "nameOfUser" : userName, "placeAvailable" : placeAvailableString]
+      var userEmail = "notSignedUp"
+      if (user != nil) {
+        userEmail = user.email!
+      }
+
+      let info : [String: String] = ["placeName" : placeName, "userEmail" : userEmail, "nameOfUser" : userName, "placeAvailable" : placeAvailableString]
 
       PFAnalytics.trackEvent("tappedPlace", dimensions: info)
       mixPanel.track("tappedPlace", properties: info)
 
-      if placeAvailable == false {
-        self.showPlaceUnavailableAlert(info)
-        return
-      }
-      print("BEFORE PUSHING NEW SCREEN:: \(placeSelected)")
+//      if placeAvailable == false {
+//        self.showPlaceUnavailableAlert(info)
+//        return
+//      }
 
       //vc.placeStringPrice = placeSelected["price"] as! String
       vc.placeStringPrice = placeSelected["price"] as! String
-
       vc.placeName = placeName
       vc.place = placeSelected
       vc.placePrice = 5
-      vc.imageName = placeSelected["imageName"] as! String
-      PlaceManager.sharedInstance.currentPlace = placeSelected
+      //vc.imageName = placeSelected["imageName"] as! String
       placeToShow = placeSelected
-      print("SINGLETON BEFORE AGORA: \(PlaceManager.sharedInstance.currentPlace)")
 
-
-      print("suppose:: \(vc.place!)")
       self.presentViewController(vc, animated: true, completion: nil)
-      //self.performSegueWithIdentifier("toTweakSegue", sender: self)
-      //self.navigationController?.pushViewController(vc, animated: true);
      }
 
     tableView.cellForRowAtIndexPath(indexPath)?.selected = false
@@ -351,7 +343,6 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
 
     SweetAlert().showAlert(title, subTitle: "Would you like to see \(placeName!) in Pineapple?", style: AlertStyle.Warning, buttonTitle:"No", buttonColor: UIColor.flatRedColor(), otherButtonTitle:  "Yes!", otherButtonColor: UIColor.flatMintColor()) { (isOtherButton) -> Void in
       if isOtherButton == true {
-        print("DOES NOT WANT to see hotel \(placeInfo)")
         PFAnalytics.trackEvent("notWantPlace", dimensions: placeInfo)
         self.mixPanel.track("notWantPlace", properties: placeInfo)
       }
@@ -360,14 +351,12 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
         self.mixPanel.track("wantsPlace", properties: placeInfo)
         SweetAlert().showAlert("Thanks!", subTitle: "If you have any other hotel recommendation, you can contact us by tapping 'Send feedback' in the profile screen.", style: AlertStyle.Success)
       }
-
     }
-
   }
 
     //This function is where all the table cell animations magic happens
 
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+  func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
 
         if cell.respondsToSelector("setSeparatorInset:") {
             cell.separatorInset = UIEdgeInsetsZero
@@ -440,6 +429,7 @@ class DiscoverViewController: UIViewController,  UITableViewDelegate, UITableVie
     print("DID CHOOSE OPTION \(option)")
     if (option == 0) {
       self.cityId = kNearby
+      self.locationOptionsButton.title = "Nearby"
     } else {
       self.cityId = self.locationOptions[option-1]["cityID"] as! String
       print("chosen city is: \(self.cityId)")

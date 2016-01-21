@@ -89,22 +89,22 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         if let userInfo = notification.userInfo {
             if let keyboardSize =  (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
                 kbHeight = keyboardSize.height
-                self.animateTextField(true)
+                //self.animateTextField(true)
             }
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        self.animateTextField(false)
+        //self.animateTextField(false)
     }
     
     func animateTextField(up: Bool) {
-        var movement = (up ? -kbHeight : kbHeight) + 20
-        
-        UIView.animateWithDuration(0.3, animations: {
-            //self.signupButton.frame = CGRectOffset(self.view.frame, 0, movement)
-           // self.moveViewByY(self.signupButton, by:  movement)
-        })
+//        var movement = (up ? -kbHeight : kbHeight) + 20
+//        
+//        UIView.animateWithDuration(0.3, animations: {
+//            //self.signupButton.frame = CGRectOffset(self.view.frame, 0, movement)
+//           // self.moveViewByY(self.signupButton, by:  movement)
+//        })
     }
     func moveViewByY(v : UIView, by : CGFloat) {
         var frame = v.frame

@@ -760,7 +760,7 @@
 					"\"UIKit\"",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Valpe-Technologies.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "Valpe-Technologies.Pineapple";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pineapple/Pineapple-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -825,7 +825,7 @@
 					"\"UIKit\"",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Valpe-Technologies.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "Valpe-Technologies.Pineapple";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pineapple/Pineapple-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;

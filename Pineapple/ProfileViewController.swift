@@ -12,32 +12,41 @@ import SVProgressHUD
 
 class ProfileViewController: PAViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var profileImageView: UIImageView!
+  @IBOutlet weak var profileImageView: UIImageView!
     
   @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
   @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
   @IBOutlet weak var recognizeTapView: UIView!
-    @IBOutlet weak var phoneTextField: UITextField!
-    @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var phoneTextField: UITextField!
+  @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var emailLabel: UILabel!
+  @IBOutlet weak var emailLabel: UILabel!
     
   @IBOutlet weak var addPhotoLabel: UILabel!
     
   //  private var scanVC : CardIOPaymentViewController!
     
-    var imagePicker : UIImagePickerController!
+  var imagePicker : UIImagePickerController!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tabBarItem.imageInsets = UIEdgeInsetsMake(6.0, 0.0, -6.0, 0.0);
+
+
+
+    if (PFUser.currentUser() == nil) {
+      setForNoUser()
+
+      return;
+    }
+
+
 
     let user : PFUser = PFUser.currentUser()!
     
 //    emailLabel.text = user.email
 //    nameLabel.text = user["name"] as? String
 //    phoneTextField.text = user["phone"] as? String
-//    
 
     self.view.bringSubviewToFront(addPhotoLabel)
     //scanVC = CardIOPaymentViewController(paymentDelegate: self)
@@ -72,7 +81,25 @@ class ProfileViewController: PAViewController, UIImagePickerControllerDelegate, 
       
     self.profileImageView.addGestureRecognizer(tapPhoto)
   }
-    
+
+  func setForNoUser() {
+    addPhotoLabel.text = "Tap to Sign Up"
+
+    self.view.bringSubviewToFront(self.profileImageView)
+    self.profileImageView.userInteractionEnabled = true
+
+    let tapPhoto : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("showSignUp"))
+    tapPhoto.numberOfTapsRequired = 1
+    self.profileImageView.addGestureRecognizer(tapPhoto)
+  }
+
+  func showSignUp() {
+    let vc : OnboardViewController = self.storyboard!.instantiateViewControllerWithIdentifier("onboardController") as! OnboardViewController
+
+    let app : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    app.window!.rootViewController = vc
+  }
+
   func tappedOnScreen (){
       self.view.endEditing(true)
   }
@@ -80,6 +107,8 @@ class ProfileViewController: PAViewController, UIImagePickerControllerDelegate, 
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
     return .LightContent
   }
+
+
   
   func changePhoto() {
       imagePicker.allowsEditing = false
@@ -87,6 +116,8 @@ class ProfileViewController: PAViewController, UIImagePickerControllerDelegate, 
       
       presentViewController(imagePicker, animated: true, completion: nil)
   }
+
+
 
 
 
@@ -179,10 +210,6 @@ class ProfileViewController: PAViewController, UIImagePickerControllerDelegate, 
   @IBAction func tappedChangePassword(sender: AnyObject) {
   }
   @IBAction func tappedLogout(sender: AnyObject) {
-      
-    let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    
-
     PFUser.logOut()
     SVProgressHUD.show()
 

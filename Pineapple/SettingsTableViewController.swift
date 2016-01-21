@@ -15,20 +15,30 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 
   @IBOutlet var settingsTableView: UITableView!
 
-  let user = PFUser.currentUser()!
+  let user = PFUser.currentUser()
   var parent : UIViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
       parent = self.parentViewController
+
+      if (PFUser.currentUser() == nil) {
+        self.settingsTableView.hidden = true
+        settingsTableView.dataSource = nil;
+        settingsTableView.delegate = nil;
+      } else {
+        self.settingsTableView.hidden = false
+        settingsTableView.delegate = self
+        settingsTableView.dataSource = self
+      }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-      settingsTableView.delegate = self
     }
 
 
@@ -52,31 +62,26 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 
   override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     if (section == 0){
-      let name = user["name"] as! String
+      let name = user!["name"] as! String
       return name
     } else {
       return ""
     }
   }
   override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-    print("YOO")
     if (indexPath.section == 0) {
-      print("SECTION 0 DAW")
       switch  indexPath.row {
         case 0:
-          print("ch pass")
           let vc = self.storyboard?.instantiateViewControllerWithIdentifier("passwordChangeController") as! PasswordChangeViewController
           parent.presentViewController(vc, animated: true, completion: nil)
 
         case 1:
-          print("Change phone")
           let vc = self.storyboard?.instantiateViewControllerWithIdentifier("phoneChangeController") as! PasswordChangeViewController
           parent.presentViewController(vc, animated: true, completion: nil)
         default: print("Add credit yo")
       }
 
     } else if (indexPath.section == 1) {
-      print("DIFF SECTION 1")
     }
 
   }
@@ -95,7 +100,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     let mailComposerVC = MFMailComposeViewController()
     mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
 
-    mailComposerVC.setToRecipients(["hello@pineapple.world"])
+    mailComposerVC.setToRecipients(["matthew@pineapple.world"])
     mailComposerVC.setSubject("Feedback for Pineapple")
     mailComposerVC.setMessageBody("", isHTML: false)
 
@@ -129,6 +134,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 
     app.window!.rootViewController = vc
   }
+
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell

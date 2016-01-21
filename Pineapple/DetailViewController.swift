@@ -103,7 +103,7 @@ class DetailViewController: UIViewController {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
             regionRadius * 2.0, regionRadius * 2.0)
 
-      var placePin = MKMapPoint(x: 70, y: 90)
+      let placePin = MKMapPoint(x: 70, y: 90)
 
         mapView.setRegion(coordinateRegion, animated: true)
     }
@@ -115,7 +115,7 @@ class DetailViewController: UIViewController {
     
     @IBAction func tappedDetails(sender: AnyObject) {
         
-      var vc : TweakViewController = self.storyboard?.instantiateViewControllerWithIdentifier("tweakController") as! TweakViewController
+      let vc : TweakViewController = self.storyboard?.instantiateViewControllerWithIdentifier("tweakController") as! TweakViewController
 
       vc.place = self.placeObject
       vc.placeName = self.placeName

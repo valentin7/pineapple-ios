@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.setTabbarWidth()
     // Braintree.setReturnURLScheme(<#scheme: String!#>)
     let currentUser = PFUser.currentUser()
+
     if currentUser != nil {
       // Do stuff with the user
       // normal, keep doing what you're doing bruh
@@ -49,11 +50,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     } else {
       // Show the signup or login screen
       //
-      let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-
-      let vc : OnboardViewController = mainStoryboard.instantiateViewControllerWithIdentifier("onboardController") as! OnboardViewController
-
-      self.window?.rootViewController = vc
+//      let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//      let vc : OnboardViewController = mainStoryboard.instantiateViewControllerWithIdentifier("onboardController") as! OnboardViewController
+//
+//      self.window?.rootViewController = vc
 
       //LogInViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"logInController"];
       //self.window.rootViewController = vc;

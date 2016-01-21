@@ -9,9 +9,10 @@
 import UIKit
 import Stripe
 import Parse
+import Mixpanel
 import SVProgressHUD
 
-class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate,  PKPaymentAuthorizationViewControllerDelegate, CardIOPaymentViewControllerDelegate {
+class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate,  PKPaymentAuthorizationViewControllerDelegate, CardIOPaymentViewControllerDelegate, UIActionSheetDelegate {
 
   @IBOutlet var placeNameLabel: UILabel!
   @IBOutlet var placeImageView: UIImageView!
@@ -19,6 +20,7 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
   @IBOutlet var totalPeopleLabel: UILabel!
   @IBOutlet var timeLabel: UILabel!
   @IBOutlet var includesLabel: UILabel!
+  @IBOutlet var includesAmenitiesLabel: UILabel!
   @IBOutlet var hoursLabel: UILabel!
   @IBOutlet var placeLocationLabel: UILabel!
 
@@ -38,13 +40,15 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 
   var imageName : String = ""
 
+  var mixPanel : Mixpanel!
+
   var peopleInRequest : Int!
   var imageURL : String = ""
   var closeDisabled = false
   var acceptedApplePay = false
+  var isPartner = false
 
 
-    
   // create instance of our custom transition manager
   let transitionManager = MenuTransitionManager()
 
@@ -54,21 +58,32 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
 
     self.placeNameLabel.text = placeName
     self.totalPriceLabel.text = placeStringPrice
+    self.mixPanel = Mixpanel.sharedInstance()
 
 
     let includesAccess = place!["description"] as! String
 
-    self.includesLabel.text = "Includes access to \(includesAccess)"
+    if let partner  = place!["partnered"] as? Bool {
+      isPartner = partner
+    }
+
+
+    self.includesLabel.numberOfLines = 0
+    self.includesLabel.text = "Includes access to"
+    self.includesAmenitiesLabel.text = "\(includesAccess)"
+
     let city = place!["city"] as! String
     self.placeLocationLabel.text = city
 
 
-    //let imageFile = place!["image"] as? PFFile
-    //let url = imageFile!.url
+    let imageFile = place!["image"] as? PFFile
+    let url = imageFile!.url
+
+    placeImageView!.setImageWithURL(NSURL(string: url!)!, placeholderImage: UIImage(named: "nizuc-beach.jpg"))
     //placeImageView!.setImageWithURL(NSURL(string: url!)!)
 
-    placeImageView.image = UIImage(named: imageName)
-
+    //placeImageView.image = UIImage(named: imageName)
+    updateInfo()
 
     let s: String = (placeStringPrice as NSString).substringFromIndex(1)
     placePrice = Int(s)
@@ -89,6 +104,25 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
     print("the PLACE: \(place)")
     print("placeName: \(placeName)")
     print("placeprice: \(placePrice)")
+  }
+
+  func updateInfo() {
+//    if (isPartner) {
+//      actionButton.titleLabel?.text = "Go Now!"
+//    } else {
+//      actionButton.titleLabel?.text = "Call to Confirm!"
+//    }
+    updateTimes()
+  }
+
+  func updateTimes() {
+    if let hourStart = place!["hourStart"] as? String {
+      if let hourEnd = place!["hourEnd"] as? String {
+        hoursLabel.text = "Hours Today: \(hourStart) to \(hourEnd)"
+      }
+    } else {
+      hoursLabel.text = ""
+    }
   }
 
   func processPayment() {
@@ -165,9 +199,9 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
   }
 
 
-    func checkoutController(controller: STPCheckoutViewController, didCreateToken token: STPToken, completion: STPTokenSubmissionHandler) {
-      createBackendChargeWithToken(token, completion: completion)
-    }
+  func checkoutController(controller: STPCheckoutViewController, didCreateToken token: STPToken, completion: STPTokenSubmissionHandler) {
+    createBackendChargeWithToken(token, completion: completion)
+  }
 
   func createBackendChargeWithCustomerId() {
     self.inProgressMode()
@@ -177,11 +211,12 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
     //let placePDescription = "\(placeName) at \(placeCity)"
 
     let customerName = user["name"] as! String
+    let labelDescription = "\(placeName) in \(placeCity)"
 
 
     if let url = NSURL(string: Constants.Payment.backendChargeURLString  + "/charge") {
       print("customer id charging: \(customerId)")
-      let chargeParams : [String: AnyObject!] = ["stripeToken": "unavailable", "amount": amount, "userEmail" : user?.email!, "customerId" : customerId, "placeDescription": placeDescription, "customerName" : customerName]
+      let chargeParams : [String: AnyObject!] = ["stripeToken": "unavailable", "amount": amount, "userEmail" : user?.email!, "customerId" : customerId, "placeDescription": labelDescription, "customerName" : customerName]
 
       let request = NSMutableURLRequest(URL: url)
 
@@ -509,10 +544,122 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
   @IBAction func tappedGo(sender: AnyObject) {
     print("PROCESSING...")
 
-    if self.spaceAvailable() {
-      processPayment()
+
+    let currentUser = PFUser.currentUser()
+
+    if (currentUser == nil) {
+      // Show the signup or login screen
+      //
+      let vc : OnboardViewController = self.storyboard!.instantiateViewControllerWithIdentifier("onboardController") as! OnboardViewController
+
+      let app : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
+      app.window!.rootViewController = vc
+
+    } else {
+
+      if (isPartner) {
+        print("IS A PARTNERR")
+        if self.spaceAvailable() {
+          processPayment()
+        } else {
+          print("no space bruh")
+        }
+      } else {
+
+        if let _ = place!["phoneNumber"] as? String {
+          showActionSheet()
+        } else {
+          showPlaceUnavailableAlert()
+        }
+
+      }
+
     }
   }
+
+  func showActionSheet() {
+
+    let actionSheet = UIActionSheet(title: "Pineapple is working hard to partner with \(self.placeName). For now, please call to confirm they still have spots!", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle:  nil, otherButtonTitles: "Call")
+
+
+    actionSheet.actionSheetStyle = .Default
+    actionSheet.showInView(self.view)
+  }
+
+  // MARK: UIActionSheetDelegate
+
+  func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+    switch buttonIndex {
+    case 0:
+      print("canceled call")
+
+      break
+    default:
+      print("hellow")
+
+      if let phoneNumber = place!["phoneNumber"] as? String {
+        if let url = NSURL(string: "tel://\(phoneNumber)") {
+          UIApplication.sharedApplication().openURL(url)
+        } else {
+          // our phone number is wrong fack.
+        }
+      }
+      print("tried to call")
+
+      let placeName = place!["name"] as! String
+      let userName = user["name"] as! String
+      let placeAvailable = place!["available"] as! Bool
+
+      var placeAvailableString = "no"
+      if placeAvailable == true {
+        placeAvailableString = "yes"
+      }
+
+      let placeInfo : [String: String] = ["placeName" : placeName, "userEmail" : user.email!, "nameOfUser" : userName, "placeAvailable" : placeAvailableString]
+
+      PFAnalytics.trackEvent("userCalled", dimensions: placeInfo)
+      self.mixPanel.track("userCalled", properties: placeInfo)
+    }
+  }
+
+
+  func showPlaceUnavailableAlert() {
+
+    //var placeSelected = PFObject(className:"Place")
+
+    //print("PLACESSS: \(self.places)")
+    //placeSelected = self.places[indexPath.row]
+    //let placeSelected = place
+
+    let placeName = place!["name"] as! String
+    let userName = user["name"] as! String
+    let placeAvailable = place!["available"] as! Bool
+
+    var placeAvailableString = "no"
+    if placeAvailable == true {
+      placeAvailableString = "yes"
+    }
+
+    let placeInfo : [String: String] = ["placeName" : placeName, "userEmail" : user.email!, "nameOfUser" : userName, "placeAvailable" : placeAvailableString]
+    
+
+    //let placeName = placeInfo["placeName"]
+    let title = "\(placeName) is unavailable"
+
+    SweetAlert().showAlert(title, subTitle: "Would you like to see \(placeName) in Pineapple?", style: AlertStyle.Warning, buttonTitle:"No", buttonColor: UIColor.flatRedColor(), otherButtonTitle:  "Yes!", otherButtonColor: UIColor.flatMintColor()) { (isOtherButton) -> Void in
+      if isOtherButton == true {
+        PFAnalytics.trackEvent("notWantPlace", dimensions: placeInfo)
+        self.mixPanel.track("notWantPlace", properties: placeInfo)
+      }
+      else {
+        PFAnalytics.trackEvent("wantsPlace", dimensions: placeInfo)
+        self.mixPanel.track("wantsPlace", properties: placeInfo)
+        SweetAlert().showAlert("Thanks!", subTitle: "If you have any other hotel recommendation, you can contact us by tapping 'Send feedback' in the profile screen.", style: AlertStyle.Success)
+      }
+    }
+  }
+
 
   func spaceAvailable() -> Bool {
     let numberOfCurrentGuests =  place!["currentGuestsNumber"] as! Int
@@ -528,6 +675,7 @@ class TweakViewController: PAViewController, STPCheckoutViewControllerDelegate, 
     }
     return true
   }
+
 
 
   func updateGuests(number : Int) {

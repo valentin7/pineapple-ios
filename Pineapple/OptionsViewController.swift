@@ -35,7 +35,7 @@ class OptionsViewController: UIViewController, UITableViewDataSource, UITableVie
       let tap = UITapGestureRecognizer(target: self, action: "tappedScreen")
       self.touchBufferView.addGestureRecognizer(tap)
       // Do any additional setup after loading the view.
-    }
+  }
 
   func tappedScreen() {
     self.dismissViewControllerAnimated(true, completion: nil)
@@ -47,7 +47,6 @@ class OptionsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    print("SELECTED MAN \(indexPath.row)")
     delegate?.didChooseOption(indexPath.row)
 
     self.dismissViewControllerAnimated(true, completion: nil)
